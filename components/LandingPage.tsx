@@ -1096,7 +1096,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </h1>
 
               <p className={`text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed font-light transition-all duration-1000 delay-200 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  A 20-minute mental scouting report for every athlete 13-18. Coaches get an instant profile of how each player learns, leads, and performs under pressure.
+                  A complete mental scouting report for every athlete 13-18, in under 15 minutes. Coaches get an instant profile of how each player learns, leads, and performs under pressure.
               </p>
 
               {/* Main Action Buttons */}
@@ -1226,7 +1226,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <div className="relative z-10 flex flex-col items-center text-center min-h-[220px] sm:min-h-[260px] justify-center">
                               <div className="h-28 sm:h-32 md:h-36 flex items-center justify-center mb-5 sm:mb-6 w-full">
                                   <img
-                                      src="/AllianceFastpitch.png"
+                                      src="/Alliance.png"
                                       alt="Alliance Fastpitch"
                                       className="max-h-full max-w-[90%] object-contain drop-shadow-[0_0_40px_rgba(239,68,68,0.4)]"
                                       onError={(e) => {
@@ -1423,7 +1423,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <p className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">Week 2</p>
                           <h3 className="text-lg font-bold text-white mb-2 leading-snug">Athletes complete assessments</h3>
                           <p className="text-sm text-gray-400 leading-relaxed">
-                              Each player takes the NTerpret Mental Scouting Report and Clutch Assessment from any phone or laptop. Roughly 20-30 minutes total - kids do it at home, on their own time.
+                              Each player takes the NTerpret Mental Scouting Report and Clutch Assessment from any phone or laptop. Done in under 15 minutes - kids do it at home, on their own time.
                           </p>
                       </div>
                       <div className="bg-[#0f1115] border border-white/10 rounded-2xl p-6 sm:p-7 relative overflow-hidden">
