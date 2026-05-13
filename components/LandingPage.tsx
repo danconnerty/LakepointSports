@@ -1061,7 +1061,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-16 sm:mb-20 text-center relative">
               <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-8 ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
                   <span className="inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
-                  <span className="text-[11px] font-medium text-gray-300 tracking-wide">Mental scouting for youth athletes 13-18</span>
+                  <span className="text-[11px] font-medium text-gray-300 tracking-wide">Clutch isn't a feeling. It's a score.</span>
               </div>
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight mb-6 leading-[1.02] text-white">
