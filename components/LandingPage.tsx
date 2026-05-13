@@ -1189,6 +1189,38 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </figure>
           </section>
 
+          {/* METHODOLOGY / TED TALK */}
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                  <div className="lg:col-span-5">
+                      <p className="text-sm font-medium text-blue-400 mb-3">The science</p>
+                      <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
+                          The TED Talk behind the method.
+                      </h2>
+                      <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                          NTangible's assessments are grounded in research on how athletes actually perform under pressure - the work that started with this TED Talk.
+                      </p>
+                      <p className="text-base text-gray-500 leading-relaxed">
+                          Watch the framework that powers every NTerpret Mental Scouting Report and Clutch Assessment.
+                      </p>
+                  </div>
+                  <div className="lg:col-span-7">
+                      <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-white/10 bg-black">
+                          <iframe
+                              width="100%"
+                              height="100%"
+                              src="https://www.youtube.com/embed/SmXZSYEnau0?rel=0&modestbranding=1"
+                              title="TED Talk - The Science of Mental Performance"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                              className="absolute inset-0 w-full h-full"
+                          ></iframe>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
           {/* TWO MOMENTS / USE CASES */}
           <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
               <div className="mb-12 sm:mb-16 max-w-2xl">
