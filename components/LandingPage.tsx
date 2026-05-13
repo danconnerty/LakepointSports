@@ -1153,14 +1153,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </a>
               </div>
 
-              {/* Recognition strip */}
-              <div className="mt-8 sm:mt-10 flex items-center justify-center gap-3 text-xs sm:text-sm text-gray-500">
-                  <Trophy size={14} className="text-blue-400" />
-                  <span>
-                      <span className="text-white font-semibold">2026 Rising Star</span>
-                      <span className="text-gray-600 mx-2">·</span>
-                      Youth Sports Business Report
-                  </span>
+              {/* Recognition lockup */}
+              <div className="mt-10 sm:mt-12 flex justify-center">
+                  <div className="inline-flex items-center gap-4 sm:gap-5 bg-[#070707] border border-white/10 rounded-2xl pl-3 sm:pl-4 pr-5 sm:pr-7 py-3 sm:py-4">
+                      <div className="h-12 sm:h-14 w-12 sm:w-14 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center shrink-0 overflow-hidden">
+                          <img
+                              src="/ysbr.png"
+                              alt="Youth Sports Business Report"
+                              className="h-10 sm:h-12 w-10 sm:w-12 object-contain"
+                          />
+                      </div>
+                      <div className="text-left">
+                          <p className="text-[10px] sm:text-xs font-medium text-blue-400 uppercase tracking-[0.2em] mb-0.5">2026 Rising Star Award Winner</p>
+                          <p className="text-sm sm:text-base text-white font-semibold leading-tight">Youth Sports Business Report</p>
+                      </div>
+                  </div>
               </div>
           </section>
 
