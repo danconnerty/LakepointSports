@@ -1167,17 +1167,16 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           {/* TESTIMONIAL - ALLIANCE FASTPITCH */}
           <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
               <figure className="border-l-2 border-blue-500 pl-6 sm:pl-8">
-                  <blockquote className="text-2xl sm:text-3xl md:text-4xl text-white font-medium leading-snug tracking-tight mb-5">
-                      {/* TODO: replace with verbatim quote from Alliance Fastpitch leadership */}
-                      "[Quote from Alliance Fastpitch leadership about NTangible and the mental performance data initiative goes here.]"
+                  <blockquote className="text-xl sm:text-2xl md:text-[28px] text-white font-medium leading-[1.35] tracking-tight mb-6">
+                      "We're giving athletes a clearer picture of who they are as competitors. Youth sports has spent years indexing physical tools while the mental side - how a player handles pressure, adversity, and big moments - has been left to opinion. This brings real structure and visibility to that part of development. <span className="text-blue-400">At Alliance, we build complete athletes, not just the measurable ones.</span>"
                   </blockquote>
                   <figcaption className="flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                      <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shrink-0">
                           <img src="/Alliance.png" alt="" className="h-7 w-7 object-contain" />
                       </div>
                       <div>
-                          <p className="text-white text-sm font-semibold">[Speaker Name]</p>
-                          <p className="text-gray-500 text-sm">[Title], Alliance Fastpitch</p>
+                          <p className="text-white text-sm font-semibold">Jami Lobpries</p>
+                          <p className="text-gray-500 text-sm">CEO, Alliance Fastpitch &nbsp;·&nbsp; GM, AUSL Cascade</p>
                       </div>
                   </figcaption>
               </figure>
