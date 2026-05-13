@@ -1084,9 +1084,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </div>
 
-              <h1 className={`text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-black italic tracking-tighter mb-8 leading-[0.9] transition-all duration-1000 delay-100 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h1 className={`text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-black italic tracking-tight mb-8 leading-[0.95] pr-3 sm:pr-6 transition-all duration-1000 delay-100 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   COACH THE <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-white to-blue-200 animate-gradient">WHOLE ATHLETE</span>
+                  <span className="inline-block pr-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-white to-blue-200 animate-gradient">WHOLE ATHLETE</span>
               </h1>
 
               <p className={`text-base sm:text-lg md:text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light transition-all duration-1000 delay-200 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
