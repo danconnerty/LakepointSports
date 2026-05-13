@@ -360,7 +360,7 @@ const PricingCalculator = () => {
                         One flat rate.<br className="sm:hidden"/> <span className="text-green-400">$29 per player.</span>
                     </h2>
                     <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                        $29 per player, fully assessed and onboarded. $10 of every player comes back to your organization. Many clubs cover the cost through a simple team fundraiser - sponsorships, raffle, or a parent dinner. Use the calculator to see what that looks like at your scale.
+                        $29 per player, fully assessed. $10 comes back to your organization. Most clubs cover the rest through a single team fundraiser.
                     </p>
                 </div>
 
@@ -1039,7 +1039,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   const [showReportModal, setShowReportModal] = useState(false);
   
   // Video Toggle State
-  const [activeVideo, setActiveVideo] = useState<'platform' | 'recruiting'>('platform');
 
   useEffect(() => {
     setIsLoaded(true);
@@ -1096,10 +1095,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   <span className="inline-block pr-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-white to-blue-200 animate-gradient">WHOLE ATHLETE</span>
               </h1>
 
-              <p className={`text-base sm:text-lg md:text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light transition-all duration-1000 delay-200 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  NTangible delivers two short online assessments - the <strong className="text-white">NTerpret Mental Scouting Report</strong> and the <strong className="text-white">Clutch Assessment</strong> - that surface every athlete's cognitive profile and performance under pressure.
-                  <br className="hidden md:block" />
-                  Coaches get instant, actionable player profiles inside the <strong className="text-white">NControl</strong> dashboard. Built for youth athletes 13-18.
+              <p className={`text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed font-light transition-all duration-1000 delay-200 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                  A 20-minute mental scouting report for every athlete 13-18. Coaches get an instant profile of how each player learns, leads, and performs under pressure.
               </p>
 
               {/* Main Action Buttons */}
@@ -1264,9 +1261,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </a>
                   </div>
 
-                  <p className="text-center text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-[0.25em] mt-8 sm:mt-10">
-                      And a growing roster of clubs, academies, and league partners
-                  </p>
               </Reveal>
           </section>
 
@@ -1396,145 +1390,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </Reveal>
           </section>
 
-          {/* COMPETITIVE ADVANTAGE / TESTIMONIAL SECTION */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
-              <Reveal>
-                  <div className="bg-[#0f0f0f] border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-                          <Swords size={200} />
-                      </div>
-                      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                          <div className="order-2 lg:order-1">
-                              <div className="inline-flex items-center gap-2 text-yellow-500 border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-                                  <Gavel size={14} />
-                                  <span>The Director's Perspective</span>
-                              </div>
-                              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic text-white mb-6 tracking-tighter uppercase leading-none">
-                                  Build kids who <br/>
-                                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-200">Stick with it.</span>
-                              </h2>
-                              <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                                  Leading youth programs - including <strong className="text-white">Alliance Future Stars Series</strong> and the <strong className="text-white">Governor's Challenge</strong> - use NTangible to give every coach a clear "user manual" for every player, so practices run smoother and families stay with the club.
-                              </p>
-                              
-                              <div className="space-y-4">
-                                  <div className="flex items-center gap-4 bg-black/40 p-4 rounded-xl border border-white/5">
-                                      <div className="w-10 h-10 bg-red-900/20 text-red-500 rounded-full flex items-center justify-center shrink-0">
-                                          <X size={20} />
-                                      </div>
-                                      <div>
-                                          <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">The Old Way</p>
-                                          <p className="text-white font-medium">"Coach the same way for every kid. Hope it sticks."</p>
-                                      </div>
-                                  </div>
-                                  <div className="flex items-center gap-4 bg-blue-900/10 p-4 rounded-xl border border-blue-500/30">
-                                      <div className="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-blue-900/50">
-                                          <Check size={20} />
-                                      </div>
-                                      <div>
-                                          <p className="text-xs font-bold text-blue-400 uppercase tracking-wider">The NControl Edge</p>
-                                          <p className="text-white font-bold">"Personalized coaching. Stronger players. Loyal families."</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <div className="order-1 lg:order-2 flex justify-center">
-                              <div className="relative w-full max-w-[320px] aspect-[9/16] rounded-2xl bg-black border border-white/10 overflow-hidden shadow-2xl group z-20">
-                                  <iframe 
-                                      width="100%" 
-                                      height="100%" 
-                                      src="https://www.youtube.com/embed/xVD3_NtfdHQ?rel=0&modestbranding=1&controls=1&playsinline=1&loop=1&playlist=xVD3_NtfdHQ" 
-                                      title="Director Testimonial"
-                                      style={{ border: 0 }}
-                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                      allowFullScreen
-                                      className="absolute inset-0 w-full h-full"
-                                  ></iframe>
-                                  
-                                  {/* Optional overlay for styling (border glow), ensuring pointer events don't block controls */}
-                                  <div className="absolute inset-0 rounded-2xl border border-white/10 pointer-events-none"></div>
-                              </div>
-                              {/* Background Glow */}
-                              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[600px] bg-gradient-to-tr from-blue-500/20 to-purple-500/20 blur-[60px] -z-10 rounded-full opacity-50"></div>
-                          </div>
-                      </div>
-                  </div>
-              </Reveal>
-          </section>
-
-          {/* AD INTELLIGENCE SUITE (USE CASES) */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
-              <Reveal>
-                  <div className="text-center mb-12">
-                      <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-white mb-4">The Youth Coach Toolkit</h2>
-                      <p className="text-gray-400">Two simple engines to help every player - and every coach - succeed.</p>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-                    {/* Roster Optimization Card */}
-                    <div className="bg-[#0f1115] border border-white/10 p-8 rounded-2xl relative overflow-hidden group hover:border-blue-500/50 transition-all duration-300">
-                        <div className="absolute top-0 right-0 p-8 opacity-5 transition-opacity group-hover:opacity-10">
-                            <Users size={120} />
-                        </div>
-                        <div className="relative z-10">
-                            <div className="w-12 h-12 bg-blue-900/20 rounded-xl flex items-center justify-center mb-6 text-blue-400 group-hover:text-blue-300 group-hover:scale-110 transition-all">
-                                <Layout size={24} />
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-4">Team Insights</h3>
-                            <p className="text-gray-400 leading-relaxed mb-6 min-h-[48px]">
-                                Give every coach a clear "user manual" for every player on the team - so practices click and kids grow faster.
-                            </p>
-                            <ul className="space-y-4">
-                                <li className="flex items-start gap-3 text-sm text-gray-300">
-                                    <CheckCircle size={16} className="text-blue-500 mt-0.5 shrink-0" />
-                                    <span>See who shows up <strong>under pressure</strong> on game day.</span>
-                                </li>
-                                <li className="flex items-start gap-3 text-sm text-gray-300">
-                                    <CheckCircle size={16} className="text-blue-500 mt-0.5 shrink-0" />
-                                    <span>Coach each kid through their <strong>learning style</strong>.</span>
-                                </li>
-                                <li className="flex items-start gap-3 text-sm text-gray-300">
-                                    <CheckCircle size={16} className="text-blue-500 mt-0.5 shrink-0" />
-                                    <span>Match <strong>communication style</strong> to reduce friction with parents.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* Tryouts & Retention Card */}
-                    <div className="bg-[#0f1115] border border-white/10 p-8 rounded-2xl relative overflow-hidden group hover:border-green-500/50 transition-all duration-300">
-                        <div className="absolute top-0 right-0 p-8 opacity-5 transition-opacity group-hover:opacity-10">
-                            <Users size={120} />
-                        </div>
-                        <div className="relative z-10">
-                            <div className="w-12 h-12 bg-green-900/20 rounded-xl flex items-center justify-center mb-6 text-green-400 group-hover:text-green-300 group-hover:scale-110 transition-all">
-                                <Target size={24} />
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-4">Tryouts & Retention</h3>
-                            <p className="text-gray-400 leading-relaxed mb-6 min-h-[48px]">
-                                Move beyond the 90-minute tryout. See which kids will grow, lead, and stay with your program for years.
-                            </p>
-                            <ul className="space-y-4">
-                                <li className="flex items-start gap-3 text-sm text-gray-300">
-                                    <CheckCircle size={16} className="text-green-500 mt-0.5 shrink-0" />
-                                    <span>Spot future leaders early - not just the best 13-year-old.</span>
-                                </li>
-                                <li className="flex items-start gap-3 text-sm text-gray-300">
-                                    <CheckCircle size={16} className="text-green-500 mt-0.5 shrink-0" />
-                                    <span>Build <strong>balanced teams</strong> kids actually want to come back to.</span>
-                                </li>
-                                <li className="flex items-start gap-3 text-sm text-gray-300">
-                                    <CheckCircle size={16} className="text-green-500 mt-0.5 shrink-0" />
-                                    <span>Flag burnout risk <strong>before</strong> a family leaves the club.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                  </div>
-              </Reveal>
-          </section>
-
           {/* HOW IT WORKS IN 30 DAYS */}
           <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
               <Reveal>
@@ -1655,128 +1510,28 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </Reveal>
           </section>
 
-          {/* SCIENTIFIC FOUNDATION */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
-              <Reveal>
-                  <div className="bg-[#0f0f0f] border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-                          <Brain size={200} />
-                      </div>
-                      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                          <div>
-                              <div className="inline-flex items-center gap-2 text-blue-500 border border-blue-500/30 bg-blue-500/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-                                  <Mic size={14} />
-                                  <span>The Methodology</span>
-                              </div>
-                              <h2 className="text-3xl md:text-4xl font-black italic text-white mb-6 tracking-tighter uppercase leading-none">
-                                  The science of <br/>
-                                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-white">the cognitive profile.</span>
-                              </h2>
-                              <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                                  Watch NTangible founder Dan Connerty break down what we measure and why it matters at the youth level. A deep dive into the cognitive abilities, resilience, and mental performance behind every young athlete - explained for coaches and parents.
-                              </p>
-                              
-                              <div className="space-y-4">
-                                  <div className="flex items-center gap-4 bg-black/40 p-4 rounded-xl border border-white/5">
-                                      <div className="w-10 h-10 bg-blue-900/20 text-blue-500 rounded-full flex items-center justify-center shrink-0">
-                                          <Brain size={20} />
-                                      </div>
-                                      <div>
-                                          <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">The Concept</p>
-                                          <p className="text-white font-medium">"Measuring the Invisible: How Kids Develop Mental Toughness"</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <div className="relative group cursor-pointer">
-                              <div className="aspect-video rounded-2xl bg-black border border-white/10 overflow-hidden shadow-2xl relative">
-                                  <iframe 
-                                      width="100%" 
-                                      height="100%" 
-                                      src="https://www.youtube.com/embed/SmXZSYEnau0" 
-                                      title="Dr. Sean Richardson TED Talk" 
-                                      frameBorder="0" 
-                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                      allowFullScreen
-                                      className="absolute inset-0"
-                                  ></iframe>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </Reveal>
-          </section>
-
-          {/* VIDEO DEMO SECTION */}
+          {/* PRODUCT TOUR VIDEO */}
           <section ref={videoSectionRef} className="max-w-5xl mx-auto px-4 sm:px-6 mb-24">
               <Reveal>
-                <div className="text-center mb-8">
+                <div className="text-center mb-6 sm:mb-8">
                     <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-900/10">
                         <Play size={10} className="text-blue-400 fill-current" />
-                        <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Product Tour</span>
+                        <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">2-Minute Tour</span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-white">See It In Action</h2>
+                    <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter text-white">See what your coaches will see.</h2>
                 </div>
 
-                {/* Video Tabs */}
-                <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                    <button 
-                        onClick={() => setActiveVideo('platform')}
-                        className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${
-                            activeVideo === 'platform' 
-                            ? 'bg-white text-black shadow-lg shadow-white/20' 
-                            : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
-                        }`}
-                    >
-                        Coach Dashboard
-                    </button>
-                    <button 
-                        onClick={() => setActiveVideo('recruiting')}
-                        className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${
-                            activeVideo === 'recruiting' 
-                            ? 'bg-white text-black shadow-lg shadow-white/20' 
-                            : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
-                        }`}
-                    >
-                        Tryouts & Teams
-                    </button>
-                </div>
-                
-                {/* Video Container */}
-                <div className="relative aspect-video w-full rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] group bg-black">
-                    {activeVideo === 'platform' ? (
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            src="https://www.youtube.com/embed/spKsM_5c0iM?autoplay=0&controls=1&rel=0&modestbranding=1" 
-                            title="NControl Product Demo" 
-                            frameBorder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowFullScreen
-                            className="absolute inset-0 w-full h-full animate-in fade-in duration-500"
-                        ></iframe>
-                    ) : (
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            src="https://www.youtube.com/embed/NMKUJfjI_HQ?autoplay=0&controls=1&rel=0&modestbranding=1" 
-                            title="Recruiting Dashboard Demo" 
-                            frameBorder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowFullScreen
-                            className="absolute inset-0 w-full h-full animate-in fade-in duration-500"
-                        ></iframe>
-                    )}
-                </div>
-                
-                <div className="text-center mt-8">
-                    <p className="text-gray-500 text-sm max-w-2xl mx-auto min-h-[40px]">
-                        {activeVideo === 'platform'
-                            ? "A 2-minute walkthrough of the coach dashboard - how to read each player's profile, spot what they need this week, and run a more personalized practice."
-                            : "Tryouts are a tiny window. See how NControl helps you build balanced teams, place kids where they'll thrive, and keep families with your club season after season."
-                        }
-                    </p>
+                <div className="relative aspect-video w-full rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-black">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/spKsM_5c0iM?autoplay=0&controls=1&rel=0&modestbranding=1"
+                        title="NControl Product Tour"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                    ></iframe>
                 </div>
               </Reveal>
           </section>
