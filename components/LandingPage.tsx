@@ -1227,69 +1227,96 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </div>
           </section>
 
-          {/* TWO MOMENTS / USE CASES */}
+          {/* USE CASES: THREE MOMENTS */}
           <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
               <div className="mb-12 sm:mb-16 max-w-2xl">
                   <p className="text-sm font-medium text-blue-400 mb-3">Built for your calendar</p>
                   <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
-                      Two moments that decide your season.
+                      Three moments that decide your season - and your athletes' future.
                   </h2>
                   <p className="text-lg text-gray-400 leading-relaxed">
-                      NTangible runs at the two decisions that define your year - tryouts and annual benchmarks.
+                      Tryouts, annual benchmarks, and college recruiting. One assessment. One source of truth across all three.
                   </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                  <div className="bg-[#070707] p-8 sm:p-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                  <div className="bg-[#070707] p-7 sm:p-8">
                       <div className="flex items-center justify-between mb-6">
                           <p className="text-sm font-medium text-gray-500">Tryout season</p>
                           <Target size={18} className="text-blue-400" />
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3 leading-tight">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3 leading-tight">
                           Know exactly who you're recruiting.
                       </h3>
                       <p className="text-gray-400 text-base leading-relaxed mb-6">
                           A 90-minute tryout shows athletic skill. NTangible shows the mental side - so you build the right rosters, not just the most talented ones.
                       </p>
-                      <ul className="space-y-3 border-t border-white/5 pt-6">
-                          <li className="text-base text-gray-300 leading-relaxed">
-                              <span className="text-white font-medium">Defensible cuts</span> when parents push back the next morning.
+                      <ul className="space-y-2.5 border-t border-white/5 pt-5">
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
+                              <span className="text-white font-medium">Defensible cuts</span> when parents push back.
                           </li>
-                          <li className="text-base text-gray-300 leading-relaxed">
-                              Place every player on the team that <span className="text-white font-medium">fits how they grow</span> - not just A/B/C by skill.
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
+                              Place every player on the team that <span className="text-white font-medium">fits how they grow</span>.
                           </li>
-                          <li className="text-base text-gray-300 leading-relaxed">
-                              Spot the <span className="text-white font-medium">late bloomers and future captains</span> an open tryout misses.
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
+                              Spot the <span className="text-white font-medium">late bloomers and future captains</span>.
                           </li>
-                          <li className="text-base text-gray-300 leading-relaxed">
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
                               Onboard new players with a <span className="text-white font-medium">full profile on day one</span>.
                           </li>
                       </ul>
                   </div>
 
-                  <div className="bg-[#070707] p-8 sm:p-10">
+                  <div className="bg-[#070707] p-7 sm:p-8">
                       <div className="flex items-center justify-between mb-6">
                           <p className="text-sm font-medium text-gray-500">Year-over-year benchmark</p>
                           <BarChart3 size={18} className="text-blue-400" />
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3 leading-tight">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3 leading-tight">
                           Prove the development is real.
                       </h3>
                       <p className="text-gray-400 text-base leading-relaxed mb-6">
-                          Run NTangible every season. Each athlete gets a baseline, then a side-by-side year-over-year view. Growth stops being a feeling and starts being a number.
+                          Run NTangible every season. Each athlete gets a baseline, then a side-by-side year-over-year view. Growth stops being a feeling.
                       </p>
-                      <ul className="space-y-3 border-t border-white/5 pt-6">
-                          <li className="text-base text-gray-300 leading-relaxed">
+                      <ul className="space-y-2.5 border-t border-white/5 pt-5">
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
                               Show every family <span className="text-white font-medium">concrete growth</span> they can point to.
                           </li>
-                          <li className="text-base text-gray-300 leading-relaxed">
-                              See which <span className="text-white font-medium">coaches and programs move the needle</span> year over year.
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
+                              See which <span className="text-white font-medium">coaches actually move the needle</span>.
                           </li>
-                          <li className="text-base text-gray-300 leading-relaxed">
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
                               Identify kids <span className="text-white font-medium">ready to play up</span> before parents ask.
                           </li>
-                          <li className="text-base text-gray-300 leading-relaxed">
-                              Report <span className="text-white font-medium">club-wide outcomes</span> to boards and renewal-season communications.
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
+                              Report <span className="text-white font-medium">club-wide outcomes</span> to boards and renewal season.
+                          </li>
+                      </ul>
+                  </div>
+
+                  <div className="bg-[#070707] p-7 sm:p-8">
+                      <div className="flex items-center justify-between mb-6">
+                          <p className="text-sm font-medium text-gray-500">College recruiting</p>
+                          <GraduationCap size={18} className="text-blue-400" />
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3 leading-tight">
+                          The report college coaches now expect.
+                      </h3>
+                      <p className="text-gray-400 text-base leading-relaxed mb-6">
+                          In softball, baseball, and beyond, a mental performance profile is becoming a prerequisite. Send the NTerpret report alongside the highlight tape.
+                      </p>
+                      <ul className="space-y-2.5 border-t border-white/5 pt-5">
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
+                              Hand college coaches <span className="text-white font-medium">data they can't get from film</span>.
+                          </li>
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
+                              Stand out in a <span className="text-white font-medium">saturated showcase pipeline</span>.
+                          </li>
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
+                              Get ahead of programs that <span className="text-white font-medium">will require this within two years</span>.
+                          </li>
+                          <li className="text-[15px] text-gray-300 leading-relaxed">
+                              Give your athletes a <span className="text-white font-medium">credential their teammates don't have</span>.
                           </li>
                       </ul>
                   </div>
