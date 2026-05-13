@@ -1252,21 +1252,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           />
                       </div>
                       <div className="p-6 sm:p-8 border-t border-white/5">
-                          <p className="text-[11px] font-semibold text-blue-400 uppercase tracking-[0.2em] mb-2">NTerpret</p>
+                          <p className="text-[11px] font-semibold text-blue-400 uppercase tracking-[0.2em] mb-2">NTerpret<sup className="text-[8px] tracking-normal ml-0.5">™</sup></p>
                           <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Mental Scouting Report</h3>
-                          <p className="text-base text-gray-400 leading-relaxed mb-5">
+                          <p className="text-base text-gray-400 leading-relaxed mb-6">
                               The complete cognitive profile - how each athlete learns, leads, communicates, and competes. The report college coaches now expect alongside the highlight tape.
                           </p>
                           <button
-                              onClick={() => setShowReportModal(true)}
-                              className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1.5"
+                              onClick={() => setShowNterpretReport(true)}
+                              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors"
                           >
-                              See a sample report <ArrowRight size={14} />
+                              <FileText size={14} /> View sample NTerpret report
                           </button>
                       </div>
                   </div>
 
-                  {/* Clutch Assessment */}
+                  {/* Clutch Factor Assessment */}
                   <div className="bg-[#070707] border border-white/10 rounded-2xl overflow-hidden flex flex-col">
                       <div className="relative px-6 sm:px-8 pt-10 sm:pt-14 pb-8 sm:pb-10 flex items-end justify-center overflow-hidden bg-gradient-to-b from-blue-500/[0.08] via-transparent to-transparent min-h-[420px] sm:min-h-[520px]">
                           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
@@ -1278,16 +1278,16 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           />
                       </div>
                       <div className="p-6 sm:p-8 border-t border-white/5">
-                          <p className="text-[11px] font-semibold text-blue-400 uppercase tracking-[0.2em] mb-2">Clutch</p>
-                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Performance Under Pressure</h3>
-                          <p className="text-base text-gray-400 leading-relaxed mb-5">
-                              A standardized Clutch Factor score that quantifies how an athlete responds when the game is on the line. Benchmarked and tracked year over year.
+                          <p className="text-[11px] font-semibold text-blue-400 uppercase tracking-[0.2em] mb-2">Clutch Factor<sup className="text-[8px] tracking-normal ml-0.5">™</sup></p>
+                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Clutch Factor Assessment</h3>
+                          <p className="text-base text-gray-400 leading-relaxed mb-6">
+                              A standardized Clutch Factor<sup className="text-[8px] ml-0.5">™</sup> score that quantifies how an athlete responds when the game is on the line. Benchmarked and tracked year over year.
                           </p>
                           <button
-                              onClick={() => setShowReportModal(true)}
-                              className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1.5"
+                              onClick={() => setShowClutchReport(true)}
+                              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors"
                           >
-                              See a sample report <ArrowRight size={14} />
+                              <FileText size={14} /> View sample Clutch report
                           </button>
                       </div>
                   </div>
