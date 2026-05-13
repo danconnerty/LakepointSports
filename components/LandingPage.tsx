@@ -1092,7 +1092,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               <HeroCalculator />
 
               {/* Secondary Actions */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mt-10 sm:mt-12">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-8 mt-10 sm:mt-12">
+                  <button
+                    onClick={() => setShowTestDrive(true)}
+                    className="text-gray-500 hover:text-gray-300 text-sm font-medium transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-white/40"
+                  >
+                      Try a sample assessment
+                  </button>
                   <button
                     onClick={() => setShowReportModal(true)}
                     className="text-gray-500 hover:text-gray-300 text-sm font-medium transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-white/40"
@@ -1445,7 +1451,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   <div className="col-span-2 sm:col-span-1">
                       <Logo className="text-white opacity-90 mb-4" size="small" />
                       <p className="text-sm text-gray-500 leading-relaxed">
-                          Mental scouting for youth athletes 13-18.
+                          The Operating System for Mental Performance.
                       </p>
                   </div>
                   <div>
