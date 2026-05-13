@@ -1165,7 +1165,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                      {/* Alliance Future Stars Series */}
+                      {/* Future Stars Series */}
                       <a
                           href="https://www.futurestarsseries.com/"
                           target="_blank"
@@ -1177,13 +1177,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               <Trophy size={180} />
                           </div>
 
-                          <div className="relative z-10 flex flex-col items-center text-center min-h-[200px] sm:min-h-[240px] justify-center">
-                              {/* Logo */}
-                              <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center mb-5 sm:mb-6 w-full">
+                          <div className="relative z-10 flex flex-col items-center text-center min-h-[220px] sm:min-h-[260px] justify-center">
+                              <div className="h-28 sm:h-32 md:h-36 flex items-center justify-center mb-5 sm:mb-6 w-full">
                                   <img
                                       src="/FSS.png"
-                                      alt="Alliance Future Stars Series"
-                                      className="max-h-full max-w-[85%] object-contain drop-shadow-[0_0_40px_rgba(234,179,8,0.35)]"
+                                      alt="Future Stars Series"
+                                      className="max-h-full max-w-[90%] object-contain drop-shadow-[0_0_40px_rgba(234,179,8,0.35)]"
                                       onError={(e) => {
                                           const img = e.currentTarget;
                                           const fallback = img.nextElementSibling as HTMLElement | null;
@@ -1192,7 +1191,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                       }}
                                   />
                                   <div className="hidden flex-col items-center justify-center w-full" style={{ display: 'none' }}>
-                                      <div className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.4em] text-yellow-300/80 mb-2">Alliance</div>
                                       <div className="text-2xl sm:text-3xl md:text-4xl font-black italic text-white tracking-tighter uppercase leading-none">
                                           Future Stars
                                       </div>
@@ -1204,7 +1202,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
 
                               <p className="text-[10px] sm:text-xs font-bold text-yellow-400/80 uppercase tracking-[0.25em] mb-3">Premier Youth Baseball Showcase</p>
                               <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xs">
-                                  Every athlete invited to the Alliance Future Stars Series receives a full NTerpret Mental Scouting Report.
+                                  Every athlete invited to the Future Stars Series receives a full NTerpret Mental Scouting Report.
                               </p>
 
                               <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-yellow-400/80 group-hover:text-yellow-300 uppercase tracking-widest transition-colors">
@@ -1213,24 +1211,24 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </div>
                       </a>
 
-                      {/* Governor's Challenge */}
+                      {/* Alliance Fastpitch */}
                       <a
-                          href="https://www.governorschallenge.org/"
+                          href="https://www.alliancefastpitch.com/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group relative bg-gradient-to-br from-blue-500/10 via-[#0f0f0f] to-black border border-blue-500/30 hover:border-blue-400/70 rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(59,130,246,0.18)] overflow-hidden"
+                          className="group relative bg-gradient-to-br from-red-500/10 via-[#0f0f0f] to-black border border-red-500/30 hover:border-red-400/70 rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(239,68,68,0.18)] overflow-hidden"
                       >
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
                           <div className="absolute -top-10 -left-10 opacity-[0.04] pointer-events-none group-hover:opacity-[0.08] transition-opacity">
-                              <Gavel size={180} />
+                              <Trophy size={180} />
                           </div>
 
-                          <div className="relative z-10 flex flex-col items-center text-center min-h-[200px] sm:min-h-[240px] justify-center">
-                              <div className="h-20 sm:h-24 flex items-center justify-center mb-5 sm:mb-6 w-full">
+                          <div className="relative z-10 flex flex-col items-center text-center min-h-[220px] sm:min-h-[260px] justify-center">
+                              <div className="h-28 sm:h-32 md:h-36 flex items-center justify-center mb-5 sm:mb-6 w-full">
                                   <img
-                                      src="/TeamLogos/GovernorsChallenge.png"
-                                      alt="Governor's Challenge"
-                                      className="max-h-full max-w-[80%] object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.4)]"
+                                      src="/AllianceFastpitch.png"
+                                      alt="Alliance Fastpitch"
+                                      className="max-h-full max-w-[90%] object-contain drop-shadow-[0_0_40px_rgba(239,68,68,0.4)]"
                                       onError={(e) => {
                                           const img = e.currentTarget;
                                           const fallback = img.nextElementSibling as HTMLElement | null;
@@ -1239,22 +1237,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                       }}
                                   />
                                   <div className="hidden flex-col items-center justify-center w-full" style={{ display: 'none' }}>
-                                      <div className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.4em] text-blue-300/80 mb-2">The</div>
                                       <div className="text-2xl sm:text-3xl md:text-4xl font-black italic text-white tracking-tighter uppercase leading-none">
-                                          Governor's
+                                          Alliance
                                       </div>
-                                      <div className="text-xl sm:text-2xl md:text-3xl font-black italic text-blue-400 tracking-tighter uppercase leading-none mt-1">
-                                          Challenge
+                                      <div className="text-xl sm:text-2xl md:text-3xl font-black italic text-red-400 tracking-tighter uppercase leading-none mt-1">
+                                          Fastpitch
                                       </div>
                                   </div>
                               </div>
 
-                              <p className="text-[10px] sm:text-xs font-bold text-blue-400/80 uppercase tracking-[0.25em] mb-3">National Youth Basketball Event</p>
+                              <p className="text-[10px] sm:text-xs font-bold text-red-400/80 uppercase tracking-[0.25em] mb-3">Premier Youth Softball Organization</p>
                               <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xs">
-                                  Hundreds of athletes at the Governor's Challenge use NTangible to scout their mental game.
+                                  Alliance Fastpitch athletes use NTangible to benchmark mental performance season over season.
                               </p>
 
-                              <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-blue-400/80 group-hover:text-blue-300 uppercase tracking-widest transition-colors">
+                              <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-red-400/80 group-hover:text-red-300 uppercase tracking-widest transition-colors">
                                   Visit Site <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                               </div>
                           </div>
