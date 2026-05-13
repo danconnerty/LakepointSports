@@ -1150,12 +1150,125 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           </section>
 
           {/* SOCIAL PROOF / TRUSTED TEAMS TICKER */}
-          <div className="w-full mb-12">
+          <div className="w-full mb-16 sm:mb-20">
               <TrustedTeams />
-              <p className="text-center text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-[0.25em] mt-6 px-4">
-                  Trusted by <span className="text-white">Alliance Future Stars Series</span> &nbsp;·&nbsp; <span className="text-white">Governor's Challenge</span> &nbsp;·&nbsp; and growing
-              </p>
           </div>
+
+          {/* FEATURED PARTNERS */}
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+              <Reveal>
+                  <div className="text-center mb-8 sm:mb-10">
+                      <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10">
+                          <Trophy size={12} className="text-yellow-400" />
+                          <span className="text-[10px] font-bold text-yellow-400 uppercase tracking-[0.25em]">Featured Partners</span>
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-white">
+                          Powering elite youth events.
+                      </h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                      {/* Alliance Future Stars Series */}
+                      <a
+                          href="https://www.futurestarsseries.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative bg-gradient-to-br from-yellow-500/10 via-[#0f0f0f] to-black border border-yellow-500/30 hover:border-yellow-400/70 rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(234,179,8,0.18)] overflow-hidden"
+                      >
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(234,179,8,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute -top-10 -right-10 opacity-[0.04] pointer-events-none group-hover:opacity-[0.08] transition-opacity">
+                              <Trophy size={180} />
+                          </div>
+
+                          <div className="relative z-10 flex flex-col items-center text-center min-h-[200px] sm:min-h-[240px] justify-center">
+                              {/* Logo with text fallback */}
+                              <div className="h-20 sm:h-24 flex items-center justify-center mb-5 sm:mb-6 w-full">
+                                  <img
+                                      src="/TeamLogos/AllianceFutureStarsSeries.png"
+                                      alt="Alliance Future Stars Series"
+                                      className="max-h-full max-w-[80%] object-contain drop-shadow-[0_0_30px_rgba(234,179,8,0.35)]"
+                                      onError={(e) => {
+                                          const img = e.currentTarget;
+                                          const fallback = img.nextElementSibling as HTMLElement | null;
+                                          img.style.display = 'none';
+                                          if (fallback) fallback.style.display = 'flex';
+                                      }}
+                                  />
+                                  <div className="hidden flex-col items-center justify-center w-full" style={{ display: 'none' }}>
+                                      <div className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.4em] text-yellow-300/80 mb-2">Alliance</div>
+                                      <div className="text-2xl sm:text-3xl md:text-4xl font-black italic text-white tracking-tighter uppercase leading-none">
+                                          Future Stars
+                                      </div>
+                                      <div className="text-xl sm:text-2xl md:text-3xl font-black italic text-yellow-400 tracking-tighter uppercase leading-none mt-1">
+                                          Series
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <p className="text-[10px] sm:text-xs font-bold text-yellow-400/80 uppercase tracking-[0.25em] mb-3">Premier Youth Baseball Showcase</p>
+                              <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xs">
+                                  Every athlete invited to the Alliance Future Stars Series receives a full NTerpret Mental Scouting Report.
+                              </p>
+
+                              <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-yellow-400/80 group-hover:text-yellow-300 uppercase tracking-widest transition-colors">
+                                  Visit Site <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                              </div>
+                          </div>
+                      </a>
+
+                      {/* Governor's Challenge */}
+                      <a
+                          href="https://www.governorschallenge.org/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative bg-gradient-to-br from-blue-500/10 via-[#0f0f0f] to-black border border-blue-500/30 hover:border-blue-400/70 rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(59,130,246,0.18)] overflow-hidden"
+                      >
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute -top-10 -left-10 opacity-[0.04] pointer-events-none group-hover:opacity-[0.08] transition-opacity">
+                              <Gavel size={180} />
+                          </div>
+
+                          <div className="relative z-10 flex flex-col items-center text-center min-h-[200px] sm:min-h-[240px] justify-center">
+                              <div className="h-20 sm:h-24 flex items-center justify-center mb-5 sm:mb-6 w-full">
+                                  <img
+                                      src="/TeamLogos/GovernorsChallenge.png"
+                                      alt="Governor's Challenge"
+                                      className="max-h-full max-w-[80%] object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.4)]"
+                                      onError={(e) => {
+                                          const img = e.currentTarget;
+                                          const fallback = img.nextElementSibling as HTMLElement | null;
+                                          img.style.display = 'none';
+                                          if (fallback) fallback.style.display = 'flex';
+                                      }}
+                                  />
+                                  <div className="hidden flex-col items-center justify-center w-full" style={{ display: 'none' }}>
+                                      <div className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.4em] text-blue-300/80 mb-2">The</div>
+                                      <div className="text-2xl sm:text-3xl md:text-4xl font-black italic text-white tracking-tighter uppercase leading-none">
+                                          Governor's
+                                      </div>
+                                      <div className="text-xl sm:text-2xl md:text-3xl font-black italic text-blue-400 tracking-tighter uppercase leading-none mt-1">
+                                          Challenge
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <p className="text-[10px] sm:text-xs font-bold text-blue-400/80 uppercase tracking-[0.25em] mb-3">National Youth Basketball Event</p>
+                              <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xs">
+                                  Hundreds of athletes at the Governor's Challenge use NTangible to scout their mental game.
+                              </p>
+
+                              <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-blue-400/80 group-hover:text-blue-300 uppercase tracking-widest transition-colors">
+                                  Visit Site <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+
+                  <p className="text-center text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-[0.25em] mt-8 sm:mt-10">
+                      And a growing roster of clubs, academies, and league partners
+                  </p>
+              </Reveal>
+          </section>
 
           {/* PAIN SCENES */}
           <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
