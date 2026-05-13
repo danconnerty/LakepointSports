@@ -120,7 +120,7 @@ const SampleReportModal = ({ onClose, onViewClutch, onViewNterpret }: { onClose:
                         <ArrowRight size={18} className="text-gray-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
                     </div>
                     <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors pl-[52px]">
-                        See a sample player report — how a kid handles pressure on game day.
+                        See a sample player report - how a kid handles pressure on game day.
                     </p>
                 </button>
 
@@ -138,7 +138,7 @@ const SampleReportModal = ({ onClose, onViewClutch, onViewNterpret }: { onClose:
                         <ArrowRight size={18} className="text-gray-600 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
                     </div>
                     <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors pl-[52px]">
-                        Explore a sample player profile — learning style, motivation, and how to coach them.
+                        Explore a sample player profile - learning style, motivation, and how to coach them.
                     </p>
                 </button>
             </div>
@@ -174,7 +174,7 @@ const NILSimulation = () => {
                             <div className="text-xl sm:text-2xl font-bold text-white">28</div>
                         </div>
                     </div>
-                    <p className="text-gray-400 italic text-sm sm:text-lg leading-relaxed text-center sm:text-left">"The talent jumps off the field. But will he lift the team — or sink it?"</p>
+                    <p className="text-gray-400 italic text-sm sm:text-lg leading-relaxed text-center sm:text-left">"The talent jumps off the field. But will he lift the team - or sink it?"</p>
                 </div>
             )
         },
@@ -249,13 +249,13 @@ const NILSimulation = () => {
                     </div>
                     <div>
                         <h4 className="text-4xl sm:text-5xl font-black text-red-500 tracking-tighter mb-4 uppercase">PLACE ELSEWHERE</h4>
-                        <p className="text-base sm:text-xl text-gray-300">Right kid. Wrong team — for now.</p>
+                        <p className="text-base sm:text-xl text-gray-300">Right kid. Wrong team - for now.</p>
                     </div>
                     <div className="bg-green-900/10 border border-green-500/30 p-4 sm:p-6 rounded-xl">
                         <div className="text-[10px] sm:text-xs text-green-400 uppercase tracking-widest mb-2 font-bold">The Win</div>
                         <div className="text-2xl sm:text-4xl font-bold text-white mb-2">Team Chemistry Saved</div>
                         <p className="text-xs sm:text-sm text-green-400/80">
-                            Placed Marcus on a development squad with the right coach for his style. Six months later — coachability up 40%. Now he's ready.
+                            Placed Marcus on a development squad with the right coach for his style. Six months later - coachability up 40%. Now he's ready.
                         </p>
                     </div>
                 </div>
@@ -278,7 +278,7 @@ const NILSimulation = () => {
                             The roster <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300">Decision.</span>
                         </h2>
                         <p className="text-sm sm:text-base md:text-lg text-gray-400 font-light leading-relaxed animate-in slide-in-from-bottom-8 fade-in duration-700 delay-200">
-                           Every tryout has one. The talented kid you're not sure about. See how NControl helps you decide — fast, fair, and with the whole team in mind.
+                           Every tryout has one. The talented kid you're not sure about. See how NControl helps you decide - fast, fair, and with the whole team in mind.
                         </p>
                     </div>
 
@@ -343,9 +343,8 @@ const PricingCalculator = () => {
     const revSharePerPlayer = 10;
 
     const clamped = Math.max(0, Math.min(1000, players));
-    const totalBilled = clamped * pricePerPlayer;
     const orgRevShare = clamped * revSharePerPlayer;
-    const ntangibleNet = totalBilled - orgRevShare;
+    const netCost = clamped * (pricePerPlayer - revSharePerPlayer);
 
     const fmt = (n: number) => `$${n.toLocaleString('en-US')}`;
 
@@ -391,7 +390,7 @@ const PricingCalculator = () => {
                             <span className="text-gray-500 text-sm">/ player</span>
                         </div>
                         <p className="text-sm text-gray-300 leading-relaxed">
-                            Your organization keeps $10 of every $29 — a built-in revenue stream that grows with your program.
+                            Your organization keeps $10 of every $29 - a built-in revenue stream that grows with your program.
                         </p>
                     </div>
                 </div>
@@ -441,21 +440,16 @@ const PricingCalculator = () => {
                         </div>
 
                         {/* Result cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                             <div className="bg-black/60 border border-white/10 rounded-2xl p-5 sm:p-6">
-                                <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Total Program Revenue</p>
-                                <p className="text-3xl sm:text-4xl font-black text-white tracking-tight">{fmt(totalBilled)}</p>
-                                <p className="text-[11px] text-gray-500 mt-2">{clamped} × $29</p>
+                                <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Net Cost To Program</p>
+                                <p className="text-3xl sm:text-4xl font-black text-white tracking-tight">{fmt(netCost)}</p>
+                                <p className="text-[11px] text-gray-500 mt-2">{clamped} × $19 (after rev share)</p>
                             </div>
                             <div className="bg-gradient-to-br from-green-900/30 to-black border border-green-500/40 rounded-2xl p-5 sm:p-6 shadow-[0_0_30px_rgba(34,197,94,0.12)] sm:transform sm:scale-[1.03]">
-                                <p className="text-[10px] font-bold text-green-400 uppercase tracking-widest mb-2">Your Organization Keeps</p>
+                                <p className="text-[10px] font-bold text-green-400 uppercase tracking-widest mb-2">Your Organization Gets Back</p>
                                 <p className="text-3xl sm:text-4xl font-black text-green-400 tracking-tight">{fmt(orgRevShare)}</p>
                                 <p className="text-[11px] text-green-200/60 mt-2">{clamped} × $10 rev share</p>
-                            </div>
-                            <div className="bg-black/60 border border-white/10 rounded-2xl p-5 sm:p-6">
-                                <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">NControl Net</p>
-                                <p className="text-3xl sm:text-4xl font-black text-gray-300 tracking-tight">{fmt(ntangibleNet)}</p>
-                                <p className="text-[11px] text-gray-500 mt-2">Covers platform & support</p>
                             </div>
                         </div>
 
@@ -557,7 +551,7 @@ const PresentationMode = ({ onClose, onBook }: { onClose: () => void, onBook: ()
                                     <div className="flex items-center justify-between opacity-50">
                                         <div className="flex items-center gap-3">
                                             <div className="p-2 bg-red-900/30 rounded text-red-500"><Brain size={16} /></div>
-                                            <span className="text-white font-bold text-sm sm:text-base">Confidence</span>
+                                            <span className="text-white font-bold text-sm sm:text-base">Mental Strength</span>
                                         </div>
                                         <span className="text-red-500 font-mono text-[10px] md:text-xs bg-red-900/20 px-2 py-1 rounded">UNKNOWN</span>
                                     </div>
@@ -660,9 +654,9 @@ const PresentationMode = ({ onClose, onBook }: { onClose: () => void, onBook: ()
                         </h2>
 
                         <p className="text-sm md:text-lg text-gray-400 font-light leading-relaxed animate-in slide-in-from-bottom-8 fade-in duration-700 delay-200">
-                            When a player leaves your club because they "weren't having fun," you don't just lose dues — you lose siblings, referrals, and years of revenue. Each family walking away is nearly <span className="text-white font-bold">$10k</span> gone.
+                            When a player leaves your club because they "weren't having fun," you don't just lose dues - you lose siblings, referrals, and years of revenue. Each family walking away is nearly <span className="text-white font-bold">$10k</span> gone.
                             <br/><br/>
-                            NControl flags kids losing confidence <em>before</em> they tell their parents they want to quit. Keep families. Build a community.
+                            NControl flags shifts in a player's cognitive profile <em>before</em> they tell their parents they want to quit. Keep families. Build a community.
                         </p>
                     </div>
                 </div>
@@ -725,7 +719,7 @@ const PresentationMode = ({ onClose, onBook }: { onClose: () => void, onBook: ()
                             <h3 className="text-lg md:text-xl font-bold text-gray-300 mb-2 uppercase tracking-wide">Team Admin Apps</h3>
                             <p className="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-4">TeamSnap • SportsEngine</p>
                             <p className="text-sm text-gray-400 leading-relaxed mb-6 flex-grow">
-                                Great for schedules, payments, and group chats. But silent on the things that actually grow a player — confidence, focus, and how they handle a tough game.
+                                Great for schedules, payments, and group chats. But silent on the things that actually grow a player - cognitive abilities, focus, and how they handle a tough game.
                             </p>
                             <div className="p-3 bg-yellow-900/10 border border-yellow-900/30 rounded text-yellow-500 text-xs font-bold uppercase tracking-wide flex items-center gap-2 mt-auto">
                                 <AlertTriangle size={14} /> Logistics Only
@@ -743,7 +737,7 @@ const PresentationMode = ({ onClose, onBook }: { onClose: () => void, onBook: ()
                             <h3 className="text-lg md:text-xl font-bold text-white mb-2 uppercase tracking-wide">NControl</h3>
                             <p className="text-[10px] text-blue-300 font-mono uppercase tracking-widest mb-4">For Youth • Coach-Friendly • Actionable</p>
                             <p className="text-sm text-gray-300 leading-relaxed mb-6 flex-grow">
-                                Built specifically for ages 8–18. A short, fun assessment gives every coach a clear plan for each player — and flags kids losing confidence early.
+                                Built specifically for ages 8-18. A short, fun assessment gives every coach a complete cognitive profile for each player - and flags mental-strength shifts early.
                             </p>
                             <div className="p-3 bg-blue-900/30 border border-blue-500/50 rounded text-blue-200 text-xs font-bold uppercase tracking-wide flex items-center gap-2 mt-auto">
                                 <Check size={14} /> The Whole Athlete
@@ -769,9 +763,9 @@ const PresentationMode = ({ onClose, onBook }: { onClose: () => void, onBook: ()
                             <span className="text-purple-500">before they quit.</span>
                         </h2>
                         <p className="text-sm md:text-lg text-gray-300 leading-relaxed animate-in slide-in-from-bottom-8 fade-in duration-700 delay-200">
-                            You can't be everywhere — and the kids losing confidence aren't the ones telling you.
+                            You can't be everywhere - and the kids whose mental strength is slipping aren't the ones telling you.
                             <br/><br/>
-                            NControl is your <strong>early-warning system</strong>. We flag players who are pulling back, losing motivation, or struggling with pressure — so you can have the right conversation, before their parents call to pull them out.
+                            NControl is your <strong>early-warning system</strong>. We flag players who are pulling back, losing motivation, or struggling with pressure - so you can have the right conversation, before their parents call to pull them out.
                         </p>
                     </div>
                     
@@ -786,7 +780,7 @@ const PresentationMode = ({ onClose, onBook }: { onClose: () => void, onBook: ()
                             <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
                             <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,1)]"></div>
                             <div className="absolute bottom-10 bg-black/80 border border-red-500/50 px-3 py-1 rounded text-red-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest backdrop-blur-md">
-                                Alert: Confidence Drop Detected
+                                Alert: Cognitive Profile Shift
                             </div>
                         </div>
                     </div>
@@ -878,7 +872,7 @@ const PresentationMode = ({ onClose, onBook }: { onClose: () => void, onBook: ()
                                 <span className="text-xs font-bold text-blue-400 uppercase tracking-widest border border-blue-500/30 px-3 py-1 rounded-full">Club / Org</span>
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-2">Club Partnership</h3>
-                            <p className="text-gray-400 text-sm mb-6 h-10">For clubs and youth organizations — earn revenue on every player tested.</p>
+                            <p className="text-gray-400 text-sm mb-6 h-10">For clubs and youth organizations - earn revenue on every player tested.</p>
                             <ul className="space-y-3 mb-6 flex-grow border-t border-white/10 pt-6">
                                 <li className="flex items-center gap-3 text-sm text-white"><Check size={16} className="text-blue-400" /> <span className="font-bold">$29</span> per player tested</li>
                                 <li className="flex items-center gap-3 text-sm text-white"><Check size={16} className="text-blue-400" /> <span className="font-bold">$10 back</span> to your organization</li>
@@ -928,7 +922,7 @@ const PresentationMode = ({ onClose, onBook }: { onClose: () => void, onBook: ()
                         </h2>
                     </div>
                     <p className="text-base md:text-xl text-gray-300 mb-12 max-w-2xl font-light mx-auto animate-in slide-in-from-bottom-8 fade-in duration-700 delay-100">
-                        Talent gets them on the team. Confidence keeps them in the sport. <br/>
+                        Talent gets them on the team. Mental strength keeps them in the sport. <br/>
                         <span className="text-white font-bold">Let's build that for every kid you coach.</span>
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center animate-in slide-in-from-bottom-8 fade-in duration-700 delay-200">
@@ -1096,7 +1090,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </h1>
 
               <p className={`text-base sm:text-lg md:text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light transition-all duration-1000 delay-200 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  Build confident, coachable kids — and a stronger club. <br className="hidden md:block" />
+                  Build mentally strong, coachable players - and a stronger club. <br className="hidden md:block" />
                   NControl gives youth coaches and club directors a simple dashboard to understand how every player learns, communicates, and performs under pressure.
               </p>
 
@@ -1172,7 +1166,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-200">Stick with it.</span>
                               </h2>
                               <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                                  Leading youth programs use NControl to give every coach a clear "user manual" for every player — so practices run smoother, parents stay informed, and kids stick with the sport.
+                                  Leading youth programs use NControl to give every coach a clear "user manual" for every player - so practices run smoother, parents stay informed, and kids stick with the sport.
                               </p>
                               
                               <div className="space-y-4">
@@ -1191,7 +1185,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                       </div>
                                       <div>
                                           <p className="text-xs font-bold text-blue-400 uppercase tracking-wider">The NControl Edge</p>
-                                          <p className="text-white font-bold">"Personalized coaching. Confident kids. Loyal families."</p>
+                                          <p className="text-white font-bold">"Personalized coaching. Stronger players. Loyal families."</p>
                                       </div>
                                   </div>
                               </div>
@@ -1226,7 +1220,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               <Reveal>
                   <div className="text-center mb-12">
                       <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-white mb-4">The Youth Coach Toolkit</h2>
-                      <p className="text-gray-400">Two simple engines to help every player — and every coach — succeed.</p>
+                      <p className="text-gray-400">Two simple engines to help every player - and every coach - succeed.</p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
@@ -1241,7 +1235,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-4">Team Insights</h3>
                             <p className="text-gray-400 leading-relaxed mb-6 min-h-[48px]">
-                                Give every coach a clear "user manual" for every player on the team — so practices click and kids grow faster.
+                                Give every coach a clear "user manual" for every player on the team - so practices click and kids grow faster.
                             </p>
                             <ul className="space-y-4">
                                 <li className="flex items-start gap-3 text-sm text-gray-300">
@@ -1276,7 +1270,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                             <ul className="space-y-4">
                                 <li className="flex items-start gap-3 text-sm text-gray-300">
                                     <CheckCircle size={16} className="text-green-500 mt-0.5 shrink-0" />
-                                    <span>Spot future leaders early — not just the best 12-year-old.</span>
+                                    <span>Spot future leaders early - not just the best 12-year-old.</span>
                                 </li>
                                 <li className="flex items-start gap-3 text-sm text-gray-300">
                                     <CheckCircle size={16} className="text-green-500 mt-0.5 shrink-0" />
@@ -1307,11 +1301,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                   <span>The Methodology</span>
                               </div>
                               <h2 className="text-3xl md:text-4xl font-black italic text-white mb-6 tracking-tighter uppercase leading-none">
-                                  The science behind <br/>
-                                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-white">confident kids.</span>
+                                  The science of <br/>
+                                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-white">the cognitive profile.</span>
                               </h2>
                               <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                                  Watch NControl founder Dan Connerty break down what we measure and why it matters at the youth level. A deep dive into the psychology of confidence, resilience, and mental performance — explained for coaches and parents.
+                                  Watch NControl founder Dan Connerty break down what we measure and why it matters at the youth level. A deep dive into the cognitive abilities, resilience, and mental performance behind every young athlete - explained for coaches and parents.
                               </p>
                               
                               <div className="space-y-4">
@@ -1411,7 +1405,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                 <div className="text-center mt-8">
                     <p className="text-gray-500 text-sm max-w-2xl mx-auto min-h-[40px]">
                         {activeVideo === 'platform'
-                            ? "A 2-minute walkthrough of the coach dashboard — how to read each player's profile, spot what they need this week, and run a more personalized practice."
+                            ? "A 2-minute walkthrough of the coach dashboard - how to read each player's profile, spot what they need this week, and run a more personalized practice."
                             : "Tryouts are a tiny window. See how NControl helps you build balanced teams, place kids where they'll thrive, and keep families with your club season after season."
                         }
                     </p>
@@ -1428,7 +1422,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                 <div className="p-12 rounded-3xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 backdrop-blur-md">
                     <h2 className="text-3xl sm:text-4xl font-black italic text-white mb-6 tracking-tight">READY TO COACH <span className="text-blue-500">SMARTER?</span></h2>
                     <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-2xl mx-auto font-light">
-                        Join youth clubs, academies, and coaches using NControl to develop confident kids, support coaches, and grow their programs.
+                        Join youth clubs, academies, and coaches using NControl to develop mental strength, support coaches, and grow their programs.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <button
