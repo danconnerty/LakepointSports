@@ -1227,6 +1227,73 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </div>
           </section>
 
+          {/* THE TWO ASSESSMENTS - REPORT MOCKUPS */}
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+              <div className="mb-12 sm:mb-16 max-w-2xl">
+                  <p className="text-sm font-medium text-blue-400 mb-3">The assessments</p>
+                  <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                      Two reports. One complete profile.
+                  </h2>
+                  <p className="text-lg text-gray-400 leading-relaxed">
+                      Every athlete completes both assessments in under 15 minutes. Coaches get the reports instantly inside NControl - and athletes can share them with college coaches in one tap.
+                  </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                  {/* NTerpret Mental Scouting Report */}
+                  <div className="bg-[#070707] border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+                      <div className="relative px-6 sm:px-8 pt-10 sm:pt-14 pb-8 sm:pb-10 flex items-end justify-center overflow-hidden bg-gradient-to-b from-blue-500/[0.08] via-transparent to-transparent min-h-[420px] sm:min-h-[520px]">
+                          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
+                          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] bg-blue-500/15 blur-[100px] rounded-full pointer-events-none" />
+                          <img
+                              src="/NterpretMobile.png"
+                              alt="NTerpret Mental Scouting Report on mobile"
+                              className="relative z-10 max-h-[420px] sm:max-h-[520px] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)]"
+                          />
+                      </div>
+                      <div className="p-6 sm:p-8 border-t border-white/5">
+                          <p className="text-[11px] font-semibold text-blue-400 uppercase tracking-[0.2em] mb-2">NTerpret</p>
+                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Mental Scouting Report</h3>
+                          <p className="text-base text-gray-400 leading-relaxed mb-5">
+                              The complete cognitive profile - how each athlete learns, leads, communicates, and competes. The report college coaches now expect alongside the highlight tape.
+                          </p>
+                          <button
+                              onClick={() => setShowReportModal(true)}
+                              className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1.5"
+                          >
+                              See a sample report <ArrowRight size={14} />
+                          </button>
+                      </div>
+                  </div>
+
+                  {/* Clutch Assessment */}
+                  <div className="bg-[#070707] border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+                      <div className="relative px-6 sm:px-8 pt-10 sm:pt-14 pb-8 sm:pb-10 flex items-end justify-center overflow-hidden bg-gradient-to-b from-blue-500/[0.08] via-transparent to-transparent min-h-[420px] sm:min-h-[520px]">
+                          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
+                          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] bg-blue-500/15 blur-[100px] rounded-full pointer-events-none" />
+                          <img
+                              src="/ClutchMobile.png"
+                              alt="Clutch Assessment on mobile"
+                              className="relative z-10 max-h-[420px] sm:max-h-[520px] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)]"
+                          />
+                      </div>
+                      <div className="p-6 sm:p-8 border-t border-white/5">
+                          <p className="text-[11px] font-semibold text-blue-400 uppercase tracking-[0.2em] mb-2">Clutch</p>
+                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Performance Under Pressure</h3>
+                          <p className="text-base text-gray-400 leading-relaxed mb-5">
+                              A standardized Clutch Factor score that quantifies how an athlete responds when the game is on the line. Benchmarked and tracked year over year.
+                          </p>
+                          <button
+                              onClick={() => setShowReportModal(true)}
+                              className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1.5"
+                          >
+                              See a sample report <ArrowRight size={14} />
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
           {/* USE CASES: THREE MOMENTS */}
           <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
               <div className="mb-12 sm:mb-16 max-w-2xl">
