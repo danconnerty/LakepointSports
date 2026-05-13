@@ -429,45 +429,6 @@ const PricingCalculator = () => {
     );
 };
 
-// --- HERO MINI CALCULATOR ---
-const HeroCalculator = () => {
-    const [players, setPlayers] = useState(150);
-    const clamped = Math.max(0, Math.min(1000, players));
-    const revShare = clamped * 10;
-    const fmt = (n: number) => `$${n.toLocaleString('en-US')}`;
-
-    return (
-        <div className="max-w-xl mx-auto bg-white/[0.02] border border-white/10 rounded-2xl p-5 sm:p-6 text-left">
-            <div className="flex items-baseline justify-between mb-4">
-                <div>
-                    <p className="text-[11px] font-medium text-gray-500 tracking-wide uppercase mb-1">Revenue back to your org</p>
-                    <p className="text-3xl sm:text-4xl font-semibold text-white tracking-tight tabular-nums">{fmt(revShare)}<span className="text-gray-500 text-base font-normal"> / season</span></p>
-                </div>
-                <div className="text-right">
-                    <p className="text-[11px] font-medium text-gray-500 tracking-wide uppercase mb-1">Players</p>
-                    <p className="text-3xl sm:text-4xl font-semibold text-blue-400 tracking-tight tabular-nums">{clamped}</p>
-                </div>
-            </div>
-            <input
-                type="range"
-                min={0}
-                max={1000}
-                step={5}
-                value={clamped}
-                onChange={(e) => setPlayers(parseInt(e.target.value, 10))}
-                className="w-full h-1.5 bg-gray-800 rounded-full appearance-none cursor-pointer accent-blue-500"
-                style={{
-                    background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(clamped/1000)*100}%, #1f2937 ${(clamped/1000)*100}%, #1f2937 100%)`
-                }}
-                aria-label="Number of players"
-            />
-            <p className="text-[11px] text-gray-500 mt-3 leading-relaxed">
-                $29 per player tested. <span className="text-gray-300">$10 comes back to you.</span> Many clubs cover the rest with a single team fundraiser.
-            </p>
-        </div>
-    );
-};
-
 // --- PRESENTATION MODE COMPONENT ---
 const PresentationMode = ({ onClose, onBook }: { onClose: () => void, onBook: () => void }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -1088,11 +1049,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                  </button>
               </div>
 
-              {/* HERO MINI CALCULATOR */}
-              <HeroCalculator />
-
               {/* Secondary Actions */}
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-8 mt-10 sm:mt-12">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-8">
                   <button
                     onClick={() => setShowTestDrive(true)}
                     className="text-gray-500 hover:text-gray-300 text-sm font-medium transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-white/40"
