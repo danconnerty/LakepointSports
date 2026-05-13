@@ -1178,12 +1178,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </div>
 
                           <div className="relative z-10 flex flex-col items-center text-center min-h-[200px] sm:min-h-[240px] justify-center">
-                              {/* Logo with text fallback */}
-                              <div className="h-20 sm:h-24 flex items-center justify-center mb-5 sm:mb-6 w-full">
+                              {/* Logo */}
+                              <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center mb-5 sm:mb-6 w-full">
                                   <img
-                                      src="/TeamLogos/AllianceFutureStarsSeries.png"
+                                      src="/FSS.png"
                                       alt="Alliance Future Stars Series"
-                                      className="max-h-full max-w-[80%] object-contain drop-shadow-[0_0_30px_rgba(234,179,8,0.35)]"
+                                      className="max-h-full max-w-[85%] object-contain drop-shadow-[0_0_40px_rgba(234,179,8,0.35)]"
                                       onError={(e) => {
                                           const img = e.currentTarget;
                                           const fallback = img.nextElementSibling as HTMLElement | null;
