@@ -1264,127 +1264,127 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </Reveal>
           </section>
 
-          {/* PAIN SCENES */}
+          {/* TWO MOMENTS / USE CASES */}
           <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
               <Reveal>
                   <div className="text-center mb-10 sm:mb-12">
-                      <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-900/10">
-                          <AlertTriangle size={12} className="text-red-400" />
-                          <span className="text-[10px] font-bold text-red-400 uppercase tracking-widest">Sound Familiar?</span>
+                      <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-900/10">
+                          <Calendar size={12} className="text-blue-400" />
+                          <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Built For Your Calendar</span>
                       </div>
-                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-white mb-4">
-                          The moments <span className="text-red-400">no coach forgets.</span>
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-white mb-4 leading-[0.95]">
+                          Two moments. <span className="text-blue-400">One source of truth.</span>
                       </h2>
                       <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                          These are the moments NTangible was built for - the ones your dashboard can't see and your spreadsheet can't fix.
+                          NTangible is built around the two decisions that define your season - tryouts and annual benchmarks.
                       </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-                      <div className="bg-[#0f1115] border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-blue-500/40 transition-all">
-                          <div className="w-10 h-10 bg-red-900/20 rounded-lg flex items-center justify-center text-red-400 mb-4">
-                              <FileText size={20} />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                      {/* Tryout Season */}
+                      <div className="relative bg-gradient-to-br from-yellow-500/10 via-[#0f0f0f] to-black border border-yellow-500/30 rounded-3xl p-6 sm:p-8 md:p-10 overflow-hidden hover:border-yellow-400/60 transition-all duration-500">
+                          <div className="absolute -top-10 -right-10 opacity-[0.05] pointer-events-none">
+                              <Trophy size={200} />
                           </div>
-                          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">8:14 AM Monday</p>
-                          <h3 className="text-lg font-bold text-white mb-2 leading-snug">"Why didn't my daughter make the A team?"</h3>
-                          <p className="text-sm text-gray-400 leading-relaxed">
-                              You ran a 90-minute tryout. The parent expects a 30-minute answer. Without data, you sound like you guessed.
-                          </p>
+                          <div className="relative z-10">
+                              <div className="flex items-center gap-3 mb-5">
+                                  <div className="w-11 h-11 bg-yellow-500/15 rounded-xl flex items-center justify-center text-yellow-400 shrink-0">
+                                      <Target size={20} />
+                                  </div>
+                                  <div>
+                                      <p className="text-[10px] font-bold text-yellow-400 uppercase tracking-[0.25em]">Use Case 01</p>
+                                      <p className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">Tryout Season</p>
+                                  </div>
+                              </div>
+
+                              <h3 className="text-2xl sm:text-3xl font-black italic uppercase text-white tracking-tighter mb-3 leading-[1]">
+                                  Know exactly who <br/>you're recruiting.
+                              </h3>
+                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
+                                  A 90-minute tryout shows you athletic skill. NTangible shows you the mental side - so you build the right rosters, not just the most talented ones.
+                              </p>
+
+                              <ul className="space-y-3">
+                                  <li className="flex items-start gap-3">
+                                      <CheckCircle size={16} className="text-yellow-400 mt-0.5 shrink-0" />
+                                      <span className="text-sm text-gray-300 leading-relaxed">Make <strong className="text-white">defensible cuts</strong> when parents push back the next morning.</span>
+                                  </li>
+                                  <li className="flex items-start gap-3">
+                                      <CheckCircle size={16} className="text-yellow-400 mt-0.5 shrink-0" />
+                                      <span className="text-sm text-gray-300 leading-relaxed">Place every player on the team that <strong className="text-white">fits how they grow</strong> - not just A/B/C by skill.</span>
+                                  </li>
+                                  <li className="flex items-start gap-3">
+                                      <CheckCircle size={16} className="text-yellow-400 mt-0.5 shrink-0" />
+                                      <span className="text-sm text-gray-300 leading-relaxed">Spot the <strong className="text-white">late bloomers and future captains</strong> the open tryout misses.</span>
+                                  </li>
+                                  <li className="flex items-start gap-3">
+                                      <CheckCircle size={16} className="text-yellow-400 mt-0.5 shrink-0" />
+                                      <span className="text-sm text-gray-300 leading-relaxed">Onboard new players with a <strong className="text-white">full profile on day one</strong> instead of waiting six weeks to figure them out.</span>
+                                  </li>
+                              </ul>
+                          </div>
                       </div>
-                      <div className="bg-[#0f1115] border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-blue-500/40 transition-all">
-                          <div className="w-10 h-10 bg-red-900/20 rounded-lg flex items-center justify-center text-red-400 mb-4">
-                              <Users size={20} />
+
+                      {/* Annual Benchmark */}
+                      <div className="relative bg-gradient-to-br from-blue-500/10 via-[#0f0f0f] to-black border border-blue-500/30 rounded-3xl p-6 sm:p-8 md:p-10 overflow-hidden hover:border-blue-400/60 transition-all duration-500">
+                          <div className="absolute -top-10 -right-10 opacity-[0.05] pointer-events-none">
+                              <BarChart3 size={200} />
                           </div>
-                          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Mid-Season Text</p>
-                          <h3 className="text-lg font-bold text-white mb-2 leading-snug">"I don't think coaching is for me."</h3>
-                          <p className="text-sm text-gray-400 leading-relaxed">
-                              A volunteer coach quits because they can't reach two kids on the roster. You're three games from a forfeit.
-                          </p>
-                      </div>
-                      <div className="bg-[#0f1115] border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-blue-500/40 transition-all">
-                          <div className="w-10 h-10 bg-red-900/20 rounded-lg flex items-center justify-center text-red-400 mb-4">
-                              <TrendingDown size={20} />
+                          <div className="relative z-10">
+                              <div className="flex items-center gap-3 mb-5">
+                                  <div className="w-11 h-11 bg-blue-500/15 rounded-xl flex items-center justify-center text-blue-400 shrink-0">
+                                      <RefreshCw size={20} />
+                                  </div>
+                                  <div>
+                                      <p className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.25em]">Use Case 02</p>
+                                      <p className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">Year-Over-Year Benchmark</p>
+                                  </div>
+                              </div>
+
+                              <h3 className="text-2xl sm:text-3xl font-black italic uppercase text-white tracking-tighter mb-3 leading-[1]">
+                                  Prove the development <br/>is real.
+                              </h3>
+                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
+                                  Run NTangible every season. Each athlete gets a benchmark, then a side-by-side year-over-year view. Growth stops being a feeling and starts being a number.
+                              </p>
+
+                              <ul className="space-y-3">
+                                  <li className="flex items-start gap-3">
+                                      <CheckCircle size={16} className="text-blue-400 mt-0.5 shrink-0" />
+                                      <span className="text-sm text-gray-300 leading-relaxed">Show every family <strong className="text-white">concrete growth</strong> they can point to - not just stats.</span>
+                                  </li>
+                                  <li className="flex items-start gap-3">
+                                      <CheckCircle size={16} className="text-blue-400 mt-0.5 shrink-0" />
+                                      <span className="text-sm text-gray-300 leading-relaxed">See which <strong className="text-white">coaches and programs actually move the needle</strong> year over year.</span>
+                                  </li>
+                                  <li className="flex items-start gap-3">
+                                      <CheckCircle size={16} className="text-blue-400 mt-0.5 shrink-0" />
+                                      <span className="text-sm text-gray-300 leading-relaxed">Identify kids <strong className="text-white">ready to play up</strong> before they (or their parents) ask.</span>
+                                  </li>
+                                  <li className="flex items-start gap-3">
+                                      <CheckCircle size={16} className="text-blue-400 mt-0.5 shrink-0" />
+                                      <span className="text-sm text-gray-300 leading-relaxed">Report <strong className="text-white">club-wide outcomes</strong> to boards, parents, and renewal-season communications.</span>
+                                  </li>
+                              </ul>
                           </div>
-                          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Board Meeting Slide</p>
-                          <h3 className="text-lg font-bold text-white mb-2 leading-snug">"Why is our U15 retention down 22%?"</h3>
-                          <p className="text-sm text-gray-400 leading-relaxed">
-                              The kids who quit didn't fill out an exit survey. They just stopped showing up. The board wants a plan, not a guess.
-                          </p>
                       </div>
                   </div>
               </Reveal>
           </section>
 
-          {/* PARENT-FACING DIFFERENTIATION */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
+          {/* THE LINE AT THE TRYOUT TABLE */}
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-24">
               <Reveal>
-                  <div className="bg-gradient-to-br from-blue-900/20 via-[#0a0f1c] to-black border border-blue-500/30 rounded-3xl p-6 sm:p-10 md:p-14 relative overflow-hidden">
-                      <div className="absolute -right-10 -top-10 opacity-5 pointer-events-none">
-                          <Trophy size={260} />
-                      </div>
-                      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-                          <div className="lg:col-span-3">
-                              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full border border-blue-500/40 bg-blue-500/10">
-                                  <Zap size={12} className="text-blue-300" />
-                                  <span className="text-[10px] font-bold text-blue-300 uppercase tracking-widest">The Parent Conversation</span>
-                              </div>
-                              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-white mb-4 leading-[0.95]">
-                                  Be the club <br className="hidden sm:block"/><span className="text-blue-400">parents brag about.</span>
-                              </h2>
-                              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                                  Every parent in your area is comparing clubs. Schedules, fees, win-loss records - it all blurs together.
-                              </p>
-                              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                                  What separates you is what you can <em>tell that parent at the tryout table</em>:
-                              </p>
-                              <div className="bg-black/50 border border-blue-500/30 rounded-2xl p-5 sm:p-6 mb-6">
-                                  <p className="text-white text-base sm:text-lg leading-relaxed italic">
-                                      "Every player on our roster gets a personalized cognitive profile so our coaches know exactly how to develop them. No other club in your area does this."
-                                  </p>
-                              </div>
-                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                  That's the line that gets shared in the carpool group chat. That's why families don't leave.
-                              </p>
-                          </div>
-
-                          <div className="lg:col-span-2 space-y-3">
-                              <div className="bg-black/60 border border-white/10 rounded-xl p-4 flex items-start gap-3">
-                                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 shrink-0">
-                                      <Check size={16} />
-                                  </div>
-                                  <div>
-                                      <p className="text-white text-sm font-bold mb-1">Concrete proof of player development</p>
-                                      <p className="text-gray-500 text-xs leading-relaxed">Parents get clear language for how their kid is growing - not just stats.</p>
-                                  </div>
-                              </div>
-                              <div className="bg-black/60 border border-white/10 rounded-xl p-4 flex items-start gap-3">
-                                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 shrink-0">
-                                      <Check size={16} />
-                                  </div>
-                                  <div>
-                                      <p className="text-white text-sm font-bold mb-1">A reason to choose you over the rival club</p>
-                                      <p className="text-gray-500 text-xs leading-relaxed">A tangible differentiator at tryouts, open houses, and registration.</p>
-                                  </div>
-                              </div>
-                              <div className="bg-black/60 border border-white/10 rounded-xl p-4 flex items-start gap-3">
-                                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 shrink-0">
-                                      <Check size={16} />
-                                  </div>
-                                  <div>
-                                      <p className="text-white text-sm font-bold mb-1">Defensible tryout decisions</p>
-                                      <p className="text-gray-500 text-xs leading-relaxed">When parents ask "why this team?", you have an answer backed by data.</p>
-                                  </div>
-                              </div>
-                              <div className="bg-black/60 border border-white/10 rounded-xl p-4 flex items-start gap-3">
-                                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 shrink-0">
-                                      <Check size={16} />
-                                  </div>
-                                  <div>
-                                      <p className="text-white text-sm font-bold mb-1">Word-of-mouth that does the marketing for you</p>
-                                      <p className="text-gray-500 text-xs leading-relaxed">The kind of differentiation parents tell other parents about.</p>
-                                  </div>
-                              </div>
-                          </div>
+                  <div className="bg-gradient-to-br from-blue-900/20 via-[#0a0f1c] to-black border border-blue-500/30 rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12),transparent_70%)] pointer-events-none" />
+                      <div className="relative z-10">
+                          <p className="text-[10px] sm:text-xs font-bold text-blue-300 uppercase tracking-[0.3em] mb-4">The line at the tryout table</p>
+                          <p className="text-xl sm:text-2xl md:text-3xl text-white font-light leading-snug italic mb-4">
+                              "Every player on our roster gets a personalized cognitive profile so our coaches know exactly how to develop them. <span className="font-bold not-italic text-blue-400">No other club in your area does this.</span>"
+                          </p>
+                          <p className="text-gray-400 text-sm sm:text-base">
+                              That's the differentiator parents share in the carpool group chat.
+                          </p>
                       </div>
                   </div>
               </Reveal>
