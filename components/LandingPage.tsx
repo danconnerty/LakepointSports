@@ -349,143 +349,122 @@ const PricingCalculator = () => {
     const fmt = (n: number) => `$${n.toLocaleString('en-US')}`;
 
     return (
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 scroll-mt-20" id="pricing">
-            <Reveal>
-                <div className="text-center mb-10 sm:mb-14">
-                    <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-green-500/30 bg-green-900/10">
-                        <DollarSign size={12} className="text-green-400" />
-                        <span className="text-[10px] font-bold text-green-400 uppercase tracking-widest">Simple Pricing</span>
-                    </div>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-white mb-4">
-                        One flat rate.<br className="sm:hidden"/> <span className="text-green-400">$29 per player.</span>
-                    </h2>
-                    <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                        $29 per player, fully assessed. $10 comes back to your organization. Most clubs cover the rest through a single team fundraiser.
-                    </p>
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32 scroll-mt-20" id="pricing">
+            <div className="mb-12 sm:mb-16 max-w-2xl">
+                <p className="text-sm font-medium text-blue-400 mb-3">Pricing</p>
+                <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                    $29 per player. $10 back to your organization.
+                </h2>
+                <p className="text-lg text-gray-400 leading-relaxed">
+                    One flat rate. No seat licenses. Most clubs cover the rest with a single team fundraiser or roll it into their existing player-development fee.
+                </p>
+            </div>
+
+            {/* Calculator */}
+            <div className="bg-[#070707] border border-white/10 rounded-2xl p-6 sm:p-10">
+                <div className="mb-6 sm:mb-8">
+                    <p className="text-sm text-gray-500 font-medium mb-1">Revenue calculator</p>
+                    <p className="text-base text-gray-400">Drag the slider to see what your program looks like at scale.</p>
                 </div>
 
-                {/* Price cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-10 sm:mb-14">
-                    <div className="bg-[#0f1115] border border-white/10 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-                        <div className="absolute -right-6 -top-6 opacity-5 pointer-events-none">
-                            <Activity size={120} />
-                        </div>
-                        <p className="text-[10px] sm:text-xs font-bold text-blue-400 uppercase tracking-widest mb-3">Per Player</p>
-                        <div className="flex items-baseline gap-2 mb-3">
-                            <span className="text-5xl sm:text-6xl font-black text-white tracking-tight">$29</span>
-                            <span className="text-gray-500 text-sm">/ test</span>
-                        </div>
-                        <p className="text-sm text-gray-400 leading-relaxed">
-                            Full player profile, coach playbook, and ongoing dashboard access. Pay only for the kids you actually test.
-                        </p>
+                <div className="mb-8">
+                    <div className="flex items-end justify-between mb-3 gap-4">
+                        <label className="text-sm font-medium text-gray-400">Players tested</label>
+                        <input
+                            type="number"
+                            min={0}
+                            max={1000}
+                            value={clamped}
+                            onChange={(e) => setPlayers(parseInt(e.target.value || '0', 10))}
+                            className="w-24 sm:w-28 bg-black border border-white/10 rounded-lg px-3 py-2 text-right text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums focus:outline-none focus:border-blue-500"
+                        />
                     </div>
-
-                    <div className="bg-gradient-to-b from-green-900/20 to-black border border-green-500/40 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-[0_0_40px_rgba(34,197,94,0.1)]">
-                        <div className="absolute -right-6 -top-6 opacity-10 pointer-events-none text-green-500">
-                            <DollarSign size={120} />
-                        </div>
-                        <p className="text-[10px] sm:text-xs font-bold text-green-400 uppercase tracking-widest mb-3">Back To You</p>
-                        <div className="flex items-baseline gap-2 mb-3">
-                            <span className="text-5xl sm:text-6xl font-black text-white tracking-tight">$10</span>
-                            <span className="text-gray-500 text-sm">/ player</span>
-                        </div>
-                        <p className="text-sm text-gray-300 leading-relaxed">
-                            Your organization keeps $10 of every $29 - effectively covering a large chunk of the program through a single team fundraiser.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Fundraise callout */}
-                <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-5 sm:p-6 mb-10 sm:mb-14 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                    <div className="w-10 h-10 bg-green-500/15 rounded-lg flex items-center justify-center text-green-400 shrink-0">
-                        <Wallet size={20} />
-                    </div>
-                    <div className="flex-1">
-                        <p className="text-[10px] sm:text-xs font-bold text-green-400 uppercase tracking-widest mb-1">Cover the cost with one fundraiser</p>
-                        <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                            A typical team raffle, sponsor night, or parent-and-coach dinner more than covers the $29 per player. Many partner organizations roll NTangible directly into their existing player-development fee - no new line item required.
-                        </p>
+                    <input
+                        type="range"
+                        min={0}
+                        max={1000}
+                        step={1}
+                        value={clamped}
+                        onChange={(e) => setPlayers(parseInt(e.target.value, 10))}
+                        className="w-full h-1.5 bg-gray-800 rounded-full appearance-none cursor-pointer accent-blue-500"
+                        style={{
+                            background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(clamped/1000)*100}%, #1f2937 ${(clamped/1000)*100}%, #1f2937 100%)`
+                        }}
+                    />
+                    <div className="flex justify-between mt-3 text-xs text-gray-600 tabular-nums">
+                        <span>1</span><span>250</span><span>500</span><span>750</span><span>1,000</span>
                     </div>
                 </div>
 
-                {/* Calculator */}
-                <div className="bg-[#0a0a0a] border border-white/10 rounded-3xl p-5 sm:p-10 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-10 opacity-5 pointer-events-none hidden sm:block">
-                        <BarChart3 size={180} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+                    <div className="bg-[#070707] p-5 sm:p-6">
+                        <p className="text-sm font-medium text-gray-500 mb-2">Net cost to program</p>
+                        <p className="text-3xl sm:text-4xl font-semibold text-white tracking-tight tabular-nums">{fmt(netCost)}</p>
+                        <p className="text-sm text-gray-500 mt-2">{clamped} × $19 (after $10 rev share)</p>
                     </div>
-
-                    <div className="relative z-10">
-                        <div className="text-center mb-6 sm:mb-8">
-                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Revenue Calculator</h3>
-                            <p className="text-gray-500 text-sm">Drag the slider to see what your club could earn.</p>
-                        </div>
-
-                        {/* Player count */}
-                        <div className="mb-8">
-                            <div className="flex items-end justify-between mb-3">
-                                <label className="text-[11px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest">Players Tested</label>
-                                <div className="flex items-center gap-2">
-                                    <input
-                                        type="number"
-                                        min={0}
-                                        max={1000}
-                                        value={clamped}
-                                        onChange={(e) => setPlayers(parseInt(e.target.value || '0', 10))}
-                                        className="w-24 sm:w-28 bg-black border border-white/10 rounded-lg px-3 py-2 text-right text-2xl sm:text-3xl font-black text-white tracking-tight focus:outline-none focus:border-blue-500"
-                                    />
-                                </div>
-                            </div>
-                            <input
-                                type="range"
-                                min={0}
-                                max={1000}
-                                step={1}
-                                value={clamped}
-                                onChange={(e) => setPlayers(parseInt(e.target.value, 10))}
-                                className="w-full h-2 bg-gray-800 rounded-full appearance-none cursor-pointer accent-green-500"
-                                style={{
-                                    background: `linear-gradient(to right, #22c55e 0%, #22c55e ${(clamped/1000)*100}%, #1f2937 ${(clamped/1000)*100}%, #1f2937 100%)`
-                                }}
-                            />
-                            <div className="flex justify-between mt-2 text-[10px] text-gray-600 font-mono">
-                                <span>1</span><span>250</span><span>500</span><span>750</span><span>1,000</span>
-                            </div>
-                        </div>
-
-                        {/* Result cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                            <div className="bg-black/60 border border-white/10 rounded-2xl p-5 sm:p-6">
-                                <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Net Cost (After Rev Share)</p>
-                                <p className="text-3xl sm:text-4xl font-black text-white tracking-tight">{fmt(netCost)}</p>
-                                <p className="text-[11px] text-gray-500 mt-2">{clamped} × $19 - easily covered by a team fundraiser</p>
-                            </div>
-                            <div className="bg-gradient-to-br from-green-900/30 to-black border border-green-500/40 rounded-2xl p-5 sm:p-6 shadow-[0_0_30px_rgba(34,197,94,0.12)] sm:transform sm:scale-[1.03]">
-                                <p className="text-[10px] font-bold text-green-400 uppercase tracking-widest mb-2">Your Organization Gets Back</p>
-                                <p className="text-3xl sm:text-4xl font-black text-green-400 tracking-tight">{fmt(orgRevShare)}</p>
-                                <p className="text-[11px] text-green-200/60 mt-2">{clamped} × $10 returned to your org</p>
-                            </div>
-                        </div>
-
-                        {/* Helper bar */}
-                        <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-                            {[25, 50, 100, 250, 500, 1000].map(n => (
-                                <button
-                                    key={n}
-                                    onClick={() => setPlayers(n)}
-                                    className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest transition-all ${
-                                        clamped === n
-                                            ? 'bg-green-500 text-black shadow-lg shadow-green-500/20'
-                                            : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10 hover:text-white'
-                                    }`}
-                                >
-                                    {n} kids
-                                </button>
-                            ))}
-                        </div>
+                    <div className="bg-[#070707] p-5 sm:p-6">
+                        <p className="text-sm font-medium text-blue-400 mb-2">Your organization gets back</p>
+                        <p className="text-3xl sm:text-4xl font-semibold text-blue-400 tracking-tight tabular-nums">{fmt(orgRevShare)}</p>
+                        <p className="text-sm text-gray-500 mt-2">{clamped} × $10 / season</p>
                     </div>
                 </div>
-            </Reveal>
+
+                <div className="mt-6 flex flex-wrap items-center gap-2">
+                    {[25, 50, 100, 250, 500, 1000].map(n => (
+                        <button
+                            key={n}
+                            onClick={() => setPlayers(n)}
+                            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors tabular-nums ${
+                                clamped === n
+                                    ? 'bg-white text-black'
+                                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                            }`}
+                        >
+                            {n}
+                        </button>
+                    ))}
+                </div>
+            </div>
         </section>
+    );
+};
+
+// --- HERO MINI CALCULATOR ---
+const HeroCalculator = () => {
+    const [players, setPlayers] = useState(150);
+    const clamped = Math.max(0, Math.min(1000, players));
+    const revShare = clamped * 10;
+    const fmt = (n: number) => `$${n.toLocaleString('en-US')}`;
+
+    return (
+        <div className="max-w-xl mx-auto bg-white/[0.02] border border-white/10 rounded-2xl p-5 sm:p-6 text-left">
+            <div className="flex items-baseline justify-between mb-4">
+                <div>
+                    <p className="text-[11px] font-medium text-gray-500 tracking-wide uppercase mb-1">Revenue back to your org</p>
+                    <p className="text-3xl sm:text-4xl font-semibold text-white tracking-tight tabular-nums">{fmt(revShare)}<span className="text-gray-500 text-base font-normal"> / season</span></p>
+                </div>
+                <div className="text-right">
+                    <p className="text-[11px] font-medium text-gray-500 tracking-wide uppercase mb-1">Players</p>
+                    <p className="text-3xl sm:text-4xl font-semibold text-blue-400 tracking-tight tabular-nums">{clamped}</p>
+                </div>
+            </div>
+            <input
+                type="range"
+                min={0}
+                max={1000}
+                step={5}
+                value={clamped}
+                onChange={(e) => setPlayers(parseInt(e.target.value, 10))}
+                className="w-full h-1.5 bg-gray-800 rounded-full appearance-none cursor-pointer accent-blue-500"
+                style={{
+                    background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(clamped/1000)*100}%, #1f2937 ${(clamped/1000)*100}%, #1f2937 100%)`
+                }}
+                aria-label="Number of players"
+            />
+            <p className="text-[11px] text-gray-500 mt-3 leading-relaxed">
+                $29 per player tested. <span className="text-gray-300">$10 comes back to you.</span> Many clubs cover the rest with a single team fundraiser.
+            </p>
+        </div>
     );
 };
 
@@ -1052,96 +1031,79 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   return (
     <div className={`min-h-screen bg-[#050505] text-white relative font-sans selection:bg-blue-500 selection:text-white flex flex-col scroll-smooth ${showClutchReport || showNterpretReport ? 'h-screen overflow-hidden' : 'overflow-y-auto overflow-x-hidden'}`}>
 
-      {/* Background Grid & Effects */}
+      {/* Background ambience */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"></div>
-         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-blue-900/10 blur-[120px] rounded-full opacity-30"></div>
-         {/* Scanning Beam Animation */}
-         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent animate-[scan_8s_ease-in-out_infinite]"></div>
+         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-blue-600/10 blur-[140px] rounded-full"></div>
       </div>
 
       {/* Header / Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 h-20 flex items-center justify-between backdrop-blur-md border-b border-white/5 bg-black/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 h-16 flex items-center justify-between backdrop-blur-md border-b border-white/5 bg-black/60">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleEnter()}>
-             <Logo className="text-white" />
-         </div>
-         <div className="flex items-center gap-6">
-             <button 
-                onClick={() => setShowBooking(true)}
-                className="bg-white text-black hover:bg-gray-200 px-4 sm:px-5 py-2 rounded font-bold text-[10px] sm:text-xs uppercase tracking-widest transition-all shadow-lg hover:shadow-white/10"
-             >
-                Book Demo
-             </button>
-         </div>
+              <Logo className="text-white" size="small" />
+          </div>
+          <div className="flex items-center gap-2 sm:gap-4">
+              <a href="#pricing" className="hidden sm:inline-flex text-sm font-medium text-gray-400 hover:text-white transition-colors px-3 py-2">
+                  Pricing
+              </a>
+              <button
+                  onClick={() => setShowBooking(true)}
+                  className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors"
+              >
+                  Book demo
+              </button>
+          </div>
       </nav>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full pt-32 pb-20">
+      <div className="relative z-10 w-full pt-28 sm:pt-32 pb-20">
           
           {/* HERO SECTION */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 text-center relative">
-              <div className={`transition-all duration-1000 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-900/10 mb-8 backdrop-blur-sm shadow-[0_0_20px_rgba(59,130,246,0.3)]">
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                      </span>
-                      <span className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.2em]">Mental Scouting for Youth Athletes 13-18</span>
-                  </div>
+          <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-16 sm:mb-20 text-center relative">
+              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-8 ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
+                  <span className="inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
+                  <span className="text-[11px] font-medium text-gray-300 tracking-wide">Mental scouting for youth athletes 13-18</span>
               </div>
 
-              <h1 className={`text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-black italic tracking-tight mb-8 leading-[0.95] pr-3 sm:pr-6 transition-all duration-1000 delay-100 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  COACH THE <br />
-                  <span className="inline-block pr-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-white to-blue-200 animate-gradient">WHOLE ATHLETE</span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight mb-6 leading-[1.02] text-white">
+                  Coach the <span className="text-blue-400">whole athlete.</span>
               </h1>
 
-              <p className={`text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed font-light transition-all duration-1000 delay-200 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  A complete mental scouting report for every athlete 13-18, in under 15 minutes. Coaches get an instant profile of how each player learns, leads, and performs under pressure.
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                  A complete mental scouting report for every player 13-18 - in under 15 minutes. Coaches see exactly how each athlete learns, leads, and performs under pressure.
               </p>
 
-              {/* Main Action Buttons */}
-              <div className={`flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-6 sm:mb-8 max-w-md sm:max-w-none mx-auto transition-all duration-1000 delay-300 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 sm:mb-16 max-w-md sm:max-w-none mx-auto">
                  <button
                     onClick={() => setShowBooking(true)}
-                    className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 sm:px-10 py-4 rounded-full font-black text-sm uppercase tracking-widest transition-all shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)] transform hover:-translate-y-1 flex items-center justify-center gap-3 group"
+                    className="w-full sm:w-auto bg-blue-500 hover:bg-blue-400 text-white px-8 py-3.5 rounded-lg font-semibold text-base transition-colors flex items-center justify-center gap-2"
                  >
-                    <Calendar size={18} className="text-blue-200 group-hover:text-white transition-colors" />
-                    Book A Demo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    Book a demo <ArrowRight size={16} />
                  </button>
 
                  <button
                     onClick={scrollToVideo}
-                    className="w-full sm:w-auto bg-white/5 border border-white/10 hover:bg-white/10 text-white px-8 sm:px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-3"
+                    className="w-full sm:w-auto text-gray-300 hover:text-white px-8 py-3.5 rounded-lg font-medium text-base transition-colors flex items-center justify-center gap-2"
                  >
-                    <Play size={18} /> Watch Demo
-                 </button>
-
-                 <button
-                    onClick={() => handleEnter()}
-                    className="hidden sm:inline-flex w-full sm:w-auto bg-white/5 border border-white/10 hover:bg-white/10 text-white px-8 sm:px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all items-center justify-center gap-3 group"
-                 >
-                    <Monitor size={18} className="text-gray-400 group-hover:text-white transition-colors" />
-                    Explore Dashboard
+                    <Play size={14} /> Watch product tour
                  </button>
               </div>
 
+              {/* HERO MINI CALCULATOR */}
+              <HeroCalculator />
+
               {/* Secondary Actions */}
-              <div className={`flex flex-col sm:flex-row items-center justify-center gap-8 transition-all duration-1000 delay-500 ease-out transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  <button 
-                    onClick={() => setShowTestDrive(true)}
-                    className="flex items-center gap-2 text-gray-500 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors group"
-                  >
-                      <Beaker size={14} className="text-gray-600 group-hover:text-blue-400 transition-colors" />
-                      Try Sample Assessments
-                  </button>
-                  
-                  {/* Report Button (Triggers Modal) */}
-                  <button 
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mt-10 sm:mt-12">
+                  <button
                     onClick={() => setShowReportModal(true)}
-                    className="flex items-center gap-2 text-gray-500 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors group"
+                    className="text-gray-500 hover:text-gray-300 text-sm font-medium transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-white/40"
                   >
-                      <FileText size={14} className="text-gray-600 group-hover:text-blue-400 transition-colors" />
-                      View Sample Player Reports
+                      See a sample player report
+                  </button>
+                  <button
+                    onClick={() => handleEnter()}
+                    className="hidden sm:inline-flex text-gray-500 hover:text-gray-300 text-sm font-medium transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-white/40"
+                  >
+                      Explore the coach dashboard
                   </button>
               </div>
           </section>
@@ -1152,429 +1114,305 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           </div>
 
           {/* FEATURED PARTNERS */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
-              <Reveal>
-                  <div className="text-center mb-8 sm:mb-10">
-                      <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10">
-                          <Trophy size={12} className="text-yellow-400" />
-                          <span className="text-[10px] font-bold text-yellow-400 uppercase tracking-[0.25em]">Featured Partners</span>
+          <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+              <p className="text-center text-xs sm:text-sm font-medium text-gray-500 tracking-wide mb-8 sm:mb-10">
+                  Trusted by leading youth sports organizations
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                  <a
+                      href="https://www.alliancefastpitch.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group bg-[#070707] hover:bg-white/[0.03] transition-colors p-8 sm:p-10 flex flex-col items-center text-center"
+                  >
+                      <div className="h-20 sm:h-24 flex items-center justify-center mb-5">
+                          <img
+                              src="/Alliance.png"
+                              alt="Alliance Fastpitch"
+                              className="max-h-full max-w-[220px] object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                          />
                       </div>
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-white">
-                          Powering elite youth events.
-                      </h2>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                      {/* Alliance Fastpitch */}
-                      <a
-                          href="https://www.alliancefastpitch.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group relative bg-gradient-to-br from-red-500/10 via-[#0f0f0f] to-black border border-red-500/30 hover:border-red-400/70 rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(239,68,68,0.18)] overflow-hidden"
-                      >
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
-                          <div className="absolute -top-10 -right-10 opacity-[0.04] pointer-events-none group-hover:opacity-[0.08] transition-opacity">
-                              <Trophy size={180} />
-                          </div>
-
-                          <div className="relative z-10 flex flex-col items-center text-center min-h-[220px] sm:min-h-[260px] justify-center">
-                              <div className="h-28 sm:h-32 md:h-36 flex items-center justify-center mb-5 sm:mb-6 w-full">
-                                  <img
-                                      src="/Alliance.png"
-                                      alt="Alliance Fastpitch"
-                                      className="max-h-full max-w-[90%] object-contain drop-shadow-[0_0_40px_rgba(239,68,68,0.4)]"
-                                      onError={(e) => {
-                                          const img = e.currentTarget;
-                                          const fallback = img.nextElementSibling as HTMLElement | null;
-                                          img.style.display = 'none';
-                                          if (fallback) fallback.style.display = 'flex';
-                                      }}
-                                  />
-                                  <div className="hidden flex-col items-center justify-center w-full" style={{ display: 'none' }}>
-                                      <div className="text-2xl sm:text-3xl md:text-4xl font-black italic text-white tracking-tighter uppercase leading-none">
-                                          Alliance
-                                      </div>
-                                      <div className="text-xl sm:text-2xl md:text-3xl font-black italic text-red-400 tracking-tighter uppercase leading-none mt-1">
-                                          Fastpitch
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <p className="text-[10px] sm:text-xs font-bold text-red-400/80 uppercase tracking-[0.25em] mb-3">Premier Youth Softball Organization</p>
-                              <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xs">
-                                  Alliance Fastpitch athletes use NTangible to benchmark mental performance season over season.
-                              </p>
-
-                              <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-red-400/80 group-hover:text-red-300 uppercase tracking-widest transition-colors">
-                                  Visit Site <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                              </div>
-                          </div>
-                      </a>
-
-                      {/* Future Stars Series */}
-                      <a
-                          href="https://www.futurestarsseries.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group relative bg-gradient-to-br from-yellow-500/10 via-[#0f0f0f] to-black border border-yellow-500/30 hover:border-yellow-400/70 rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(234,179,8,0.18)] overflow-hidden"
-                      >
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(234,179,8,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
-                          <div className="absolute -top-10 -left-10 opacity-[0.04] pointer-events-none group-hover:opacity-[0.08] transition-opacity">
-                              <Trophy size={180} />
-                          </div>
-
-                          <div className="relative z-10 flex flex-col items-center text-center min-h-[220px] sm:min-h-[260px] justify-center">
-                              <div className="h-28 sm:h-32 md:h-36 flex items-center justify-center mb-5 sm:mb-6 w-full">
-                                  <img
-                                      src="/FSS.png"
-                                      alt="Future Stars Series"
-                                      className="max-h-full max-w-[90%] object-contain drop-shadow-[0_0_40px_rgba(234,179,8,0.35)]"
-                                      onError={(e) => {
-                                          const img = e.currentTarget;
-                                          const fallback = img.nextElementSibling as HTMLElement | null;
-                                          img.style.display = 'none';
-                                          if (fallback) fallback.style.display = 'flex';
-                                      }}
-                                  />
-                                  <div className="hidden flex-col items-center justify-center w-full" style={{ display: 'none' }}>
-                                      <div className="text-2xl sm:text-3xl md:text-4xl font-black italic text-white tracking-tighter uppercase leading-none">
-                                          Future Stars
-                                      </div>
-                                      <div className="text-xl sm:text-2xl md:text-3xl font-black italic text-yellow-400 tracking-tighter uppercase leading-none mt-1">
-                                          Series
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <p className="text-[10px] sm:text-xs font-bold text-yellow-400/80 uppercase tracking-[0.25em] mb-3">Premier Youth Baseball Showcase</p>
-                              <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xs">
-                                  Every athlete invited to the Future Stars Series receives a full NTerpret Mental Scouting Report.
-                              </p>
-
-                              <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-yellow-400/80 group-hover:text-yellow-300 uppercase tracking-widest transition-colors">
-                                  Visit Site <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                              </div>
-                          </div>
-                      </a>
-                  </div>
-
-              </Reveal>
+                      <p className="text-white text-base font-semibold mb-1">Alliance Fastpitch</p>
+                      <p className="text-gray-500 text-sm">Premier youth softball</p>
+                  </a>
+                  <a
+                      href="https://www.futurestarsseries.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group bg-[#070707] hover:bg-white/[0.03] transition-colors p-8 sm:p-10 flex flex-col items-center text-center"
+                  >
+                      <div className="h-20 sm:h-24 flex items-center justify-center mb-5">
+                          <img
+                              src="/FSS.png"
+                              alt="Future Stars Series"
+                              className="max-h-full max-w-[220px] object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                          />
+                      </div>
+                      <p className="text-white text-base font-semibold mb-1">Future Stars Series</p>
+                      <p className="text-gray-500 text-sm">Premier youth baseball showcase</p>
+                  </a>
+              </div>
           </section>
 
           {/* TWO MOMENTS / USE CASES */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
-              <Reveal>
-                  <div className="text-center mb-10 sm:mb-12">
-                      <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-900/10">
-                          <Calendar size={12} className="text-blue-400" />
-                          <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Built For Your Calendar</span>
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+              <div className="mb-12 sm:mb-16 max-w-2xl">
+                  <p className="text-sm font-medium text-blue-400 mb-3">Built for your calendar</p>
+                  <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                      Two moments that decide your season.
+                  </h2>
+                  <p className="text-lg text-gray-400 leading-relaxed">
+                      NTangible runs at the two decisions that define your year - tryouts and annual benchmarks.
+                  </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                  <div className="bg-[#070707] p-8 sm:p-10">
+                      <div className="flex items-center justify-between mb-6">
+                          <p className="text-sm font-medium text-gray-500">Tryout season</p>
+                          <Target size={18} className="text-blue-400" />
                       </div>
-                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-white mb-4 leading-[0.95]">
-                          Two moments. <span className="text-blue-400">One source of truth.</span>
-                      </h2>
-                      <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                          NTangible is built around the two decisions that define your season - tryouts and annual benchmarks.
+                      <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3 leading-tight">
+                          Know exactly who you're recruiting.
+                      </h3>
+                      <p className="text-gray-400 text-base leading-relaxed mb-6">
+                          A 90-minute tryout shows athletic skill. NTangible shows the mental side - so you build the right rosters, not just the most talented ones.
                       </p>
+                      <ul className="space-y-3 border-t border-white/5 pt-6">
+                          <li className="text-base text-gray-300 leading-relaxed">
+                              <span className="text-white font-medium">Defensible cuts</span> when parents push back the next morning.
+                          </li>
+                          <li className="text-base text-gray-300 leading-relaxed">
+                              Place every player on the team that <span className="text-white font-medium">fits how they grow</span> - not just A/B/C by skill.
+                          </li>
+                          <li className="text-base text-gray-300 leading-relaxed">
+                              Spot the <span className="text-white font-medium">late bloomers and future captains</span> an open tryout misses.
+                          </li>
+                          <li className="text-base text-gray-300 leading-relaxed">
+                              Onboard new players with a <span className="text-white font-medium">full profile on day one</span>.
+                          </li>
+                      </ul>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-                      {/* Tryout Season */}
-                      <div className="relative bg-gradient-to-br from-yellow-500/10 via-[#0f0f0f] to-black border border-yellow-500/30 rounded-3xl p-6 sm:p-8 md:p-10 overflow-hidden hover:border-yellow-400/60 transition-all duration-500">
-                          <div className="absolute -top-10 -right-10 opacity-[0.05] pointer-events-none">
-                              <Trophy size={200} />
-                          </div>
-                          <div className="relative z-10">
-                              <div className="flex items-center gap-3 mb-5">
-                                  <div className="w-11 h-11 bg-yellow-500/15 rounded-xl flex items-center justify-center text-yellow-400 shrink-0">
-                                      <Target size={20} />
-                                  </div>
-                                  <div>
-                                      <p className="text-[10px] font-bold text-yellow-400 uppercase tracking-[0.25em]">Use Case 01</p>
-                                      <p className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">Tryout Season</p>
-                                  </div>
-                              </div>
-
-                              <h3 className="text-2xl sm:text-3xl font-black italic uppercase text-white tracking-tighter mb-3 leading-[1]">
-                                  Know exactly who <br/>you're recruiting.
-                              </h3>
-                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
-                                  A 90-minute tryout shows you athletic skill. NTangible shows you the mental side - so you build the right rosters, not just the most talented ones.
-                              </p>
-
-                              <ul className="space-y-3">
-                                  <li className="flex items-start gap-3">
-                                      <CheckCircle size={16} className="text-yellow-400 mt-0.5 shrink-0" />
-                                      <span className="text-sm text-gray-300 leading-relaxed">Make <strong className="text-white">defensible cuts</strong> when parents push back the next morning.</span>
-                                  </li>
-                                  <li className="flex items-start gap-3">
-                                      <CheckCircle size={16} className="text-yellow-400 mt-0.5 shrink-0" />
-                                      <span className="text-sm text-gray-300 leading-relaxed">Place every player on the team that <strong className="text-white">fits how they grow</strong> - not just A/B/C by skill.</span>
-                                  </li>
-                                  <li className="flex items-start gap-3">
-                                      <CheckCircle size={16} className="text-yellow-400 mt-0.5 shrink-0" />
-                                      <span className="text-sm text-gray-300 leading-relaxed">Spot the <strong className="text-white">late bloomers and future captains</strong> the open tryout misses.</span>
-                                  </li>
-                                  <li className="flex items-start gap-3">
-                                      <CheckCircle size={16} className="text-yellow-400 mt-0.5 shrink-0" />
-                                      <span className="text-sm text-gray-300 leading-relaxed">Onboard new players with a <strong className="text-white">full profile on day one</strong> instead of waiting six weeks to figure them out.</span>
-                                  </li>
-                              </ul>
-                          </div>
+                  <div className="bg-[#070707] p-8 sm:p-10">
+                      <div className="flex items-center justify-between mb-6">
+                          <p className="text-sm font-medium text-gray-500">Year-over-year benchmark</p>
+                          <BarChart3 size={18} className="text-blue-400" />
                       </div>
-
-                      {/* Annual Benchmark */}
-                      <div className="relative bg-gradient-to-br from-blue-500/10 via-[#0f0f0f] to-black border border-blue-500/30 rounded-3xl p-6 sm:p-8 md:p-10 overflow-hidden hover:border-blue-400/60 transition-all duration-500">
-                          <div className="absolute -top-10 -right-10 opacity-[0.05] pointer-events-none">
-                              <BarChart3 size={200} />
-                          </div>
-                          <div className="relative z-10">
-                              <div className="flex items-center gap-3 mb-5">
-                                  <div className="w-11 h-11 bg-blue-500/15 rounded-xl flex items-center justify-center text-blue-400 shrink-0">
-                                      <RefreshCw size={20} />
-                                  </div>
-                                  <div>
-                                      <p className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.25em]">Use Case 02</p>
-                                      <p className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">Year-Over-Year Benchmark</p>
-                                  </div>
-                              </div>
-
-                              <h3 className="text-2xl sm:text-3xl font-black italic uppercase text-white tracking-tighter mb-3 leading-[1]">
-                                  Prove the development <br/>is real.
-                              </h3>
-                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
-                                  Run NTangible every season. Each athlete gets a benchmark, then a side-by-side year-over-year view. Growth stops being a feeling and starts being a number.
-                              </p>
-
-                              <ul className="space-y-3">
-                                  <li className="flex items-start gap-3">
-                                      <CheckCircle size={16} className="text-blue-400 mt-0.5 shrink-0" />
-                                      <span className="text-sm text-gray-300 leading-relaxed">Show every family <strong className="text-white">concrete growth</strong> they can point to - not just stats.</span>
-                                  </li>
-                                  <li className="flex items-start gap-3">
-                                      <CheckCircle size={16} className="text-blue-400 mt-0.5 shrink-0" />
-                                      <span className="text-sm text-gray-300 leading-relaxed">See which <strong className="text-white">coaches and programs actually move the needle</strong> year over year.</span>
-                                  </li>
-                                  <li className="flex items-start gap-3">
-                                      <CheckCircle size={16} className="text-blue-400 mt-0.5 shrink-0" />
-                                      <span className="text-sm text-gray-300 leading-relaxed">Identify kids <strong className="text-white">ready to play up</strong> before they (or their parents) ask.</span>
-                                  </li>
-                                  <li className="flex items-start gap-3">
-                                      <CheckCircle size={16} className="text-blue-400 mt-0.5 shrink-0" />
-                                      <span className="text-sm text-gray-300 leading-relaxed">Report <strong className="text-white">club-wide outcomes</strong> to boards, parents, and renewal-season communications.</span>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
+                      <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3 leading-tight">
+                          Prove the development is real.
+                      </h3>
+                      <p className="text-gray-400 text-base leading-relaxed mb-6">
+                          Run NTangible every season. Each athlete gets a baseline, then a side-by-side year-over-year view. Growth stops being a feeling and starts being a number.
+                      </p>
+                      <ul className="space-y-3 border-t border-white/5 pt-6">
+                          <li className="text-base text-gray-300 leading-relaxed">
+                              Show every family <span className="text-white font-medium">concrete growth</span> they can point to.
+                          </li>
+                          <li className="text-base text-gray-300 leading-relaxed">
+                              See which <span className="text-white font-medium">coaches and programs move the needle</span> year over year.
+                          </li>
+                          <li className="text-base text-gray-300 leading-relaxed">
+                              Identify kids <span className="text-white font-medium">ready to play up</span> before parents ask.
+                          </li>
+                          <li className="text-base text-gray-300 leading-relaxed">
+                              Report <span className="text-white font-medium">club-wide outcomes</span> to boards and renewal-season communications.
+                          </li>
+                      </ul>
                   </div>
-              </Reveal>
+              </div>
           </section>
 
           {/* THE LINE AT THE TRYOUT TABLE */}
-          <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-24">
-              <Reveal>
-                  <div className="bg-gradient-to-br from-blue-900/20 via-[#0a0f1c] to-black border border-blue-500/30 rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden">
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12),transparent_70%)] pointer-events-none" />
-                      <div className="relative z-10">
-                          <p className="text-[10px] sm:text-xs font-bold text-blue-300 uppercase tracking-[0.3em] mb-4">The line at the tryout table</p>
-                          <p className="text-xl sm:text-2xl md:text-3xl text-white font-light leading-snug italic mb-4">
-                              "Every player on our roster gets a personalized cognitive profile so our coaches know exactly how to develop them. <span className="font-bold not-italic text-blue-400">No other club in your area does this.</span>"
-                          </p>
-                          <p className="text-gray-400 text-sm sm:text-base">
-                              That's the differentiator parents share in the carpool group chat.
-                          </p>
-                      </div>
-                  </div>
-              </Reveal>
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+              <figure className="border-l-2 border-blue-500 pl-6 sm:pl-8">
+                  <blockquote className="text-2xl sm:text-3xl md:text-4xl text-white font-medium leading-snug tracking-tight mb-4">
+                      "Every player on our roster gets a personalized cognitive profile, so our coaches know exactly how to develop them. <span className="text-blue-400">No other club in your area does this.</span>"
+                  </blockquote>
+                  <figcaption className="text-sm text-gray-500">
+                      The line that wins tryout night.
+                  </figcaption>
+              </figure>
           </section>
 
           {/* HOW IT WORKS IN 30 DAYS */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
-              <Reveal>
-                  <div className="text-center mb-10 sm:mb-14">
-                      <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-900/10">
-                          <Calendar size={12} className="text-blue-400" />
-                          <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">How It Works</span>
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+              <div className="mb-12 sm:mb-16 max-w-2xl">
+                  <p className="text-sm font-medium text-blue-400 mb-3">How it works</p>
+                  <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                      Live in your club in 30 days.
+                  </h2>
+                  <p className="text-lg text-gray-400 leading-relaxed">
+                      No IT project. No clipboards. Three steps from kickoff to a full coach dashboard.
+                  </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                  <div>
+                      <div className="flex items-baseline gap-3 mb-3">
+                          <span className="text-blue-400 text-sm font-semibold tabular-nums">01</span>
+                          <span className="text-sm text-gray-500 font-medium">Week 1</span>
                       </div>
-                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-white mb-4">
-                          Live in your club <span className="text-blue-400">in 30 days.</span>
-                      </h2>
-                      <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                          No IT project. No clipboards. Three simple weeks from kickoff to full coach dashboards.
+                      <h3 className="text-xl font-semibold text-white mb-2 leading-snug">Kickoff & player invites</h3>
+                      <p className="text-base text-gray-400 leading-relaxed">
+                          We meet with your director and head coaches, spin up your NControl workspace, and send personalized assessment invites to every athlete.
                       </p>
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-                      <div className="bg-[#0f1115] border border-white/10 rounded-2xl p-6 sm:p-7 relative overflow-hidden">
-                          <div className="absolute top-4 right-4 text-5xl font-black text-white/5 select-none">01</div>
-                          <div className="w-10 h-10 bg-blue-500/15 rounded-lg flex items-center justify-center text-blue-400 mb-4">
-                              <Calendar size={20} />
-                          </div>
-                          <p className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">Week 1</p>
-                          <h3 className="text-lg font-bold text-white mb-2 leading-snug">Kickoff & player invites</h3>
-                          <p className="text-sm text-gray-400 leading-relaxed">
-                              We meet with your director and head coaches, set up your NControl workspace, and send personalized assessment invites to every athlete - by phone or email.
-                          </p>
+                  <div>
+                      <div className="flex items-baseline gap-3 mb-3">
+                          <span className="text-blue-400 text-sm font-semibold tabular-nums">02</span>
+                          <span className="text-sm text-gray-500 font-medium">Week 2</span>
                       </div>
-                      <div className="bg-[#0f1115] border border-white/10 rounded-2xl p-6 sm:p-7 relative overflow-hidden">
-                          <div className="absolute top-4 right-4 text-5xl font-black text-white/5 select-none">02</div>
-                          <div className="w-10 h-10 bg-blue-500/15 rounded-lg flex items-center justify-center text-blue-400 mb-4">
-                              <Brain size={20} />
-                          </div>
-                          <p className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">Week 2</p>
-                          <h3 className="text-lg font-bold text-white mb-2 leading-snug">Athletes complete assessments</h3>
-                          <p className="text-sm text-gray-400 leading-relaxed">
-                              Each player takes the NTerpret Mental Scouting Report and Clutch Assessment from any phone or laptop. Done in under 15 minutes - kids do it at home, on their own time.
-                          </p>
-                      </div>
-                      <div className="bg-[#0f1115] border border-white/10 rounded-2xl p-6 sm:p-7 relative overflow-hidden">
-                          <div className="absolute top-4 right-4 text-5xl font-black text-white/5 select-none">03</div>
-                          <div className="w-10 h-10 bg-blue-500/15 rounded-lg flex items-center justify-center text-blue-400 mb-4">
-                              <Monitor size={20} />
-                          </div>
-                          <p className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">Weeks 3-4</p>
-                          <h3 className="text-lg font-bold text-white mb-2 leading-snug">Coach training + live dashboard</h3>
-                          <p className="text-sm text-gray-400 leading-relaxed">
-                              We train your coaching staff on how to read each profile, run a 1:1 with our team, and your NControl dashboard goes live with every player ready to coach.
-                          </p>
-                      </div>
+                      <h3 className="text-xl font-semibold text-white mb-2 leading-snug">Athletes complete assessments</h3>
+                      <p className="text-base text-gray-400 leading-relaxed">
+                          Each player takes the NTerpret Mental Scouting Report and Clutch Assessment from any phone or laptop. Done in under 15 minutes, on their own time.
+                      </p>
                   </div>
-              </Reveal>
+                  <div>
+                      <div className="flex items-baseline gap-3 mb-3">
+                          <span className="text-blue-400 text-sm font-semibold tabular-nums">03</span>
+                          <span className="text-sm text-gray-500 font-medium">Weeks 3-4</span>
+                      </div>
+                      <h3 className="text-xl font-semibold text-white mb-2 leading-snug">Coach training + live dashboard</h3>
+                      <p className="text-base text-gray-400 leading-relaxed">
+                          We train your coaching staff on how to read each profile, run a 1:1 with our team, and your NControl dashboard goes live with every player ready to coach.
+                      </p>
+                  </div>
+              </div>
           </section>
 
           {/* FOR FAMILIES */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24">
-              <Reveal>
-                  <div className="bg-[#0a0a0a] border border-white/10 rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden">
-                      <div className="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
-                          <Users size={240} />
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+                  <div className="lg:col-span-5">
+                      <p className="text-sm font-medium text-blue-400 mb-3">For families</p>
+                      <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
+                          Built with parents in mind.
+                      </h2>
+                      <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                          Youth sports is a family decision. We designed the assessment experience so parents feel informed, not surveilled.
+                      </p>
+                      <p className="text-base text-gray-500 leading-relaxed">
+                          Coaches see actionable insight on how each athlete learns and competes - never psychological labels, never anything that follows the kid outside your program.
+                      </p>
+                  </div>
+                  <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                      <div className="bg-[#070707] p-6">
+                          <p className="text-white text-base font-semibold mb-2">COPPA-aligned</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">For athletes 13-18. Parental consent built into onboarding for every player.</p>
                       </div>
-                      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                          <div>
-                              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10">
-                                  <UserPlus size={12} className="text-purple-400" />
-                                  <span className="text-[10px] font-bold text-purple-400 uppercase tracking-widest">For Families</span>
-                              </div>
-                              <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter text-white mb-4 leading-[0.95]">
-                                  Built with parents <span className="text-purple-400">in mind.</span>
-                              </h2>
-                              <p className="text-gray-400 text-base leading-relaxed mb-4">
-                                  Youth sports is a family decision. We designed the assessment experience so parents feel informed, not surveilled.
-                              </p>
-                              <p className="text-gray-400 text-sm leading-relaxed">
-                                  Coaches see actionable insight on how each athlete learns and competes - never psychological labels, never anything that follows the kid outside your program.
-                              </p>
-                          </div>
-                          <div className="grid grid-cols-1 gap-3">
-                              <div className="bg-black/60 border border-white/10 rounded-xl p-4 flex items-start gap-3">
-                                  <div className="w-9 h-9 bg-purple-500/15 rounded-lg flex items-center justify-center text-purple-400 shrink-0">
-                                      <Lock size={16} />
-                                  </div>
-                                  <div>
-                                      <p className="text-white text-sm font-bold mb-1">COPPA-aligned & age-appropriate</p>
-                                      <p className="text-gray-500 text-xs leading-relaxed">Designed for athletes 13-18. Parental consent built into onboarding for every player.</p>
-                                  </div>
-                              </div>
-                              <div className="bg-black/60 border border-white/10 rounded-xl p-4 flex items-start gap-3">
-                                  <div className="w-9 h-9 bg-purple-500/15 rounded-lg flex items-center justify-center text-purple-400 shrink-0">
-                                      <ShieldAlert size={16} />
-                                  </div>
-                                  <div>
-                                      <p className="text-white text-sm font-bold mb-1">Encrypted data, club-controlled</p>
-                                      <p className="text-gray-500 text-xs leading-relaxed">Reports live inside your private NControl workspace. Never sold, never shared with third parties.</p>
-                                  </div>
-                              </div>
-                              <div className="bg-black/60 border border-white/10 rounded-xl p-4 flex items-start gap-3">
-                                  <div className="w-9 h-9 bg-purple-500/15 rounded-lg flex items-center justify-center text-purple-400 shrink-0">
-                                      <RefreshCw size={16} />
-                                  </div>
-                                  <div>
-                                      <p className="text-white text-sm font-bold mb-1">Opt-out anytime, full data deletion</p>
-                                      <p className="text-gray-500 text-xs leading-relaxed">Families can remove their athlete's profile at any time and we delete everything we have on them.</p>
-                                  </div>
-                              </div>
-                              <div className="bg-black/60 border border-white/10 rounded-xl p-4 flex items-start gap-3">
-                                  <div className="w-9 h-9 bg-purple-500/15 rounded-lg flex items-center justify-center text-purple-400 shrink-0">
-                                      <CheckCircle size={16} />
-                                  </div>
-                                  <div>
-                                      <p className="text-white text-sm font-bold mb-1">Growth language, never diagnosis</p>
-                                      <p className="text-gray-500 text-xs leading-relaxed">We measure how athletes learn, compete, and respond to pressure - not personality traits or clinical labels.</p>
-                                  </div>
-                              </div>
-                          </div>
+                      <div className="bg-[#070707] p-6">
+                          <p className="text-white text-base font-semibold mb-2">Club-controlled data</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">Reports live inside your private workspace. Never sold, never shared with third parties.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6">
+                          <p className="text-white text-base font-semibold mb-2">Opt-out anytime</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">Families can remove their athlete's profile at any time. We delete everything we have on them.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6">
+                          <p className="text-white text-base font-semibold mb-2">Growth, not diagnosis</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">We measure how athletes learn, compete, and handle pressure - not personality or clinical labels.</p>
                       </div>
                   </div>
-              </Reveal>
+              </div>
           </section>
 
           {/* PRODUCT TOUR VIDEO */}
-          <section ref={videoSectionRef} className="max-w-5xl mx-auto px-4 sm:px-6 mb-24">
-              <Reveal>
-                <div className="text-center mb-6 sm:mb-8">
-                    <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-900/10">
-                        <Play size={10} className="text-blue-400 fill-current" />
-                        <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">2-Minute Tour</span>
-                    </div>
-                    <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter text-white">See what your coaches will see.</h2>
-                </div>
+          <section ref={videoSectionRef} className="max-w-5xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+              <div className="mb-8 max-w-2xl">
+                  <p className="text-sm font-medium text-blue-400 mb-3">Product tour</p>
+                  <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05]">
+                      See what your coaches will see.
+                  </h2>
+              </div>
 
-                <div className="relative aspect-video w-full rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-black">
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/spKsM_5c0iM?autoplay=0&controls=1&rel=0&modestbranding=1"
-                        title="NControl Product Tour"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="absolute inset-0 w-full h-full"
-                    ></iframe>
-                </div>
-              </Reveal>
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-white/10 bg-black">
+                  <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/spKsM_5c0iM?autoplay=0&controls=1&rel=0&modestbranding=1"
+                      title="NControl Product Tour"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                  ></iframe>
+              </div>
           </section>
 
           {/* PRICING + REVENUE CALCULATOR */}
           <PricingCalculator />
 
           {/* FINAL CTA */}
-          <section className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-              <Reveal>
-                <div className="p-12 rounded-3xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 backdrop-blur-md">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic text-white mb-4 sm:mb-6 tracking-tight leading-[1.05]">
-                        Give every player <br className="hidden sm:block"/><span className="text-blue-500">an unfair advantage.</span>
-                    </h2>
-                    <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                        See exactly what your coaches will see. We'll walk through a sample player profile from your sport and show you how NTangible would fit into your next season - in 15 minutes.
-                    </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
-                        <button
-                            onClick={() => setShowBooking(true)}
-                            className="bg-white hover:bg-gray-200 text-black px-8 sm:px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.5)] transform hover:-translate-y-1 flex items-center justify-center gap-2"
-                        >
-                            <Calendar size={16} /> Book A 15-Min Call
-                        </button>
-                        <button
-                            onClick={() => setShowReportModal(true)}
-                            className="bg-transparent border border-white/20 hover:bg-white/10 text-white px-8 sm:px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-2"
-                        >
-                            <FileText size={16} /> See A Sample Report
-                        </button>
-                    </div>
-                </div>
-              </Reveal>
+          <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+              <div className="border-t border-white/10 pt-16 sm:pt-20 text-center">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
+                      Give every player an unfair advantage.
+                  </h2>
+                  <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
+                      We'll walk through a sample player profile from your sport and show you how NTangible would fit into your next season. 15 minutes, no slides.
+                  </p>
+                  <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-md sm:max-w-none mx-auto">
+                      <button
+                          onClick={() => setShowBooking(true)}
+                          className="bg-blue-500 hover:bg-blue-400 text-white px-8 py-3.5 rounded-lg font-semibold text-base transition-colors flex items-center justify-center gap-2"
+                      >
+                          Book a 15-min call <ArrowRight size={16} />
+                      </button>
+                      <button
+                          onClick={() => setShowReportModal(true)}
+                          className="text-gray-300 hover:text-white px-8 py-3.5 rounded-lg font-medium text-base transition-colors flex items-center justify-center gap-2"
+                      >
+                          See a sample report
+                      </button>
+                  </div>
+              </div>
           </section>
 
       </div>
 
-      {/* Footer Strip */}
-      <footer className="relative z-10 w-full p-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-600 uppercase tracking-widest font-bold border-t border-white/5 bg-black/80 backdrop-blur-md">
-          <div className="flex gap-6 mb-4 md:mb-0">
-              <span>Secure Connection</span>
-              <span>Encrypted Data</span>
-              <span>COPPA Compliant</span>
-          </div>
-          <div>
-              <span>© 2026 NTangible Inc.</span>
+      {/* Footer */}
+      <footer className="relative z-10 w-full border-t border-white/10 bg-black/60 backdrop-blur-md">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
+                  <div className="col-span-2 sm:col-span-1">
+                      <Logo className="text-white opacity-90 mb-4" size="small" />
+                      <p className="text-sm text-gray-500 leading-relaxed">
+                          Mental scouting for youth athletes 13-18.
+                      </p>
+                  </div>
+                  <div>
+                      <p className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Product</p>
+                      <ul className="space-y-2.5 text-sm">
+                          <li><button onClick={() => setShowReportModal(true)} className="text-gray-400 hover:text-white transition-colors">Sample reports</button></li>
+                          <li><button onClick={() => handleEnter()} className="text-gray-400 hover:text-white transition-colors">Coach dashboard</button></li>
+                          <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                      </ul>
+                  </div>
+                  <div>
+                      <p className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Sports</p>
+                      <ul className="space-y-2.5 text-sm">
+                          <li><span className="text-gray-400">Baseball</span></li>
+                          <li><span className="text-gray-400">Softball</span></li>
+                          <li><span className="text-gray-400">More sports coming</span></li>
+                      </ul>
+                  </div>
+                  <div>
+                      <p className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Company</p>
+                      <ul className="space-y-2.5 text-sm">
+                          <li><button onClick={() => setShowBooking(true)} className="text-gray-400 hover:text-white transition-colors">Book a demo</button></li>
+                          <li><a href="https://calendly.com/ntangible/30min" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-gray-600">
+                  <span>© 2026 NTangible, Inc.</span>
+                  <div className="flex gap-5">
+                      <span>COPPA-aligned</span>
+                      <span>Encrypted data</span>
+                      <span>Club-controlled</span>
+                  </div>
+              </div>
           </div>
       </footer>
       
