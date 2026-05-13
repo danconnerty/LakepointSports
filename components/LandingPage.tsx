@@ -1165,52 +1165,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                      {/* Future Stars Series */}
-                      <a
-                          href="https://www.futurestarsseries.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group relative bg-gradient-to-br from-yellow-500/10 via-[#0f0f0f] to-black border border-yellow-500/30 hover:border-yellow-400/70 rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(234,179,8,0.18)] overflow-hidden"
-                      >
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(234,179,8,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
-                          <div className="absolute -top-10 -right-10 opacity-[0.04] pointer-events-none group-hover:opacity-[0.08] transition-opacity">
-                              <Trophy size={180} />
-                          </div>
-
-                          <div className="relative z-10 flex flex-col items-center text-center min-h-[220px] sm:min-h-[260px] justify-center">
-                              <div className="h-28 sm:h-32 md:h-36 flex items-center justify-center mb-5 sm:mb-6 w-full">
-                                  <img
-                                      src="/FSS.png"
-                                      alt="Future Stars Series"
-                                      className="max-h-full max-w-[90%] object-contain drop-shadow-[0_0_40px_rgba(234,179,8,0.35)]"
-                                      onError={(e) => {
-                                          const img = e.currentTarget;
-                                          const fallback = img.nextElementSibling as HTMLElement | null;
-                                          img.style.display = 'none';
-                                          if (fallback) fallback.style.display = 'flex';
-                                      }}
-                                  />
-                                  <div className="hidden flex-col items-center justify-center w-full" style={{ display: 'none' }}>
-                                      <div className="text-2xl sm:text-3xl md:text-4xl font-black italic text-white tracking-tighter uppercase leading-none">
-                                          Future Stars
-                                      </div>
-                                      <div className="text-xl sm:text-2xl md:text-3xl font-black italic text-yellow-400 tracking-tighter uppercase leading-none mt-1">
-                                          Series
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <p className="text-[10px] sm:text-xs font-bold text-yellow-400/80 uppercase tracking-[0.25em] mb-3">Premier Youth Baseball Showcase</p>
-                              <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xs">
-                                  Every athlete invited to the Future Stars Series receives a full NTerpret Mental Scouting Report.
-                              </p>
-
-                              <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-yellow-400/80 group-hover:text-yellow-300 uppercase tracking-widest transition-colors">
-                                  Visit Site <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                              </div>
-                          </div>
-                      </a>
-
                       {/* Alliance Fastpitch */}
                       <a
                           href="https://www.alliancefastpitch.com/"
@@ -1218,8 +1172,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           rel="noopener noreferrer"
                           className="group relative bg-gradient-to-br from-red-500/10 via-[#0f0f0f] to-black border border-red-500/30 hover:border-red-400/70 rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(239,68,68,0.18)] overflow-hidden"
                       >
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
-                          <div className="absolute -top-10 -left-10 opacity-[0.04] pointer-events-none group-hover:opacity-[0.08] transition-opacity">
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute -top-10 -right-10 opacity-[0.04] pointer-events-none group-hover:opacity-[0.08] transition-opacity">
                               <Trophy size={180} />
                           </div>
 
@@ -1252,6 +1206,52 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               </p>
 
                               <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-red-400/80 group-hover:text-red-300 uppercase tracking-widest transition-colors">
+                                  Visit Site <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                              </div>
+                          </div>
+                      </a>
+
+                      {/* Future Stars Series */}
+                      <a
+                          href="https://www.futurestarsseries.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative bg-gradient-to-br from-yellow-500/10 via-[#0f0f0f] to-black border border-yellow-500/30 hover:border-yellow-400/70 rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(234,179,8,0.18)] overflow-hidden"
+                      >
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(234,179,8,0.18),transparent_60%)] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute -top-10 -left-10 opacity-[0.04] pointer-events-none group-hover:opacity-[0.08] transition-opacity">
+                              <Trophy size={180} />
+                          </div>
+
+                          <div className="relative z-10 flex flex-col items-center text-center min-h-[220px] sm:min-h-[260px] justify-center">
+                              <div className="h-28 sm:h-32 md:h-36 flex items-center justify-center mb-5 sm:mb-6 w-full">
+                                  <img
+                                      src="/FSS.png"
+                                      alt="Future Stars Series"
+                                      className="max-h-full max-w-[90%] object-contain drop-shadow-[0_0_40px_rgba(234,179,8,0.35)]"
+                                      onError={(e) => {
+                                          const img = e.currentTarget;
+                                          const fallback = img.nextElementSibling as HTMLElement | null;
+                                          img.style.display = 'none';
+                                          if (fallback) fallback.style.display = 'flex';
+                                      }}
+                                  />
+                                  <div className="hidden flex-col items-center justify-center w-full" style={{ display: 'none' }}>
+                                      <div className="text-2xl sm:text-3xl md:text-4xl font-black italic text-white tracking-tighter uppercase leading-none">
+                                          Future Stars
+                                      </div>
+                                      <div className="text-xl sm:text-2xl md:text-3xl font-black italic text-yellow-400 tracking-tighter uppercase leading-none mt-1">
+                                          Series
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <p className="text-[10px] sm:text-xs font-bold text-yellow-400/80 uppercase tracking-[0.25em] mb-3">Premier Youth Baseball Showcase</p>
+                              <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xs">
+                                  Every athlete invited to the Future Stars Series receives a full NTerpret Mental Scouting Report.
+                              </p>
+
+                              <div className="mt-6 inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-yellow-400/80 group-hover:text-yellow-300 uppercase tracking-widest transition-colors">
                                   Visit Site <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                               </div>
                           </div>
