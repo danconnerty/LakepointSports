@@ -1023,7 +1023,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   const [showClutchReport, setShowClutchReport] = useState(false);
   const [showNterpretReport, setShowNterpretReport] = useState(false);
   const [showBooking, setShowBooking] = useState(false);
-  const [showPresentation, setShowPresentation] = useState(false);
   const [showReportModal, setShowReportModal] = useState(false);
   
   // Video Toggle State
@@ -1039,12 +1038,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   };
 
   return (
-    <div className={`min-h-screen bg-[#050505] text-white relative font-sans selection:bg-blue-500 selection:text-white flex flex-col scroll-smooth ${showPresentation || showClutchReport || showNterpretReport ? 'h-screen overflow-hidden' : 'overflow-y-auto overflow-x-hidden'}`}>
-      
-      {/* Presentation Mode Overlay */}
-      {showPresentation && (
-          <PresentationMode onClose={() => setShowPresentation(false)} onBook={() => { setShowPresentation(false); setShowBooking(true); }} />
-      )}
+    <div className={`min-h-screen bg-[#050505] text-white relative font-sans selection:bg-blue-500 selection:text-white flex flex-col scroll-smooth ${showClutchReport || showNterpretReport ? 'h-screen overflow-hidden' : 'overflow-y-auto overflow-x-hidden'}`}>
 
       {/* Background Grid & Effects */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -1114,12 +1108,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                     <Play size={18} /> Watch Demo
                  </button>
 
-                 <button 
-                    onClick={() => setShowPresentation(true)}
-                    className="w-full sm:w-auto bg-white/5 border border-white/10 hover:bg-white/10 text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-3"
-                 >
-                    <Maximize2 size={18} /> Interactive Briefing
-                 </button>
               </div>
 
               {/* Secondary Actions */}
@@ -1431,12 +1419,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                         >
                             Book A Demo
                         </button>
-                        <button
-                            onClick={() => setShowPresentation(true)}
-                            className="bg-transparent border border-white/20 hover:bg-white/10 text-white px-8 sm:px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all"
+                        <a
+                            href="#pricing"
+                            className="bg-transparent border border-white/20 hover:bg-white/10 text-white px-8 sm:px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all flex items-center justify-center"
                         >
-                            View Presentation
-                        </button>
+                            See Pricing
+                        </a>
                     </div>
                 </div>
               </Reveal>
