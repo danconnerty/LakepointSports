@@ -366,7 +366,7 @@ const NTerpretAssessment: React.FC<NTerpretAssessmentProps> = ({
           <div className="position-relative" style={{ zIndex: 1 }}>
             <div className="d-flex align-items-center justify-content-center gap-3 mb-4">
               <img
-                src="ntangible-logo.png"
+                src="/white_logo_transparent_background - name only.PNG"
                 alt="NTangible"
                 style={{ height: '2.5rem', opacity: 0.8 }}
               />
