@@ -1152,6 +1152,35 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <p className="text-gray-500 text-sm">Premier youth baseball showcase</p>
                   </a>
               </div>
+
+              {/* Recognition strip */}
+              <div className="mt-8 sm:mt-10 flex items-center justify-center gap-3 text-xs sm:text-sm text-gray-500">
+                  <Trophy size={14} className="text-blue-400" />
+                  <span>
+                      <span className="text-white font-semibold">2026 Rising Star</span>
+                      <span className="text-gray-600 mx-2">·</span>
+                      Youth Sports Business Report
+                  </span>
+              </div>
+          </section>
+
+          {/* TESTIMONIAL - ALLIANCE FASTPITCH */}
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+              <figure className="border-l-2 border-blue-500 pl-6 sm:pl-8">
+                  <blockquote className="text-2xl sm:text-3xl md:text-4xl text-white font-medium leading-snug tracking-tight mb-5">
+                      {/* TODO: replace with verbatim quote from Alliance Fastpitch leadership */}
+                      "[Quote from Alliance Fastpitch leadership about NTangible and the mental performance data initiative goes here.]"
+                  </blockquote>
+                  <figcaption className="flex items-center gap-4">
+                      <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                          <img src="/Alliance.png" alt="" className="h-7 w-7 object-contain" />
+                      </div>
+                      <div>
+                          <p className="text-white text-sm font-semibold">[Speaker Name]</p>
+                          <p className="text-gray-500 text-sm">[Title], Alliance Fastpitch</p>
+                      </div>
+                  </figcaption>
+              </figure>
           </section>
 
           {/* TWO MOMENTS / USE CASES */}
@@ -1384,17 +1413,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   <div>
                       <p className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Product</p>
                       <ul className="space-y-2.5 text-sm">
-                          <li><button onClick={() => setShowReportModal(true)} className="text-gray-400 hover:text-white transition-colors">Sample reports</button></li>
                           <li><button onClick={() => handleEnter()} className="text-gray-400 hover:text-white transition-colors">Coach dashboard</button></li>
                           <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
                       </ul>
                   </div>
                   <div>
-                      <p className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Sports</p>
+                      <p className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Try it</p>
                       <ul className="space-y-2.5 text-sm">
-                          <li><span className="text-gray-400">Baseball</span></li>
-                          <li><span className="text-gray-400">Softball</span></li>
-                          <li><span className="text-gray-400">More sports coming</span></li>
+                          <li><button onClick={() => setShowTestDrive(true)} className="text-gray-400 hover:text-white transition-colors">Sample assessments</button></li>
+                          <li><button onClick={() => setShowReportModal(true)} className="text-gray-400 hover:text-white transition-colors">Sample reports</button></li>
                       </ul>
                   </div>
                   <div>
