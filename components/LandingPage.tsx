@@ -88,7 +88,7 @@ const SampleReportModal = ({ onClose, onViewClutch, onViewNterpret }: { onClose:
                         <ArrowRight size={18} className="text-gray-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
                     </div>
                     <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors pl-[52px]">
-                        See a sample report &mdash; how an athlete handles pressure when the game is on the line.
+                        See a sample report - how an athlete handles pressure when the game is on the line.
                     </p>
                 </button>
 
@@ -106,7 +106,7 @@ const SampleReportModal = ({ onClose, onViewClutch, onViewNterpret }: { onClose:
                         <ArrowRight size={18} className="text-gray-600 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
                     </div>
                     <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors pl-[52px]">
-                        Explore a sample profile &mdash; learning style, motivation, and how to coach the athlete.
+                        Explore a sample profile - learning style, motivation, and how to coach the athlete.
                     </p>
                 </button>
             </div>
@@ -152,7 +152,7 @@ const PricingCalculator = () => {
                 </h2>
                 <p className="text-lg text-gray-400 leading-relaxed">
                     A direct-to-consumer price point built to move across every Lakepoint digital channel and partner property.
-                    Lakepoint and the originating partner earn on every profile sold &mdash; and at scale, NTangible reinvests
+                    Lakepoint and the originating partner earn on every profile sold - and at scale, NTangible reinvests
                     directly back into Lakepoint ad spend.
                 </p>
             </div>
@@ -317,7 +317,7 @@ const PricingCalculator = () => {
 
                 <p className="text-xs text-gray-600 mt-6 leading-relaxed">
                     Illustrative model. Ad-spend milestones are calculated on gross program revenue in $50,000 increments.
-                    Profiles retest every 6 months &mdash; recurring volume is not reflected in this snapshot.
+                    Profiles retest every 6 months - recurring volume is not reflected in this snapshot.
                 </p>
             </div>
         </section>
@@ -327,7 +327,7 @@ const PricingCalculator = () => {
 // --- LAKEPOINT PARTNER PROPERTIES ---
 const PARTNERS: { name: string; src: string; blurb: string }[] = [
     { name: 'PBR', src: '/PBR.png', blurb: 'Surfaced to the prospect pipeline already flowing through PBR.' },
-    { name: 'Rise', src: '/RYZE.png', blurb: 'Promoted across Rise’s competitive event circuit.' },
+    { name: 'RYZE Basketball', src: '/RYZE.png', blurb: 'Promoted across the RYZE Basketball event circuit.' },
     { name: 'Rally Volleyball', src: '/RallyVolleyball.png', blurb: 'Distributed through Rally’s club volleyball network.' },
     { name: 'NFL FLAG', src: '/NFLFlag.png', blurb: 'Activated with the national flag football audience.' },
 ];
@@ -341,7 +341,7 @@ const PartnerProperties = () => (
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed">
                 The Mental Scouting Profile ships through the partner brands already running events across Lakepoint
-                &mdash; each one promotes it, and each one earns $1 on every profile it drives.
+                - each one promotes it, and each one earns $1 on every profile it drives.
             </p>
         </div>
 
@@ -415,7 +415,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </h2>
                   <p className="text-lg text-gray-400 leading-relaxed">
                       NTangible builds and operates a Lakepoint-branded mental performance profile that any Lakepoint partner
-                      or property can sell &mdash; backed by a free collegiate discovery dashboard that turns Lakepoint into
+                      or property can sell - backed by a free collegiate discovery dashboard that turns Lakepoint into
                       the place college coaches come to find talent.
                   </p>
               </div>
@@ -427,7 +427,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </div>
                       <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Lakepoint Mental Scouting Profile</h3>
                       <p className="text-base text-gray-400 leading-relaxed mb-5">
-                          A verified digital profile measuring how an athlete performs under pressure &mdash; hosted on
+                          A verified digital profile measuring how an athlete performs under pressure - hosted on
                           Lakepoint's official database and usable across every partner and property we build assessments for.
                       </p>
                       <ul className="space-y-2.5 border-t border-white/5 pt-5">
@@ -442,7 +442,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </div>
                       <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Lakepoint Collegiate Dashboard</h3>
                       <p className="text-base text-gray-400 leading-relaxed mb-5">
-                          A free, web-based portal college coaches log into to discover Lakepoint talent &mdash; and see which
+                          A free, web-based portal college coaches log into to discover Lakepoint talent - and see which
                           athletes align with their coaching style.
                       </p>
                       <ul className="space-y-2.5 border-t border-white/5 pt-5">
@@ -458,10 +458,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   <div className="mb-10 sm:mb-12 max-w-2xl">
                       <p className="text-sm font-medium text-emerald-400 mb-3">The recruiting edge</p>
                       <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
-                          The coaches' packet, made digital &mdash; and smarter.
+                          The coaches' packet, made digital - and smarter.
                       </h3>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          College coaches already come to Lakepoint events for talent &mdash; and today they walk away
+                          College coaches already come to Lakepoint events for talent - and today they walk away
                           with a printed packet of players. The Collegiate Dashboard turns that packet into a live,
                           searchable database, and adds a recruiting signal no one else has.
                       </p>
@@ -475,9 +475,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">Today</p>
                           <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The in-person paper packet</h4>
                           <ul className="space-y-2.5">
-                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">&mdash;</span> Printed at the event, outdated the moment it's handed out</li>
-                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">&mdash;</span> Limited to whoever happens to be in the room that weekend</li>
-                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">&mdash;</span> Stat lines and measurables &mdash; nothing on how the athlete competes</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Printed at the event, outdated the moment it's handed out</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Limited to whoever happens to be in the room that weekend</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Stat lines and measurables - nothing on how the athlete competes</li>
                           </ul>
                       </div>
                       <div className="bg-[#070707] p-7 sm:p-9">
@@ -506,7 +506,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3">The Coach-Player Alignment Index</h4>
                               <p className="text-lg text-gray-300 leading-relaxed max-w-3xl">
                                   Every college coach sees which Lakepoint athletes actually fit their coaching style and
-                                  system &mdash; a recruiting signal that exists nowhere else. It's why coaches make
+                                  system - a recruiting signal that exists nowhere else. It's why coaches make
                                   Lakepoint their first stop, and why athletes buy a profile to be seen.
                               </p>
                           </div>
@@ -527,7 +527,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
                           Every athlete completes both assessments in under 15 minutes from any phone. The reports live inside the
-                          Lakepoint dashboard &mdash; and athletes can share them with college coaches in one tap.
+                          Lakepoint dashboard - and athletes can share them with college coaches in one tap.
                       </p>
                   </div>
 
@@ -547,7 +547,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               <p className="text-[11px] font-semibold text-blue-400 uppercase tracking-[0.2em] mb-2">NTerpret<sup className="text-[8px] tracking-normal ml-0.5">&trade;</sup></p>
                               <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Mental Scouting Report</h3>
                               <p className="text-base text-gray-400 leading-relaxed mb-6">
-                                  The complete cognitive profile &mdash; how each athlete learns, leads, communicates, and competes.
+                                  The complete cognitive profile - how each athlete learns, leads, communicates, and competes.
                                   The report college coaches now expect alongside the highlight tape.
                               </p>
                               <button
@@ -598,7 +598,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </h2>
                           <p className="text-lg text-gray-400 leading-relaxed mb-4">
                               NTangible's assessments are grounded in research on how athletes actually perform under pressure
-                              &mdash; the work that started with this TED Talk.
+                              - the work that started with this TED Talk.
                           </p>
                           <p className="text-base text-gray-500 leading-relaxed">
                               Watch the framework that powers every NTerpret Mental Scouting Report and Clutch Factor Assessment.
@@ -664,7 +664,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </h2>
                           <p className="text-lg text-gray-300 leading-relaxed">
                               The committed ad spend is the engine that gets this off the ground. NTangible doesn't just
-                              pay a revenue share &mdash; for every <span className="text-white font-semibold">$50,000</span> in
+                              pay a revenue share - for every <span className="text-white font-semibold">$50,000</span> in
                               gross program revenue, we put <span className="text-white font-semibold">$10,000</span> straight
                               back into a directed ad campaign run through Lakepoint Sports. The program funds its own growth.
                           </p>
@@ -706,7 +706,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
                               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">3</span>
                               <h4 className="text-white text-base font-semibold mb-2">Reach compounds</h4>
-                              <p className="text-gray-500 text-sm leading-relaxed">More reach drives more profiles &mdash; which triggers the next campaign. The loop tightens.</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">More reach drives more profiles - which triggers the next campaign. The loop tightens.</p>
                           </div>
                       </div>
 
@@ -730,7 +730,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </h2>
                           <p className="text-lg text-gray-400 leading-relaxed">
                               Every 6 months, NTangible sends an automatic retest email so athletes can update their Clutch Factor
-                              score. Each retest is another $10 profile &mdash; another $2 to Lakepoint and $1 to the partner.
+                              score. Each retest is another $10 profile - another $2 to Lakepoint and $1 to the partner.
                               The first year's volume is just the baseline.
                           </p>
                       </div>
@@ -787,7 +787,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <h3 className="text-lg sm:text-xl font-semibold text-white tracking-tight mb-2">Directed ad-spend campaigns</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
                               For every $50,000 in gross program revenue, NTangible directs $10,000 into an ad-spend campaign run
-                              through Lakepoint &mdash; revenue compounds back into reach.
+                              through Lakepoint - revenue compounds back into reach.
                           </p>
                       </div>
                       <div className="bg-[#070707] p-7 sm:p-8">
@@ -796,7 +796,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </div>
                           <h3 className="text-lg sm:text-xl font-semibold text-white tracking-tight mb-2">Front-load data agreement</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
-                              Initial athlete data access from partners to seed the platform &mdash; structured as an annual
+                              Initial athlete data access from partners to seed the platform - structured as an annual
                               agreement to keep driving usage.
                           </p>
                       </div>
@@ -817,7 +817,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
                           This is a direct-to-consumer product engineered for volume. It moves through Lakepoint's own digital
-                          footprint and every partner channel we build assessments for &mdash; no field staff, no clipboards.
+                          footprint and every partner channel we build assessments for - no field staff, no clipboards.
                       </p>
                   </div>
 
@@ -830,7 +830,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Building2 size={20} className="text-blue-400 mb-4" />
                           <h3 className="text-white text-base font-semibold mb-2">Partner channels</h3>
-                          <p className="text-gray-500 text-sm leading-relaxed">Every Lakepoint partner and property promotes the profile &mdash; and earns $1 on every sale they drive.</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">Every Lakepoint partner and property promotes the profile - and earns $1 on every sale they drive.</p>
                       </div>
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Tv size={20} className="text-blue-400 mb-4" />
@@ -840,7 +840,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Send size={20} className="text-blue-400 mb-4" />
                           <h3 className="text-white text-base font-semibold mb-2">Digital-only activation</h3>
-                          <p className="text-gray-500 text-sm leading-relaxed">Everything ships through existing digital touchpoints &mdash; live without an operational lift.</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">Everything ships through existing digital touchpoints - live without an operational lift.</p>
                       </div>
                   </div>
               </section>
@@ -853,7 +853,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           Front-load the leaderboards. Then open the doors.
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          We seed the database with elite talent first, so the dashboard has real depth on day one &mdash; then
+                          We seed the database with elite talent first, so the dashboard has real depth on day one - then
                           bring college coaches in to a platform that already works.
                       </p>
                   </div>
@@ -878,7 +878,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Open up college coach access</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
                               Provide free dashboard access to <span className="text-white font-medium">college coaches across every property</span>.
-                              Demand from coaches pulls athletes into paid profiles &mdash; the flywheel starts turning.
+                              Demand from coaches pulls athletes into paid profiles - the flywheel starts turning.
                           </p>
                       </div>
                   </div>
@@ -894,10 +894,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </h2>
                           <p className="text-lg text-gray-400 leading-relaxed mb-4">
                               The profile carries Lakepoint's name and lives on Lakepoint's official database. NTangible operates
-                              it &mdash; Lakepoint owns the relationship with its athletes.
+                              it - Lakepoint owns the relationship with its athletes.
                           </p>
                           <p className="text-base text-gray-500 leading-relaxed">
-                              We measure how athletes learn, compete, and handle pressure &mdash; never psychological labels, never
+                              We measure how athletes learn, compete, and handle pressure - never psychological labels, never
                               anything that follows the athlete outside the platform.
                           </p>
                       </div>
@@ -916,7 +916,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </div>
                           <div className="bg-[#070707] p-6">
                               <p className="text-white text-base font-semibold mb-2">Growth, not diagnosis</p>
-                              <p className="text-gray-500 text-sm leading-relaxed">We measure how athletes compete and handle pressure &mdash; not personality or clinical labels.</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">We measure how athletes compete and handle pressure - not personality or clinical labels.</p>
                           </div>
                       </div>
                   </div>
@@ -1041,7 +1041,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                  A verified digital profile that measures an athlete's mental performance &mdash; hosted on Lakepoint's
+                  A verified digital profile that measures an athlete's mental performance - hosted on Lakepoint's
                   official database, sold across every Lakepoint channel and partner property for the price of a t-shirt.
               </p>
 
@@ -1104,7 +1104,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       Click through each section.
                   </h2>
                   <p className="text-base text-gray-400 leading-relaxed">
-                      Pick a tab below &mdash; the content swaps in place, so there's no endless scrolling.
+                      Pick a tab below - the content swaps in place, so there's no endless scrolling.
                   </p>
               </div>
 
@@ -1148,7 +1148,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
               <figure className="border-l-2 border-blue-500 pl-6 sm:pl-8">
                   <blockquote className="text-2xl sm:text-3xl md:text-4xl text-white font-medium leading-snug tracking-tight mb-4">
-                      "Full mental data plus college access &mdash; <span className="text-blue-400">for the price of a t-shirt.</span>"
+                      "Full mental data plus college access - <span className="text-blue-400">for the price of a t-shirt.</span>"
                   </blockquote>
                   <figcaption className="text-sm text-gray-500">
                       The consumer offer that makes Lakepoint the standard.
@@ -1190,7 +1190,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
                   <div className="col-span-2 sm:col-span-1">
-                      <Logo className="text-white opacity-90 mb-4" size="small" />
+                      <Logo className="text-white opacity-90 mb-4 flex-wrap gap-y-1.5" size="small" />
                       <p className="text-sm text-gray-500 leading-relaxed">
                           An integration proposal for Lakepoint Sports.
                       </p>
@@ -1220,7 +1220,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </div>
               <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-gray-600">
-                  <span>&copy; 2026 NTangible, Inc. &mdash; Proposal for Lakepoint Sports</span>
+                  <span>&copy; 2026 NTangible, Inc. - Proposal for Lakepoint Sports</span>
                   <div className="flex gap-5">
                       <span>COPPA-aligned</span>
                       <span>Encrypted data</span>
