@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
     Activity, Brain, ArrowRight, Check, X, FileText, Monitor, ShieldCheck,
-    Megaphone, RefreshCw, Mail, Database, Tv, Building2, Send, Trophy
+    Megaphone, RefreshCw, Mail, Database, Tv, Building2, Send, Trophy, LayoutGrid
 } from 'lucide-react';
 import { ViewType } from '../types';
 import { TestDriveModal } from './TestDriveModal';
@@ -920,30 +920,52 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           <PartnerProperties />
 
           {/* INSET TABBED SECTION */}
-          <div ref={tabSectionRef} className="scroll-mt-20 mb-24 sm:mb-32">
+          <div className="mb-24 sm:mb-32">
+              {/* Section navigator prompt */}
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-5 sm:mb-7">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 mb-3">
+                      <LayoutGrid size={13} className="text-blue-400" />
+                      <span className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">Explore the proposal</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-1.5">
+                      Click through each section.
+                  </h2>
+                  <p className="text-base text-gray-400 leading-relaxed">
+                      Pick a tab below &mdash; the content swaps in place, so there's no endless scrolling.
+                  </p>
+              </div>
+
               {/* Sticky inset tab bar */}
-              <div className="sticky top-16 z-40 bg-[#050505]/95 backdrop-blur-md border-y border-white/10">
-                  <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3">
-                      <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto lp-no-scrollbar">
-                          {TABS.map((t) => (
-                              <button
-                                  key={t.id}
-                                  onClick={() => handleTabChange(t.id)}
-                                  className={`shrink-0 px-4 sm:px-5 py-2.5 rounded-full text-[13px] sm:text-sm font-semibold transition-colors whitespace-nowrap ${
-                                      activeTab === t.id
-                                          ? 'bg-blue-500 text-white'
-                                          : 'text-gray-400 hover:text-white hover:bg-white/[0.06]'
-                                  }`}
-                              >
-                                  {t.label}
-                              </button>
-                          ))}
+              <div
+                  ref={tabSectionRef}
+                  className="sticky top-16 z-40 scroll-mt-16 bg-[#070709]/90 backdrop-blur-xl border-y border-white/10 shadow-[0_14px_30px_-12px_rgba(0,0,0,0.85)]"
+              >
+                  <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+                      <div className="overflow-x-auto lp-no-scrollbar">
+                          <div className="inline-flex items-center gap-1 sm:gap-1.5 p-1.5 rounded-2xl border border-white/10 bg-white/[0.05]">
+                              {TABS.map((t, i) => (
+                                  <button
+                                      key={t.id}
+                                      onClick={() => handleTabChange(t.id)}
+                                      className={`group shrink-0 inline-flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl text-[13px] sm:text-sm font-semibold transition-all whitespace-nowrap ${
+                                          activeTab === t.id
+                                              ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25'
+                                              : 'text-gray-400 hover:text-white hover:bg-white/[0.07]'
+                                      }`}
+                                  >
+                                      <span className={`text-[11px] font-bold tabular-nums ${activeTab === t.id ? 'text-blue-200' : 'text-gray-600 group-hover:text-gray-400'}`}>
+                                          {String(i + 1).padStart(2, '0')}
+                                      </span>
+                                      {t.label}
+                                  </button>
+                              ))}
+                          </div>
                       </div>
                   </div>
               </div>
 
               {/* Active tab panel */}
-              <div key={activeTab} className="lp-tab-panel pt-14 sm:pt-20">
+              <div key={activeTab} className="lp-tab-panel pt-12 sm:pt-16">
                   {renderTabPanel()}
               </div>
           </div>
