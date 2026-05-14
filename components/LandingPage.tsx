@@ -406,7 +406,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
     switch (activeTab) {
       case 'offer':
         return (
-          <section className="max-w-6xl mx-auto px-4 sm:px-6">
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
               <div className="mb-12 sm:mb-16 max-w-2xl">
                   <p className="text-sm font-medium text-blue-400 mb-3">The offer</p>
                   <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
@@ -450,18 +450,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Positions Lakepoint as the recruiting front door</li>
                       </ul>
                   </div>
-              </div>
-
-              <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
-                  <p className="text-base text-gray-400 leading-relaxed flex-1">
-                      Want the numbers behind it? The full revenue split and per-profile economics live in the next tab.
-                  </p>
-                  <button
-                      onClick={() => handleTabChange('economics')}
-                      className="shrink-0 inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold px-5 py-3 rounded-lg transition-colors"
-                  >
-                      See the economics <ArrowRight size={15} />
-                  </button>
               </div>
           </section>
         );
@@ -813,6 +801,63 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
     }
   };
 
+  const renderTabPager = () => {
+    const currentIndex = TABS.findIndex((t) => t.id === activeTab);
+    const nextTab = TABS[currentIndex + 1];
+
+    if (nextTab) {
+      return (
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <button
+                onClick={() => handleTabChange(nextTab.id)}
+                className="group w-full flex items-center justify-between gap-4 sm:gap-6 rounded-2xl border border-white/10 bg-[#070707] hover:border-blue-500/40 hover:bg-[#0a0b0f] p-6 sm:p-8 transition-all text-left"
+            >
+                <div>
+                    <p className="text-[11px] font-semibold text-blue-400 uppercase tracking-widest mb-1.5">
+                        Next &middot; {String(currentIndex + 2).padStart(2, '0')} of {String(TABS.length).padStart(2, '0')}
+                    </p>
+                    <p className="text-xl sm:text-2xl font-semibold text-white tracking-tight">
+                        {nextTab.label}
+                    </p>
+                </div>
+                <span className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-500 group-hover:bg-blue-400 text-white flex items-center justify-center transition-all group-hover:translate-x-0.5">
+                    <ArrowRight size={22} />
+                </span>
+            </button>
+        </div>
+      );
+    }
+
+    return (
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-b from-blue-500/[0.08] to-transparent p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5 sm:gap-6">
+              <div className="max-w-md">
+                  <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-1.5">
+                      That's the full proposal
+                  </p>
+                  <p className="text-xl sm:text-2xl font-semibold text-white tracking-tight">
+                      You've seen every section. Let's make it official.
+                  </p>
+              </div>
+              <div className="flex items-center gap-3 shrink-0">
+                  <button
+                      onClick={() => handleTabChange('offer')}
+                      className="inline-flex items-center justify-center text-gray-300 hover:text-white border border-white/10 hover:border-white/25 text-sm font-medium px-4 py-3 rounded-lg transition-colors"
+                  >
+                      Back to start
+                  </button>
+                  <button
+                      onClick={() => setShowBooking(true)}
+                      className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold px-5 py-3 rounded-lg transition-colors"
+                  >
+                      Book a call <ArrowRight size={15} />
+                  </button>
+              </div>
+          </div>
+      </div>
+    );
+  };
+
   return (
     <div className={`min-h-screen bg-[#050505] text-white relative font-sans selection:bg-blue-500 selection:text-white flex flex-col scroll-smooth ${showClutchReport || showNterpretReport ? 'h-screen overflow-hidden' : 'overflow-y-auto overflow-x-hidden'}`}>
 
@@ -967,6 +1012,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               {/* Active tab panel */}
               <div key={activeTab} className="lp-tab-panel pt-12 sm:pt-16">
                   {renderTabPanel()}
+                  {renderTabPager()}
               </div>
           </div>
 
