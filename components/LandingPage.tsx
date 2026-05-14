@@ -26,6 +26,11 @@ const Logo = ({ className = "", size = "normal" }: { className?: string, size?: 
                 className={`${height} w-auto object-contain`}
             />
             <span className="text-white/25 text-lg font-light leading-none">&times;</span>
+            <img
+                src="/Lakepoint.png"
+                alt="Lakepoint Sports"
+                className={`${height} w-auto object-contain`}
+            />
             <span className="text-white font-semibold tracking-tight text-sm sm:text-base whitespace-nowrap">
                 Lakepoint Sports
             </span>
@@ -372,6 +377,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
 
           {/* HERO SECTION */}
           <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-16 sm:mb-20 text-center relative">
+              <div className={`flex justify-center mb-7 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'} transition-all duration-700`}>
+                  <img
+                      src="/Lakepoint.png"
+                      alt="Lakepoint Sports"
+                      className="h-20 sm:h-24 w-auto object-contain drop-shadow-[0_10px_40px_rgba(37,99,235,0.25)]"
+                  />
+              </div>
               <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-8 ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
                   <span className="inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
                   <span className="text-[11px] font-medium text-gray-300 tracking-wide">Partnership Proposal &middot; NTangible &times; Lakepoint Sports</span>
