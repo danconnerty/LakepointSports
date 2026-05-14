@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
     Activity, Brain, ArrowRight, Check, X, FileText, Monitor, ShieldCheck,
-    Megaphone, RefreshCw, Mail, Database, Tv, Building2, Send, Trophy, LayoutGrid
+    Megaphone, RefreshCw, Mail, Database, Tv, Building2, Send, Trophy, LayoutGrid,
+    Target, ClipboardList
 } from 'lucide-react';
 import { ViewType } from '../types';
 import { TestDriveModal } from './TestDriveModal';
@@ -451,6 +452,67 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </ul>
                   </div>
               </div>
+
+              {/* THE RECRUITING EDGE */}
+              <div className="mt-16 sm:mt-20 border-t border-white/10 pt-16 sm:pt-20">
+                  <div className="mb-10 sm:mb-12 max-w-2xl">
+                      <p className="text-sm font-medium text-emerald-400 mb-3">The recruiting edge</p>
+                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
+                          The coaches' packet, made digital &mdash; and smarter.
+                      </h3>
+                      <p className="text-lg text-gray-400 leading-relaxed">
+                          College coaches already come to Lakepoint events for talent &mdash; and today they walk away
+                          with a printed packet of players. The Collegiate Dashboard turns that packet into a live,
+                          searchable database, and adds a recruiting signal no one else has.
+                      </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-6 sm:mb-8">
+                      <div className="bg-[#070707] p-7 sm:p-9">
+                          <div className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
+                              <ClipboardList size={20} className="text-gray-500" />
+                          </div>
+                          <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">Today</p>
+                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The in-person paper packet</h4>
+                          <ul className="space-y-2.5">
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">&mdash;</span> Printed at the event, outdated the moment it's handed out</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">&mdash;</span> Limited to whoever happens to be in the room that weekend</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">&mdash;</span> Stat lines and measurables &mdash; nothing on how the athlete competes</li>
+                          </ul>
+                      </div>
+                      <div className="bg-[#070707] p-7 sm:p-9">
+                          <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
+                              <Monitor size={20} className="text-emerald-400" />
+                          </div>
+                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">With Lakepoint</p>
+                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The live recruiting dashboard</h4>
+                          <ul className="space-y-2.5">
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Logged into from anywhere, current the moment a profile updates</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Every verified athlete across every Lakepoint property, searchable</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Full mental profile and coaching fit built into every athlete</li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-emerald-500/[0.08] to-transparent p-7 sm:p-9">
+                      <div className="flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-6">
+                          <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                              <Target size={22} className="text-emerald-400" />
+                          </div>
+                          <div>
+                              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-3">
+                                  <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Exclusive to Lakepoint</span>
+                              </div>
+                              <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3">The Coach-Player Alignment Index</h4>
+                              <p className="text-lg text-gray-300 leading-relaxed max-w-3xl">
+                                  Every college coach sees which Lakepoint athletes actually fit their coaching style and
+                                  system &mdash; a recruiting signal that exists nowhere else. It's why coaches make
+                                  Lakepoint their first stop, and why athletes buy a profile to be seen.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </section>
         );
 
@@ -588,6 +650,72 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         return (
           <>
               <PricingCalculator />
+
+              {/* MARQUEE: DIRECTED AD-SPEND / REINVESTMENT ENGINE */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-b from-blue-500/[0.10] via-blue-500/[0.03] to-transparent p-6 sm:p-12">
+                      <div className="max-w-2xl mb-10 sm:mb-12">
+                          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full mb-4">
+                              <Megaphone size={13} className="text-blue-400" />
+                              <span className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">The reinvestment engine</span>
+                          </div>
+                          <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                              Every $50K in revenue buys Lakepoint $10K of reach.
+                          </h2>
+                          <p className="text-lg text-gray-300 leading-relaxed">
+                              The committed ad spend is the engine that gets this off the ground. NTangible doesn't just
+                              pay a revenue share &mdash; for every <span className="text-white font-semibold">$50,000</span> in
+                              gross program revenue, we put <span className="text-white font-semibold">$10,000</span> straight
+                              back into a directed ad campaign run through Lakepoint Sports. The program funds its own growth.
+                          </p>
+                      </div>
+
+                      {/* Revenue-increment ladder */}
+                      <p className="text-sm font-medium text-blue-400 mb-3">The increment ladder</p>
+                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-10">
+                          {[
+                              { rev: '$50K', spend: '$10K' },
+                              { rev: '$150K', spend: '$30K' },
+                              { rev: '$500K', spend: '$100K' },
+                              { rev: '$1M', spend: '$200K' },
+                          ].map((step) => (
+                              <div key={step.rev} className="bg-[#070707] p-5 sm:p-6">
+                                  <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">Gross revenue</p>
+                                  <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums mb-4">{step.rev}</p>
+                                  <div className="flex items-center gap-2 text-blue-400">
+                                      <ArrowRight size={15} className="shrink-0" />
+                                      <p className="text-xl sm:text-2xl font-semibold tracking-tight tabular-nums">{step.spend}</p>
+                                  </div>
+                                  <p className="text-[11px] text-gray-500 mt-1">directed ad spend</p>
+                              </div>
+                          ))}
+                      </div>
+
+                      {/* The flywheel */}
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+                          <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
+                              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">1</span>
+                              <h4 className="text-white text-base font-semibold mb-2">Profiles sell</h4>
+                              <p className="text-gray-500 text-sm leading-relaxed">Every $10 profile across Lakepoint channels stacks toward the next $50K increment.</p>
+                          </div>
+                          <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
+                              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">2</span>
+                              <h4 className="text-white text-base font-semibold mb-2">NTangible reinvests</h4>
+                              <p className="text-gray-500 text-sm leading-relaxed">Each increment triggers $10K of directed ad spend, run through Lakepoint Sports.</p>
+                          </div>
+                          <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
+                              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">3</span>
+                              <h4 className="text-white text-base font-semibold mb-2">Reach compounds</h4>
+                              <p className="text-gray-500 text-sm leading-relaxed">More reach drives more profiles &mdash; which triggers the next campaign. The loop tightens.</p>
+                          </div>
+                      </div>
+
+                      <div className="mt-8 flex items-center gap-2 text-blue-300/80">
+                          <RefreshCw size={14} className="shrink-0" />
+                          <p className="text-sm">The more the program earns, the harder NTangible markets Lakepoint.</p>
+                      </div>
+                  </div>
+              </section>
 
               {/* RECURRING REVENUE */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
