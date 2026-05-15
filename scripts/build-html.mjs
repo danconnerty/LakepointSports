@@ -3,7 +3,7 @@
  * esm.sh's ?bundle mode. Inlining keeps the AI Studio preview from depending
  * on tailwind.css being served as a separate asset, and ?bundle collapses the
  * deep esm.sh module tree into one fetch per package - the difference between
- * ~30s and ~3s to first paint on mobile.
+ * ~30s and a few seconds to first paint on mobile.
  *
  * Run via `npm run build:html` whenever you change Tailwind classes (which
  * regenerates tailwind.css via `npm run css` first).
@@ -44,6 +44,9 @@ ${css}
 
 html, body, #root { background-color: #050505; margin: 0; min-height: 100vh; }
 body { font-family: 'Inter', sans-serif; color: #f8fafc; -webkit-text-size-adjust: 100%; }
+.boot-status { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+.boot-status .dot { width: 6px; height: 6px; border-radius: 50%; background: #3b82f6; margin-right: 12px; animation: bootPulse 1.2s ease-in-out infinite; }
+@keyframes bootPulse { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.4); } }
     </style>
 
 <script type="importmap">
@@ -59,9 +62,30 @@ body { font-family: 'Inter', sans-serif; color: #f8fafc; -webkit-text-size-adjus
   }
 }
 </script>
+
+<script>
+  // Lightweight boot timer. Open the browser console to see real numbers.
+  // Helps diagnose slow loads without guessing - tells you exactly where
+  // time is being spent (network, React mount, first paint).
+  window.__bootStart = performance.now();
+  window.addEventListener('DOMContentLoaded', () => {
+    console.log('[boot] DOM ready at', Math.round(performance.now() - window.__bootStart), 'ms');
+  });
+  window.addEventListener('load', () => {
+    console.log('[boot] window load at', Math.round(performance.now() - window.__bootStart), 'ms');
+    const resources = performance.getEntriesByType('resource');
+    const slow = resources.filter(r => r.duration > 500).sort((a, b) => b.duration - a.duration).slice(0, 10);
+    if (slow.length) {
+      console.log('[boot] slowest resources (>500ms):');
+      slow.forEach(r => console.log('  ', Math.round(r.duration) + 'ms', r.name));
+    }
+  });
+</script>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <div class="boot-status"><span class="dot"></span><span>Loading proposal</span></div>
+    </div>
     <script type="module" src="./index.tsx"></script>
 </body>
 </html>

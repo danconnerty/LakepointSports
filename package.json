@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "css": "tailwindcss -i ./index.css -o ./tailwind.css --minify",
     "css:watch": "tailwindcss -i ./index.css -o ./tailwind.css --watch",
-    "build:html": "npm run css && node scripts/build-html.mjs"
+    "build:html": "npm run css && node scripts/build-html.mjs",
+    "check": "node scripts/check-eager-imports.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.34.0",
