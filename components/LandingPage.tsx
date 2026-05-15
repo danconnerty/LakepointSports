@@ -542,6 +542,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               <img
                                   src="/NterpretMobile.png"
                                   alt="NTerpret Mental Scouting Report on mobile"
+                                  loading="lazy"
+                                  decoding="async"
                                   className="relative z-10 max-h-[420px] sm:max-h-[520px] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)]"
                               />
                           </div>
@@ -569,6 +571,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               <img
                                   src="/ClutchMobile.png"
                                   alt="Clutch Assessment on mobile"
+                                  loading="lazy"
+                                  decoding="async"
                                   className="relative z-10 max-h-[420px] sm:max-h-[520px] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)]"
                               />
                           </div>
