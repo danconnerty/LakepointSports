@@ -1,15 +1,21 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import {
     Activity, Brain, ArrowRight, Check, X, FileText, Monitor, ShieldCheck,
     Megaphone, RefreshCw, Mail, Database, Tv, Building2, Send, Trophy, LayoutGrid,
     Target, ClipboardList
 } from 'lucide-react';
 import { ViewType } from '../types';
-import { TestDriveModal } from './TestDriveModal';
-import ClutchAssessment from './ClutchAssessment';
-import NTerpretAssessment from './NTerpretAssessment';
 import TrustedTeams from './TrustedTeams';
+
+// These three are the heaviest components in the codebase (ClutchAssessment
+// alone is 2,200+ LOC). They only render inside conditional modals, so we
+// don't pay for them on the landing page paint.
+const TestDriveModal = lazy(() =>
+    import('./TestDriveModal').then(m => ({ default: m.TestDriveModal }))
+);
+const ClutchAssessment = lazy(() => import('./ClutchAssessment'));
+const NTerpretAssessment = lazy(() => import('./NTerpretAssessment'));
 
 interface LandingPageProps {
   onEnter: (orgName: string, initialView?: ViewType) => void;
@@ -1237,31 +1243,33 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
       </footer>
 
       {/* Interactive Modals */}
-      {showTestDrive && <TestDriveModal onClose={() => setShowTestDrive(false)} />}
+      <Suspense fallback={null}>
+        {showTestDrive && <TestDriveModal onClose={() => setShowTestDrive(false)} />}
 
-      {showReportModal && (
-        <SampleReportModal
-            onClose={() => setShowReportModal(false)}
-            onViewClutch={() => {
-                setShowReportModal(false);
-                setShowClutchReport(true);
-            }}
-            onViewNterpret={() => {
-                setShowReportModal(false);
-                setShowNterpretReport(true);
-            }}
-        />
-      )}
+        {showReportModal && (
+          <SampleReportModal
+              onClose={() => setShowReportModal(false)}
+              onViewClutch={() => {
+                  setShowReportModal(false);
+                  setShowClutchReport(true);
+              }}
+              onViewNterpret={() => {
+                  setShowReportModal(false);
+                  setShowNterpretReport(true);
+              }}
+          />
+        )}
 
-      {showClutchReport && (
-        <ClutchAssessment onBack={() => setShowClutchReport(false)} />
-      )}
+        {showClutchReport && (
+          <ClutchAssessment onBack={() => setShowClutchReport(false)} />
+        )}
 
-      {showNterpretReport && (
-        <NTerpretAssessment onBack={() => setShowNterpretReport(false)} />
-      )}
+        {showNterpretReport && (
+          <NTerpretAssessment onBack={() => setShowNterpretReport(false)} />
+        )}
 
-      {showBooking && <BookingModal onClose={() => setShowBooking(false)} />}
+        {showBooking && <BookingModal onClose={() => setShowBooking(false)} />}
+      </Suspense>
 
     </div>
   );

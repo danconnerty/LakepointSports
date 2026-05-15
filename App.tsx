@@ -1,19 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { X, Activity, Users, Target, ArrowLeft, ShieldAlert, ShieldCheck, Zap } from 'lucide-react';
-import Header from './components/Header';
-import ParticipantTable from './components/ParticipantTable';
-import CoachesNterpret from './components/CoachesNterpret';
-import MyProfile from './components/MyProfile';
-import FitScoreRubric from './components/FitScoreRubric';
-import ClutchFactorGuide from './components/ClutchFactorGuide';
-import RecruitingView from './components/RecruitingView';
-import Walkthrough from './components/Walkthrough';
-import MasterDashboard from './components/MasterDashboard';
 import LandingPage from './components/LandingPage';
-import MethodologyView from './components/MethodologyView';
-import RosterAlignmentView from './components/RosterAlignmentView';
-import NTerpretProfilesView from './components/NTerpretProfilesView';
-import DevelopmentPlanView from './components/DevelopmentPlanView';
 import { ViewType, Player, UserProfile, HomeTab } from './types';
 import { MOCK_TEAMS } from './mockTeams';
 
@@ -21,6 +8,23 @@ import { MOCK_TEAMS } from './mockTeams';
 import { ALL_ROSTERS, SPORT_CONFIG } from './mockRoster';
 import { RECRUIT_PLAYERS } from './mockRecruits';
 import { isRecruitVisibleOutsideRecruitingPage } from './utils/recruiting';
+
+// Everything beyond the landing page is lazy-loaded: the user first sees
+// LandingPage, so there's no reason for the dashboard/recruiting/profile
+// views to ship in the initial JS. This cuts ~7,000 LOC off first paint.
+const Header = lazy(() => import('./components/Header'));
+const ParticipantTable = lazy(() => import('./components/ParticipantTable'));
+const CoachesNterpret = lazy(() => import('./components/CoachesNterpret'));
+const MyProfile = lazy(() => import('./components/MyProfile'));
+const FitScoreRubric = lazy(() => import('./components/FitScoreRubric'));
+const ClutchFactorGuide = lazy(() => import('./components/ClutchFactorGuide'));
+const RecruitingView = lazy(() => import('./components/RecruitingView'));
+const Walkthrough = lazy(() => import('./components/Walkthrough'));
+const MasterDashboard = lazy(() => import('./components/MasterDashboard'));
+const MethodologyView = lazy(() => import('./components/MethodologyView'));
+const RosterAlignmentView = lazy(() => import('./components/RosterAlignmentView'));
+const NTerpretProfilesView = lazy(() => import('./components/NTerpretProfilesView'));
+const DevelopmentPlanView = lazy(() => import('./components/DevelopmentPlanView'));
 
 const App: React.FC = () => {
   const [demoStarted, setDemoStarted] = useState(false);
@@ -494,8 +498,9 @@ const App: React.FC = () => {
   }
 
   return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
     <div className="min-h-screen flex flex-col bg-slate-50">
-      
+
       {/* Walkthrough Demo Overlay */}
       {showWalkthrough && (
         <Walkthrough onComplete={() => setShowWalkthrough(false)} />
@@ -555,6 +560,7 @@ const App: React.FC = () => {
         </div>
       </footer>
     </div>
+    </Suspense>
   );
 };
 
