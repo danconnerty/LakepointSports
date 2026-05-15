@@ -7,9 +7,18 @@
     <link rel="icon" type="image/png" href="/LakePoint.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html, body { background-color: #050505; margin: 0; }
-        body { font-family: 'Inter', sans-serif; color: #f8fafc; }
+        /* Pre-Tailwind fallback styles. If the Tailwind CDN is blocked or slow
+           (common on mobile Safari with content blockers or weak networks),
+           these keep the landing page visible instead of white-on-white. */
+        html, body, #root { background-color: #050505; margin: 0; min-height: 100vh; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #f8fafc;
+            -webkit-text-size-adjust: 100%;
+        }
+        h1, h2, h3, h4, p, span, button, a { color: inherit; }
     </style>
 <script type="importmap">
 {
