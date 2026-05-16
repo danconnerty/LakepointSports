@@ -922,13 +922,103 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </div>
                   </div>
 
-                  <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
                       <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                           <span className="text-white font-medium">No cost. No commitment.</span> Just enough volume
                           for each partner to walk into the wider rollout with stories, instincts, and proof in hand.
                       </p>
-                      <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest shrink-0">
-                          Then &rarr; Phase 1
+                  </div>
+              </section>
+
+              {/* INTAKE / FIRST-PARTY DATA */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="mb-12 sm:mb-16 max-w-3xl">
+                      <p className="text-sm font-medium text-emerald-400 mb-3">Pre-assessment intake</p>
+                      <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                          Finally know who's actually walking through the gates.
+                      </h2>
+                      <p className="text-lg text-gray-400 leading-relaxed">
+                          Millions of athletes and families pass through LakePoint every year - and today, almost none
+                          of them are <span className="text-white font-medium">known</span> to LakePoint. Tournament rosters and gate counts don't tell you who
+                          they are, where they came from, or how to reach them again. Every NTangible assessment opens
+                          with a short intake module - co-designed with LakePoint - that turns every athlete who claims
+                          their free profile into a first-party record LakePoint owns.
+                      </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-10 sm:mb-12">
+                      <div className="lg:col-span-5 bg-gradient-to-b from-red-500/[0.07] to-transparent border border-red-500/25 rounded-2xl p-7 sm:p-9">
+                          <p className="text-[11px] font-semibold text-red-300 uppercase tracking-widest mb-3">
+                              The pain point
+                          </p>
+                          <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-tight mb-4">
+                              LakePoint hosts the country's most concentrated youth-sports audience - and can't name
+                              a single one of them.
+                          </p>
+                          <p className="text-base text-gray-400 leading-relaxed">
+                              No demographic profile of who's on campus. No way to retarget the families who came for
+                              a tournament last spring. No data to sell sponsors on <span className="text-white font-medium">who</span> their dollars are reaching.
+                          </p>
+                      </div>
+
+                      <div className="lg:col-span-7 bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
+                          <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest mb-4">
+                              What the intake captures
+                          </p>
+                          <p className="text-base text-gray-400 leading-relaxed mb-6">
+                              A 60-90 second module gated in front of every free assessment. Required to unlock the
+                              NTangible profile - so completion rate sits near 100%, not the 5-15% of an optional survey.
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                              {[
+                                  { label: 'Identity', detail: 'Athlete + parent/guardian name, age, grade' },
+                                  { label: 'Geography', detail: 'Home city, state, travel radius, club home base' },
+                                  { label: 'Sport profile', detail: 'Primary sport, positions, level, team affiliations' },
+                                  { label: 'Why they came', detail: 'Tournament, camp, showcase, training, league play' },
+                                  { label: 'Reach', detail: 'Parent email + mobile, opt-ins, communication preferences' },
+                                  { label: 'Spend signals', detail: 'Travel frequency, lodging, equipment brands, NIL interest' },
+                              ].map((row) => (
+                                  <div key={row.label} className="flex gap-3">
+                                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                                      <div>
+                                          <p className="text-white text-sm font-semibold mb-0.5">{row.label}</p>
+                                          <p className="text-gray-500 text-sm leading-snug">{row.detail}</p>
+                                      </div>
+                                  </div>
+                              ))}
+                          </div>
+                      </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-8">
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <p className="text-white text-base font-semibold mb-2">A real audience database</p>
+                          <p className="text-gray-400 text-sm leading-relaxed">
+                              Every assessed athlete becomes a named record in LakePoint's CRM - segmentable by sport,
+                              geography, age, and the property that brought them in.
+                          </p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <p className="text-white text-base font-semibold mb-2">Marketing that can actually target</p>
+                          <p className="text-gray-400 text-sm leading-relaxed">
+                              Re-invite last year's softball families to this year's showcase. Push a basketball camp
+                              to 14U athletes within 200 miles. Stop blasting; start reaching.
+                          </p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <p className="text-white text-base font-semibold mb-2">Sponsor &amp; NIL leverage</p>
+                          <p className="text-gray-400 text-sm leading-relaxed">
+                              Walk into sponsor conversations with a defined, verified audience - not a foot-traffic
+                              estimate. The same data unlocks NIL matchmaking down the road.
+                          </p>
+                      </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
+                      <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+                          <span className="text-white font-medium">LakePoint defines the fields; LakePoint owns the data.</span>{' '}
+                          NTangible operates the intake inside the assessment flow - the records land in LakePoint's
+                          database, branded as a LakePoint product, governed by LakePoint's privacy posture.
                       </p>
                   </div>
               </section>
