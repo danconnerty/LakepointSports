@@ -767,23 +767,113 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </section>
 
-              {/* CPA INDEX CALLOUT - signature feature */}
+              {/* CPA INDEX - signature feature spotlight */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
-                  <div className="rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-emerald-500/[0.08] to-transparent p-7 sm:p-10">
-                      <div className="flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-6">
-                          <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
-                              <Target size={22} className="text-emerald-400" />
+                  <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-emerald-500/[0.10] via-emerald-500/[0.03] to-transparent p-6 sm:p-10 lg:p-12">
+                      <div className="max-w-3xl mb-10 sm:mb-12">
+                          <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-5">
+                              <Target size={13} className="text-emerald-400" />
+                              <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Exclusive to LakePoint &middot; signature feature</span>
                           </div>
-                          <div>
-                              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-3">
-                                  <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Exclusive to LakePoint</span>
+                          <h3 className="text-3xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
+                              The Coach-Player Alignment Index.
+                          </h3>
+                          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-3">
+                              A single number, scored 0-100, that tells a college coach how closely an athlete
+                              thinks the game the way the coach does - decision-making, instinct, response under
+                              pressure, and verbal coachability all rolled into one fit signal.
+                          </p>
+                          <p className="text-base text-gray-500 leading-relaxed">
+                              This is the recruiting signal that exists nowhere else - and the reason coaches
+                              return to LakePoint first.
+                          </p>
+                      </div>
+
+                      {/* MOCKUP */}
+                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.55)] mb-10 sm:mb-12">
+                          <img
+                              src="/coachalignmentmockup.png"
+                              alt="Coach Alignment Index - athlete card showing a 93% Exceptional alignment score"
+                              className="w-full h-auto block"
+                          />
+                      </div>
+
+                      {/* TIER STRIP */}
+                      <div className="mb-10 sm:mb-12">
+                          <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest mb-4">
+                              How the score reads at a glance
+                          </p>
+                          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                              <div className="bg-[#070707] p-5 sm:p-6">
+                                  <div className="flex items-baseline justify-between mb-2">
+                                      <p className="text-white text-base font-semibold">Exceptional</p>
+                                      <p className="text-emerald-400 text-xs font-semibold tabular-nums">75-100%</p>
+                                  </div>
+                                  <p className="text-gray-500 text-sm leading-snug">Processes the game exactly like the coach. Minimal verbal instruction needed.</p>
                               </div>
-                              <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3">The Coach-Player Alignment Index</h4>
-                              <p className="text-lg text-gray-300 leading-relaxed max-w-3xl">
-                                  Every coach sees which LakePoint athletes actually fit their system and style -
-                                  a recruiting signal that exists nowhere else. It's why coaches make LakePoint
-                                  their first stop, and why athletes buy a profile to be seen by the right ones.
-                              </p>
+                              <div className="bg-[#070707] p-5 sm:p-6">
+                                  <div className="flex items-baseline justify-between mb-2">
+                                      <p className="text-white text-base font-semibold">Strong</p>
+                                      <p className="text-emerald-400/70 text-xs font-semibold tabular-nums">55-74%</p>
+                                  </div>
+                                  <p className="text-gray-500 text-sm leading-snug">Reads the game close to the coach's intent. Light coaching closes the gap fast.</p>
+                              </div>
+                              <div className="bg-[#070707] p-5 sm:p-6">
+                                  <div className="flex items-baseline justify-between mb-2">
+                                      <p className="text-white text-base font-semibold">Moderate</p>
+                                      <p className="text-amber-400/80 text-xs font-semibold tabular-nums">35-54%</p>
+                                  </div>
+                                  <p className="text-gray-500 text-sm leading-snug">Capable, but a different default style. Will need direct instruction to align.</p>
+                              </div>
+                              <div className="bg-[#070707] p-5 sm:p-6">
+                                  <div className="flex items-baseline justify-between mb-2">
+                                      <p className="text-white text-base font-semibold">Developing</p>
+                                      <p className="text-gray-400 text-xs font-semibold tabular-nums">0-34%</p>
+                                  </div>
+                                  <p className="text-gray-500 text-sm leading-snug">Strong athlete, system mismatch. Likely a fit elsewhere.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      {/* WHY IT MATTERS - 3 angles */}
+                      <div>
+                          <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest mb-4">
+                              Why it's the recruiting signal nobody else has
+                          </p>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+                              <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
+                                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+                                      <Monitor size={18} className="text-emerald-400" />
+                                  </div>
+                                  <h4 className="text-white text-base sm:text-lg font-semibold mb-2">For the coach</h4>
+                                  <p className="text-gray-500 text-sm leading-relaxed">
+                                      Cut a 200-athlete short list to the ten who'll actually fit the system - before
+                                      a single phone call. Fewer wasted visits, higher hit rate on signed players,
+                                      lower transfer-portal exposure two years in.
+                                  </p>
+                              </div>
+                              <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
+                                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+                                      <UserCheck size={18} className="text-emerald-400" />
+                                  </div>
+                                  <h4 className="text-white text-base sm:text-lg font-semibold mb-2">For the athlete</h4>
+                                  <p className="text-gray-500 text-sm leading-relaxed">
+                                      Stop being one stat line in a stack of packets. The Alignment Index puts an
+                                      athlete in front of the programs where they're most likely to start, win, and
+                                      stick - which is exactly what families are buying the profile to find out.
+                                  </p>
+                              </div>
+                              <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
+                                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+                                      <ShieldCheck size={18} className="text-emerald-400" />
+                                  </div>
+                                  <h4 className="text-white text-base sm:text-lg font-semibold mb-2">For LakePoint</h4>
+                                  <p className="text-gray-500 text-sm leading-relaxed">
+                                      The Alignment Index is the moat. No other youth-sports platform produces this
+                                      signal - so coaches log into LakePoint first, athletes pay for the profile to
+                                      be seen, and the flywheel runs on something competitors can't copy.
+                                  </p>
+                              </div>
                           </div>
                       </div>
                   </div>
