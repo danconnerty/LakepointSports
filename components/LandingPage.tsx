@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
     Activity, Brain, ArrowRight, Check, X, FileText, Monitor, ShieldCheck,
     Megaphone, RefreshCw, Mail, Database, Tv, Building2, Send, Trophy, LayoutGrid,
-    Target, ClipboardList, Filter, Search, UserCheck, Image as ImageIcon
+    Target, ClipboardList, Filter, Search, UserCheck
 } from 'lucide-react';
 import { ViewType } from '../types';
 import { TestDriveModal } from './TestDriveModal';
@@ -624,27 +624,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           The packet, rebuilt as software.
                       </p>
                   </div>
-                  {/*
-                    MOCKUP SLOT - replace src with the dashboard screenshot once dropped into /public.
-                    Recommended aspect: 16:10 or 16:9. Suggested filename: /coach-dashboard-mockup.png
-                  */}
-                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
-                      <div className="aspect-[16/10] w-full flex items-center justify-center bg-gradient-to-br from-emerald-500/[0.04] via-transparent to-blue-500/[0.04]">
-                          <div className="flex flex-col items-center gap-3 text-gray-600">
-                              <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center">
-                                  <ImageIcon size={26} />
-                              </div>
-                              <p className="text-sm font-medium text-gray-500">Dashboard screenshot lands here</p>
-                              <p className="text-xs text-gray-600">/public/coach-dashboard-mockup.png</p>
-                          </div>
-                      </div>
-                      {/* Once asset is in: swap the above div for:
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
                       <img
-                          src="/coach-dashboard-mockup.png"
+                          src="/Recruitingdashboardmockup.png"
                           alt="LakePoint Collegiate Dashboard - coach view"
                           className="w-full h-auto block"
                       />
-                      */}
                   </div>
                   <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
                       One login. Every verified LakePoint athlete, filterable by sport, position, state, grad year, and fit.
