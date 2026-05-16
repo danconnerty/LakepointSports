@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
     Activity, Brain, ArrowRight, Check, X, FileText, Monitor, ShieldCheck,
     Megaphone, RefreshCw, Mail, Database, Tv, Building2, Send, Trophy, LayoutGrid,
-    Target, ClipboardList
+    Target, ClipboardList, Filter, Search, UserCheck, Image as ImageIcon
 } from 'lucide-react';
 import { ViewType } from '../types';
 import { TestDriveModal } from './TestDriveModal';
@@ -362,11 +362,12 @@ const PartnerProperties = () => (
 );
 
 // --- INSET TAB NAVIGATION ---
-type TabId = 'offer' | 'assessments' | 'economics' | 'distribution' | 'activation';
+type TabId = 'offer' | 'assessments' | 'coaches' | 'economics' | 'distribution' | 'activation';
 
 const TABS: { id: TabId; label: string }[] = [
     { id: 'offer', label: 'The Offer' },
     { id: 'assessments', label: 'The Assessments' },
+    { id: 'coaches', label: "The Coaches' Packet" },
     { id: 'economics', label: 'The Economics' },
     { id: 'distribution', label: 'Distribution' },
     { id: 'activation', label: 'Activation & Rollout' },
@@ -451,66 +452,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </div>
 
-              {/* THE RECRUITING EDGE */}
-              <div className="mt-16 sm:mt-20 border-t border-white/10 pt-16 sm:pt-20">
-                  <div className="mb-10 sm:mb-12 max-w-2xl">
-                      <p className="text-sm font-medium text-emerald-400 mb-3">The recruiting edge</p>
-                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
-                          The coaches' packet, made digital - and smarter.
-                      </h3>
-                      <p className="text-lg text-gray-400 leading-relaxed">
-                          College coaches already come to LakePoint events for talent - and today they walk away
-                          with a printed packet of players. The Collegiate Dashboard turns that packet into a live,
-                          searchable database, and adds a recruiting signal no one else has.
-                      </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-6 sm:mb-8">
-                      <div className="bg-[#070707] p-7 sm:p-9">
-                          <div className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
-                              <ClipboardList size={20} className="text-gray-500" />
-                          </div>
-                          <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">Today</p>
-                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The in-person paper packet</h4>
-                          <ul className="space-y-2.5">
-                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Printed at the event, outdated the moment it's handed out</li>
-                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Limited to whoever happens to be in the room that weekend</li>
-                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Stat lines and measurables - nothing on how the athlete competes</li>
-                          </ul>
-                      </div>
-                      <div className="bg-[#070707] p-7 sm:p-9">
-                          <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
-                              <Monitor size={20} className="text-emerald-400" />
-                          </div>
-                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">With LakePoint</p>
-                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The live recruiting dashboard</h4>
-                          <ul className="space-y-2.5">
-                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Logged into from anywhere, current the moment a profile updates</li>
-                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Every verified athlete across every LakePoint property, searchable</li>
-                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Full mental profile and coaching fit built into every athlete</li>
-                          </ul>
-                      </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-emerald-500/[0.08] to-transparent p-7 sm:p-9">
-                      <div className="flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-6">
-                          <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
-                              <Target size={22} className="text-emerald-400" />
-                          </div>
-                          <div>
-                              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-3">
-                                  <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Exclusive to LakePoint</span>
-                              </div>
-                              <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3">The Coach-Player Alignment Index</h4>
-                              <p className="text-lg text-gray-300 leading-relaxed max-w-3xl">
-                                  Every college coach sees which LakePoint athletes actually fit their coaching style and
-                                  system - a recruiting signal that exists nowhere else. It's why coaches make
-                                  LakePoint their first stop, and why athletes buy a profile to be seen.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
           </section>
         );
 
@@ -643,6 +584,223 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           allowFullScreen
                           className="absolute inset-0 w-full h-full"
                       ></iframe>
+                  </div>
+              </section>
+          </>
+        );
+
+      case 'coaches':
+        return (
+          <>
+              {/* HERO - THESIS */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+                  <div className="max-w-3xl">
+                      <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-5">
+                          <Target size={13} className="text-emerald-400" />
+                          <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">For the coach on the other end</span>
+                      </div>
+                      <h2 className="text-4xl sm:text-6xl font-semibold text-white tracking-tight leading-[1.02] mb-6">
+                          Replace the packet. <span className="text-gray-500">Keep the relationship.</span>
+                      </h2>
+                      <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-4">
+                          Every college coach walks out of a LakePoint event with a stack of paper packets that
+                          go stale on the flight home. We replace that packet with a free, always-on dashboard -
+                          every LakePoint athlete, every sport, every event, year-round.
+                      </p>
+                      <p className="text-base text-gray-500 leading-relaxed">
+                          The dashboard isn't a feature of the partnership. It's the recruiting tool college
+                          coaches reach for first - and the reason they keep coming back to LakePoint.
+                      </p>
+                  </div>
+              </section>
+
+              {/* DASHBOARD MOCKUP PLACEHOLDER */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-28">
+                  <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
+                      <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">
+                          LakePoint Collegiate Dashboard &middot; coach view
+                      </p>
+                      <p className="text-sm text-gray-500">
+                          The packet, rebuilt as software.
+                      </p>
+                  </div>
+                  {/*
+                    MOCKUP SLOT - replace src with the dashboard screenshot once dropped into /public.
+                    Recommended aspect: 16:10 or 16:9. Suggested filename: /coach-dashboard-mockup.png
+                  */}
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
+                      <div className="aspect-[16/10] w-full flex items-center justify-center bg-gradient-to-br from-emerald-500/[0.04] via-transparent to-blue-500/[0.04]">
+                          <div className="flex flex-col items-center gap-3 text-gray-600">
+                              <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center">
+                                  <ImageIcon size={26} />
+                              </div>
+                              <p className="text-sm font-medium text-gray-500">Dashboard screenshot lands here</p>
+                              <p className="text-xs text-gray-600">/public/coach-dashboard-mockup.png</p>
+                          </div>
+                      </div>
+                      {/* Once asset is in: swap the above div for:
+                      <img
+                          src="/coach-dashboard-mockup.png"
+                          alt="LakePoint Collegiate Dashboard - coach view"
+                          className="w-full h-auto block"
+                      />
+                      */}
+                  </div>
+                  <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
+                      One login. Every verified LakePoint athlete, filterable by sport, position, state, grad year, and fit.
+                  </p>
+              </section>
+
+              {/* TODAY VS LAKEPOINT */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+                  <div className="mb-10 sm:mb-12 max-w-2xl">
+                      <p className="text-sm font-medium text-emerald-400 mb-3">The shift</p>
+                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
+                          A coach's recruiting cycle today vs. with LakePoint.
+                      </h3>
+                      <p className="text-lg text-gray-400 leading-relaxed">
+                          The paper packet has been the standard recruiting artifact for decades. It's also the
+                          weakest link in a coach's workflow - and the thing we replace end-to-end.
+                      </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                      <div className="bg-[#070707] p-7 sm:p-9">
+                          <div className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
+                              <ClipboardList size={20} className="text-gray-500" />
+                          </div>
+                          <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">Today</p>
+                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The in-person paper packet</h4>
+                          <ul className="space-y-2.5">
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Printed at the event - stale the moment it's handed out</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Limited to whichever coaches happened to be in the room that weekend</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Stat lines and measurables only - nothing on how the athlete competes or learns</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> One event, one sport - rebuild it from scratch next weekend</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Lives in a folder on the assistant coach's desk</li>
+                          </ul>
+                      </div>
+                      <div className="bg-[#070707] p-7 sm:p-9">
+                          <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
+                              <Monitor size={20} className="text-emerald-400" />
+                          </div>
+                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">With LakePoint</p>
+                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The live coaches' dashboard</h4>
+                          <ul className="space-y-2.5">
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Logged in from any laptop - current the moment a profile updates</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Every verified athlete across every LakePoint property, searchable</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Full mental profile and coach-fit index built into every athlete card</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Year-round, every sport - no rebuild, no event dependency</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Shareable with the full staff in one link</li>
+                          </ul>
+                      </div>
+                  </div>
+              </section>
+
+              {/* WHAT'S IN THE NEW PACKET */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+                  <div className="mb-10 sm:mb-12 max-w-2xl">
+                      <p className="text-sm font-medium text-emerald-400 mb-3">Inside the dashboard</p>
+                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
+                          Everything a recruiting packet should have had all along.
+                      </h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <Search size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Filter the whole database</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">Sport, position, state, grad year, GPA, height/weight - narrow thousands to your short list in seconds.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <Brain size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Mental profile on every athlete</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">How they learn, lead, communicate, and respond under pressure - the stuff a stat line never tells you.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <Target size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Coach-Player Alignment Index</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">A fit score based on the coach's own system and style - a recruiting signal that exists nowhere else.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <UserCheck size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Verified, not self-reported</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">Every profile is NTangible-verified and lives on LakePoint's official database - recruitable, trustable signal.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <FileText size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Full reports + highlights in-line</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">Clutch Factor, NTerpret, and the athlete's highlight tape all live on the same card - no tab juggling.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <Send size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Share with the whole staff</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">Save lists, tag athletes, share boards with assistants and analysts - the dashboard is the workflow.</p>
+                      </div>
+                  </div>
+              </section>
+
+              {/* COACH WORKFLOW STRIP */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+                  <div className="mb-10 sm:mb-12 max-w-2xl">
+                      <p className="text-sm font-medium text-emerald-400 mb-3">The new workflow</p>
+                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08]">
+                          Three steps. From any laptop. No flight required.
+                      </h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+                      <div className="rounded-2xl border border-white/10 bg-[#070707] p-7 sm:p-8">
+                          <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
+                              <Monitor size={22} className="text-emerald-400" />
+                          </div>
+                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">Step 01</p>
+                          <h4 className="text-lg font-semibold text-white tracking-tight mb-2">Log in</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                              Free access for every verified college coach - no per-seat license, no procurement cycle.
+                          </p>
+                      </div>
+                      <div className="rounded-2xl border border-white/10 bg-[#070707] p-7 sm:p-8">
+                          <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
+                              <Filter size={22} className="text-emerald-400" />
+                          </div>
+                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">Step 02</p>
+                          <h4 className="text-lg font-semibold text-white tracking-tight mb-2">Filter the field</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                              Narrow by sport, position, state, grad year, fit score - get from thousands to your short list.
+                          </p>
+                      </div>
+                      <div className="rounded-2xl border border-white/10 bg-[#070707] p-7 sm:p-8">
+                          <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
+                              <Send size={22} className="text-emerald-400" />
+                          </div>
+                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">Step 03</p>
+                          <h4 className="text-lg font-semibold text-white tracking-tight mb-2">Reach out with the full picture</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                              Open an athlete card to the full mental profile, fit score, and highlight reel - then DM the family from inside the dashboard.
+                          </p>
+                      </div>
+                  </div>
+              </section>
+
+              {/* CPA INDEX CALLOUT - signature feature */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-emerald-500/[0.08] to-transparent p-7 sm:p-10">
+                      <div className="flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-6">
+                          <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                              <Target size={22} className="text-emerald-400" />
+                          </div>
+                          <div>
+                              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-3">
+                                  <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Exclusive to LakePoint</span>
+                              </div>
+                              <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3">The Coach-Player Alignment Index</h4>
+                              <p className="text-lg text-gray-300 leading-relaxed max-w-3xl">
+                                  Every coach sees which LakePoint athletes actually fit their system and style -
+                                  a recruiting signal that exists nowhere else. It's why coaches make LakePoint
+                                  their first stop, and why athletes buy a profile to be seen by the right ones.
+                              </p>
+                          </div>
+                      </div>
                   </div>
               </section>
           </>
