@@ -636,6 +636,37 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </p>
               </section>
 
+              {/* DASHBOARD OUTPUT - LEADERBOARDS */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-28">
+                  <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
+                      <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">
+                          Dashboard output &middot; leaderboards
+                      </p>
+                      <p className="text-sm text-gray-500">
+                          The shortlist, ranked before the coach lands.
+                      </p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
+                          <img
+                              src="/clutch-factor-top10-slide1.png"
+                              alt="Clutch Factor leaderboard - top 3 performers"
+                              className="w-full h-auto block"
+                          />
+                      </div>
+                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
+                          <img
+                              src="/clutch-factor-top10-slide2.png"
+                              alt="Clutch Factor leaderboard - ranks 4 through 10"
+                              className="w-full h-auto block"
+                          />
+                      </div>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
+                      Every search in the dashboard collapses into a ranked board - by sport, position, grad year, or coach-fit.
+                  </p>
+              </section>
+
               {/* TODAY VS LAKEPOINT */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
                   <div className="mb-10 sm:mb-12 max-w-2xl">
