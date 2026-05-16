@@ -773,19 +773,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="max-w-3xl mb-10 sm:mb-12">
                           <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-5">
                               <Target size={13} className="text-emerald-400" />
-                              <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Exclusive to LakePoint &middot; signature feature</span>
+                              <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Exclusive to LakePoint</span>
                           </div>
                           <h3 className="text-3xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
-                              The Coach-Player Alignment Index.
+                              The Alignment Index.
                           </h3>
-                          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-3">
-                              A single number, scored 0-100, that tells a college coach how closely an athlete
-                              thinks the game the way the coach does - decision-making, instinct, response under
-                              pressure, and verbal coachability all rolled into one fit signal.
-                          </p>
-                          <p className="text-base text-gray-500 leading-relaxed">
-                              This is the recruiting signal that exists nowhere else - and the reason coaches
-                              return to LakePoint first.
+                          <p className="text-lg sm:text-xl text-gray-200 leading-relaxed">
+                              One 0-100 score that tells a coach - before the first call - whether an athlete
+                              will execute the system, fit the room, and stay.
                           </p>
                       </div>
 
@@ -793,88 +788,50 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.55)] mb-10 sm:mb-12">
                           <img
                               src="/coachalignmentmockup.png"
-                              alt="Coach Alignment Index - athlete card showing a 93% Exceptional alignment score"
+                              alt="Alignment Index - athlete card showing a 93% Exceptional alignment score"
                               className="w-full h-auto block"
                           />
                       </div>
 
-                      {/* TIER STRIP */}
+                      {/* RUBRIC - 5 real tiers */}
                       <div className="mb-10 sm:mb-12">
                           <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest mb-4">
-                              How the score reads at a glance
+                              The rubric
                           </p>
-                          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                              <div className="bg-[#070707] p-5 sm:p-6">
-                                  <div className="flex items-baseline justify-between mb-2">
-                                      <p className="text-white text-base font-semibold">Exceptional</p>
-                                      <p className="text-emerald-400 text-xs font-semibold tabular-nums">75-100%</p>
+                          <div className="rounded-2xl border border-white/10 overflow-hidden bg-[#070707]">
+                              {[
+                                  { range: '75 - 100', tier: 'Exceptional', dot: 'bg-emerald-400', tone: 'text-emerald-400', line: 'Processes the game exactly like the coach. Minimal verbal instruction needed.' },
+                                  { range: '62.5 - 74.9', tier: 'Strong', dot: 'bg-blue-400', tone: 'text-blue-400', line: "Agrees with the coach's goals; may take a different path. Healthy friction in the film room." },
+                                  { range: '50 - 62.4', tier: 'Conditional', dot: 'bg-amber-400', tone: 'text-amber-400', line: "Transactional fit. Works with clear rules and explicit rewards - cracks under losing." },
+                                  { range: '37.5 - 49.9', tier: 'Developmental', dot: 'bg-orange-400', tone: 'text-orange-400', line: 'Processes key decisions differently. Success requires explicit role clarity and structured comms.' },
+                                  { range: '0 - 37.4', tier: 'Low alignment', dot: 'bg-red-400', tone: 'text-red-400', line: 'High friction risk. Prompt deeper conversation before any long-term commitment.' },
+                              ].map((row, i, arr) => (
+                                  <div
+                                      key={row.tier}
+                                      className={`grid grid-cols-12 items-center gap-4 px-5 sm:px-6 py-4 ${i < arr.length - 1 ? 'border-b border-white/5' : ''}`}
+                                  >
+                                      <div className="col-span-4 sm:col-span-3 flex items-center gap-3">
+                                          <span className={`w-2 h-2 rounded-full ${row.dot} shrink-0`} />
+                                          <span className="text-white text-sm sm:text-base font-semibold tabular-nums">{row.range}%</span>
+                                      </div>
+                                      <div className={`col-span-8 sm:col-span-3 text-sm sm:text-base font-semibold ${row.tone}`}>
+                                          {row.tier}
+                                      </div>
+                                      <div className="col-span-12 sm:col-span-6 text-sm text-gray-400 leading-snug">
+                                          {row.line}
+                                      </div>
                                   </div>
-                                  <p className="text-gray-500 text-sm leading-snug">Processes the game exactly like the coach. Minimal verbal instruction needed.</p>
-                              </div>
-                              <div className="bg-[#070707] p-5 sm:p-6">
-                                  <div className="flex items-baseline justify-between mb-2">
-                                      <p className="text-white text-base font-semibold">Strong</p>
-                                      <p className="text-emerald-400/70 text-xs font-semibold tabular-nums">55-74%</p>
-                                  </div>
-                                  <p className="text-gray-500 text-sm leading-snug">Reads the game close to the coach's intent. Light coaching closes the gap fast.</p>
-                              </div>
-                              <div className="bg-[#070707] p-5 sm:p-6">
-                                  <div className="flex items-baseline justify-between mb-2">
-                                      <p className="text-white text-base font-semibold">Moderate</p>
-                                      <p className="text-amber-400/80 text-xs font-semibold tabular-nums">35-54%</p>
-                                  </div>
-                                  <p className="text-gray-500 text-sm leading-snug">Capable, but a different default style. Will need direct instruction to align.</p>
-                              </div>
-                              <div className="bg-[#070707] p-5 sm:p-6">
-                                  <div className="flex items-baseline justify-between mb-2">
-                                      <p className="text-white text-base font-semibold">Developing</p>
-                                      <p className="text-gray-400 text-xs font-semibold tabular-nums">0-34%</p>
-                                  </div>
-                                  <p className="text-gray-500 text-sm leading-snug">Strong athlete, system mismatch. Likely a fit elsewhere.</p>
-                              </div>
+                              ))}
                           </div>
                       </div>
 
-                      {/* WHY IT MATTERS - 3 angles */}
-                      <div>
-                          <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest mb-4">
-                              Why it's the recruiting signal nobody else has
+                      {/* THE PUNCH LINE */}
+                      <div className="rounded-2xl border border-emerald-500/30 bg-[#070707] p-7 sm:p-9">
+                          <p className="text-xl sm:text-2xl text-white leading-snug font-medium max-w-3xl">
+                              Coaches keep coming back to LakePoint because this signal lives nowhere else.
+                              Athletes buy the profile to be seen by the programs they'll actually fit.
+                              That's the moat.
                           </p>
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-                              <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
-                                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
-                                      <Monitor size={18} className="text-emerald-400" />
-                                  </div>
-                                  <h4 className="text-white text-base sm:text-lg font-semibold mb-2">For the coach</h4>
-                                  <p className="text-gray-500 text-sm leading-relaxed">
-                                      Cut a 200-athlete short list to the ten who'll actually fit the system - before
-                                      a single phone call. Fewer wasted visits, higher hit rate on signed players,
-                                      lower transfer-portal exposure two years in.
-                                  </p>
-                              </div>
-                              <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
-                                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
-                                      <UserCheck size={18} className="text-emerald-400" />
-                                  </div>
-                                  <h4 className="text-white text-base sm:text-lg font-semibold mb-2">For the athlete</h4>
-                                  <p className="text-gray-500 text-sm leading-relaxed">
-                                      Stop being one stat line in a stack of packets. The Alignment Index puts an
-                                      athlete in front of the programs where they're most likely to start, win, and
-                                      stick - which is exactly what families are buying the profile to find out.
-                                  </p>
-                              </div>
-                              <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
-                                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
-                                      <ShieldCheck size={18} className="text-emerald-400" />
-                                  </div>
-                                  <h4 className="text-white text-base sm:text-lg font-semibold mb-2">For LakePoint</h4>
-                                  <p className="text-gray-500 text-sm leading-relaxed">
-                                      The Alignment Index is the moat. No other youth-sports platform produces this
-                                      signal - so coaches log into LakePoint first, athletes pay for the profile to
-                                      be seen, and the flywheel runs on something competitors can't copy.
-                                  </p>
-                              </div>
-                          </div>
                       </div>
                   </div>
               </section>
