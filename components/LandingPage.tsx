@@ -736,7 +736,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </p>
                   </div>
 
-                  <div className="space-y-14 sm:space-y-20">
+                  <div className="space-y-20 sm:space-y-28 lg:space-y-36">
                       {[
                           {
                               step: '01',
@@ -762,23 +762,34 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               src: '/collegenotes.png',
                               alt: 'My Watchlist - private scouting log tied to each athlete profile',
                           },
-                      ].map((view) => (
-                          <div key={view.step} className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
-                              <div className="lg:col-span-4 lg:sticky lg:top-24">
-                                  <div className="flex items-baseline gap-3 mb-3">
-                                      <span className="text-emerald-400/80 text-sm font-semibold tabular-nums">{view.step}</span>
-                                      <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">{view.eyebrow}</span>
+                      ].map((view, idx, arr) => (
+                          <div key={view.step} className="relative">
+                              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                                  <div className="lg:col-span-4 lg:sticky lg:top-24">
+                                      <div className="flex items-center gap-4 mb-5">
+                                          <div className="flex items-center justify-center w-11 h-11 rounded-full bg-emerald-500/10 border border-emerald-500/30">
+                                              <span className="text-emerald-300 text-sm font-semibold tabular-nums">{view.step}</span>
+                                          </div>
+                                          <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">{view.eyebrow}</span>
+                                      </div>
+                                      <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-tight mb-4">{view.title}</h4>
+                                      <p className="text-base text-gray-400 leading-relaxed">{view.blurb}</p>
                                   </div>
-                                  <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-tight mb-3">{view.title}</h4>
-                                  <p className="text-base text-gray-400 leading-relaxed">{view.blurb}</p>
+                                  <div className="lg:col-span-8">
+                                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_40px_100px_rgba(0,0,0,0.6)] ring-1 ring-white/5">
+                                          <img
+                                              src={view.src}
+                                              alt={view.alt}
+                                              className="w-full h-auto block"
+                                          />
+                                      </div>
+                                  </div>
                               </div>
-                              <div className="lg:col-span-8 rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
-                                  <img
-                                      src={view.src}
-                                      alt={view.alt}
-                                      className="w-full h-auto block"
-                                  />
-                              </div>
+                              {idx < arr.length - 1 && (
+                                  <div className="hidden sm:flex justify-center mt-20 sm:mt-28 lg:mt-36">
+                                      <div className="h-px w-24 bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
+                                  </div>
+                              )}
                           </div>
                       ))}
                   </div>
