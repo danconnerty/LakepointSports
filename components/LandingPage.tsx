@@ -681,49 +681,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </section>
 
-              {/* WHAT'S IN THE NEW PACKET */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
-                  <div className="mb-10 sm:mb-12 max-w-2xl">
-                      <p className="text-sm font-medium text-emerald-400 mb-3">Inside the dashboard</p>
-                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
-                          Everything a recruiting packet should have had all along.
-                      </h3>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <Search size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Filter the whole database</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Sport, position, state, grad year, GPA, height/weight - narrow thousands to your short list in seconds.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <Brain size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Mental profile on every athlete</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">How they learn, lead, communicate, and respond under pressure - the stuff a stat line never tells you.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <Target size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Coach-Player Alignment Index</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">A fit score based on the coach's own system and style - a recruiting signal that exists nowhere else.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <UserCheck size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Verified, not self-reported</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Every profile is NTangible-verified and lives on LakePoint's official database - recruitable, trustable signal.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <FileText size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Full reports + highlights in-line</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Clutch Factor, NTerpret, and the athlete's highlight tape all live on the same card - no tab juggling.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <Send size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Share with the whole staff</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Save lists, tag athletes, share boards with assistants and analysts - the dashboard is the workflow.</p>
-                      </div>
-                  </div>
-              </section>
-
               {/* THREE VIEWS - how a coach actually uses the dashboard */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-10 sm:mb-12 max-w-2xl">
@@ -742,7 +699,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               step: '01',
                               eyebrow: 'Discover',
                               title: 'Clutch Factor Leaderboard',
-                              blurb: 'The public ranking every coach lands on first. Every assessed athlete, sorted by Clutch Factor and filterable by position and grad year.',
+                              blurb: 'The public ranking every coach lands on first. Every NTangible-verified athlete in the LakePoint database, filterable by sport, position, state, grad year, GPA, and height/weight - thousands narrowed to a short list in seconds.',
                               src: '/collegeleaderboard.png',
                               alt: 'Clutch Factor Leaderboard - public ranking of every assessed athlete',
                           },
@@ -750,7 +707,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               step: '02',
                               eyebrow: 'Shortlist',
                               title: 'My Top Targets',
-                              blurb: 'The Trust Anchor view (Alignment ≥ 62.5% & Clutch Factor ≥ 750) - the coach’s personal board, ranked by fit to their program.',
+                              blurb: 'The Trust Anchor view (Alignment ≥ 62.5% & Clutch Factor ≥ 750) - the coach’s personal board, ranked by fit to their program. Underneath every name: how each athlete learns, leads, communicates, and competes under pressure - the stuff a stat line never tells you.',
                               src: '/collegetoptargets.png',
                               alt: 'My Top Targets - athletes ranked by Alignment for the coach’s program',
                           },
@@ -758,7 +715,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               step: '03',
                               eyebrow: 'Decide',
                               title: 'My Watchlist',
-                              blurb: 'Private scouting notes tied back to every athlete profile - the in-person observation, captured where the rest of the data lives.',
+                              blurb: 'Clutch Factor, NTerpret, highlight tape, and the staff’s in-person observations all live on the same card - the dashboard is the workflow, shareable with assistants and analysts in one link.',
                               src: '/collegenotes.png',
                               alt: 'My Watchlist - private scouting log tied to each athlete profile',
                           },
