@@ -1104,6 +1104,37 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </p>
                   </div>
 
+                  {/* LEADERBOARD PREVIEW - what Phase 1 ships */}
+                  <div className="mb-12 sm:mb-16">
+                      <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
+                          <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">
+                              Phase 1 output &middot; sample
+                          </p>
+                          <p className="text-sm text-gray-500">
+                              Auto-generated leaderboard, ready to publish across LakePoint and partner channels.
+                          </p>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
+                              <img
+                                  src="/clutch-factor-top10-slide1.png"
+                                  alt="Clutch Factor leaderboard - top 3 performers"
+                                  className="w-full h-auto block"
+                              />
+                          </div>
+                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
+                              <img
+                                  src="/clutch-factor-top10-slide2.png"
+                                  alt="Clutch Factor leaderboard - ranks 4 through 10"
+                                  className="w-full h-auto block"
+                              />
+                          </div>
+                      </div>
+                      <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
+                          Co-branded for each LakePoint partner. Generated per event, per property, per sport - on autopilot.
+                      </p>
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                       <div className="bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
                           <div className="flex items-baseline gap-3 mb-4">
