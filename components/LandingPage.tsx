@@ -593,7 +593,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         return (
           <>
               {/* HERO - THESIS */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="max-w-3xl">
                       <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-5">
                           <Target size={13} className="text-emerald-400" />
@@ -615,7 +615,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </section>
 
               {/* DASHBOARD MOCKUP PLACEHOLDER */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-28">
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
                       <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">
                           LakePoint Collegiate Dashboard &middot; coach view
@@ -624,7 +624,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           The packet, rebuilt as software.
                       </p>
                   </div>
-                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
                       <img
                           src="/Recruitingdashboardmockup.png"
                           alt="LakePoint Collegiate Dashboard - coach view"
@@ -637,7 +637,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </section>
 
               {/* TODAY VS LAKEPOINT */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-10 sm:mb-12 max-w-2xl">
                       <p className="text-sm font-medium text-emerald-400 mb-3">The shift</p>
                       <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
@@ -693,7 +693,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </p>
                   </div>
 
-                  <div className="space-y-16 sm:space-y-24">
+                  <div>
                       {[
                           {
                               step: '01',
@@ -735,7 +735,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                       <p className="text-base sm:text-lg text-gray-400 leading-relaxed">{view.blurb}</p>
                                   </div>
 
-                                  <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_40px_100px_rgba(0,0,0,0.6)] ring-1 ring-white/5">
+                                  <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
                                       <img
                                           src={view.src}
                                           alt={view.alt}
@@ -744,7 +744,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                   </div>
                               </div>
                               {idx < arr.length - 1 && (
-                                  <div className="flex justify-center py-10 sm:py-14">
+                                  <div className="flex justify-center py-16 sm:py-20">
                                       <div className="flex flex-col items-center gap-3">
                                           <div className="h-12 w-px bg-gradient-to-b from-transparent to-emerald-500/40" />
                                           <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/60" />
@@ -775,7 +775,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </div>
 
                       {/* MOCKUP */}
-                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.55)] mb-10 sm:mb-12">
+                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5 mb-10 sm:mb-12">
                           <img
                               src="/coachalignmentmockup.png"
                               alt="Alignment Index - athlete card showing a 93% Exceptional alignment score"
