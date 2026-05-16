@@ -716,6 +716,37 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <RefreshCw size={14} className="shrink-0" />
                           <p className="text-sm">The more the program earns, the harder NTangible markets LakePoint.</p>
                       </div>
+
+                      {/* AD SPEND FLEXIBILITY */}
+                      <div className="mt-10 rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-8">
+                          <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">
+                              LakePoint's call on where it goes
+                          </p>
+                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight leading-tight mb-3">
+                              The ad spend isn't locked to a channel - it's a marketing budget LakePoint deploys.
+                          </h3>
+                          <p className="text-base text-gray-400 leading-relaxed mb-6">
+                              The $10K-per-increment commitment is dollars NTangible is putting on the table. LakePoint
+                              decides how to spend them - whatever moves the needle hardest at that moment.
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+                              <div className="bg-[#0a0a0a] p-5 sm:p-6">
+                                  <p className="text-white text-base font-semibold mb-2">General marketing fund</p>
+                                  <p className="text-gray-500 text-sm leading-relaxed">
+                                      Roll it into LakePoint's broader paid media, owned-channel campaigns, or event
+                                      promotion - whatever the marketing team is already pushing.
+                                  </p>
+                              </div>
+                              <div className="bg-[#0a0a0a] p-5 sm:p-6">
+                                  <p className="text-white text-base font-semibold mb-2">Redirect to strategic partners</p>
+                                  <p className="text-gray-500 text-sm leading-relaxed">
+                                      Or aim it at a flagship partner like <span className="text-white font-medium">Publix</span>
+                                      {' '}to deepen that integration - co-branded campaigns, in-store activations, joint
+                                      promotions that strengthen the relationship LakePoint cares about most.
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
                   </div>
               </section>
 
