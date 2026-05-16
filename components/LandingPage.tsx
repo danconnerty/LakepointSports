@@ -16,7 +16,7 @@ interface LandingPageProps {
 }
 
 // --- CO-BRANDED LOGO ---
-const Logo = ({ className = "", size = "normal", showLabel = true }: { className?: string, size?: "small" | "normal", showLabel?: boolean }) => {
+const Logo = ({ className = "", size = "normal" }: { className?: string, size?: "small" | "normal" }) => {
     const height = size === "small" ? "h-7" : "h-9";
 
     return (
@@ -32,11 +32,6 @@ const Logo = ({ className = "", size = "normal", showLabel = true }: { className
                 alt="LakePoint Sports"
                 className={`${height} w-auto object-contain`}
             />
-            {showLabel && (
-                <span className="text-white font-semibold tracking-tight text-sm sm:text-base whitespace-nowrap">
-                    LakePoint Sports
-                </span>
-            )}
         </div>
     );
 };
@@ -1367,7 +1362,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
                   <div className="col-span-2 sm:col-span-1">
-                      <Logo className="text-white opacity-90 mb-4" size="small" showLabel={false} />
+                      <Logo className="text-white opacity-90 mb-4" size="small" />
                       <p className="text-sm text-gray-500 leading-relaxed">
                           An integration proposal for LakePoint Sports.
                       </p>
