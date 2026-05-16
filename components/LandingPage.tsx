@@ -115,7 +115,6 @@ const SampleReportModal = ({ onClose, onViewClutch, onViewNterpret }: { onClose:
 const PRICE = 10;
 const LAKEPOINT_SHARE = 2;
 const PARTNER_SHARE = 1;
-const NTANGIBLE_SHARE = 7;
 const AD_SPEND_INCREMENT = 50000;
 const AD_SPEND_PER_INCREMENT = 10000;
 const MAX_PROFILES = 250000;
@@ -128,12 +127,9 @@ const PricingCalculator = () => {
     const grossRevenue = clamped * PRICE;
     const lakepointRev = clamped * LAKEPOINT_SHARE;
     const partnerRev = clamped * PARTNER_SHARE;
-    const ntangibleRev = clamped * NTANGIBLE_SHARE;
 
     const milestones = Math.floor(grossRevenue / AD_SPEND_INCREMENT);
     const adSpend = milestones * AD_SPEND_PER_INCREMENT;
-    const nextMilestoneRevenue = (milestones + 1) * AD_SPEND_INCREMENT;
-    const progressToNext = grossRevenue === 0 ? 0 : ((grossRevenue % AD_SPEND_INCREMENT) / AD_SPEND_INCREMENT) * 100;
     const totalToLakePoint = lakepointRev + adSpend;
 
     const fmt = (n: number) => `$${Math.round(n).toLocaleString('en-US')}`;
@@ -148,9 +144,8 @@ const PricingCalculator = () => {
                     $10 a profile. Revenue on every one.
                 </h2>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                    A direct-to-consumer price point built to move across every LakePoint digital channel and partner property.
-                    LakePoint and the originating partner earn on every profile sold - and at scale, NTangible reinvests
-                    directly back into LakePoint ad spend.
+                    LakePoint and the originating partner earn on every profile sold. At scale, NTangible reinvests directly
+                    back into LakePoint ad spend.
                 </p>
             </div>
 
@@ -159,25 +154,25 @@ const PricingCalculator = () => {
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-blue-400 tracking-tight mb-1 tabular-nums">$2</p>
                     <p className="text-white text-base font-semibold mb-1">LakePoint Sports</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Direct revenue share to LakePoint on every profile sold, across all channels.</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Direct revenue share to LakePoint on every profile sold.</p>
                 </div>
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-emerald-400 tracking-tight mb-1 tabular-nums">$1</p>
                     <p className="text-white text-base font-semibold mb-1">Originating partner</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Paid to the specific LakePoint partner or property that drove the sale.</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Paid to the specific partner or property that drove the sale.</p>
                 </div>
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mb-1 tabular-nums">$7</p>
                     <p className="text-white text-base font-semibold mb-1">NTangible</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Covers assessment delivery, hosting, the collegiate dashboard, and the directed ad-spend commitment.</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Covers assessments, hosting, the collegiate dashboard, and ad-spend commitment.</p>
                 </div>
             </div>
 
             {/* Calculator card */}
             <div className="bg-[#070707] border border-white/10 rounded-2xl p-6 sm:p-10">
-                <div className="mb-6 sm:mb-8">
-                    <p className="text-sm text-gray-500 font-medium mb-1">Revenue calculator</p>
-                    <p className="text-base text-gray-400">Drag to model the integration at scale.</p>
+                <div className="mb-8">
+                    <p className="text-sm text-gray-500 font-medium mb-1">Model it at scale</p>
+                    <p className="text-base text-gray-400">Drag to set the number of profiles sold.</p>
                 </div>
 
                 {/* Slider */}
@@ -222,93 +217,29 @@ const PricingCalculator = () => {
                     </div>
                 </div>
 
-                {/* Gross revenue */}
-                <div className="mb-6">
-                    <p className="text-sm font-medium text-gray-500 mb-2">Gross program revenue</p>
-                    <p className="text-5xl sm:text-6xl font-semibold text-white tracking-tight tabular-nums">{fmt(grossRevenue)}</p>
-                    <p className="text-sm text-gray-500 mt-2 tabular-nums">{clamped.toLocaleString('en-US')} profiles &times; $10</p>
+                {/* Total to LakePoint - hero result */}
+                <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-b from-blue-500/[0.08] to-transparent p-6 sm:p-8 mb-6">
+                    <p className="text-sm font-medium text-blue-400 mb-2">Total value to LakePoint Sports</p>
+                    <p className="text-5xl sm:text-6xl font-semibold text-white tracking-tight tabular-nums mb-2">{fmt(totalToLakePoint)}</p>
+                    <p className="text-sm text-gray-400 tabular-nums">{fmt(lakepointRev)} rev share + {fmt(adSpend)} directed ad spend</p>
                 </div>
 
-                {/* Stacked split bar */}
-                <div className="flex h-3 rounded-full overflow-hidden bg-white/5 mb-8">
-                    <div className="bg-blue-500" style={{ width: '20%' }} title="LakePoint $2" />
-                    <div className="bg-emerald-500" style={{ width: '10%' }} title="Partner $1" />
-                    <div className="bg-white/30" style={{ width: '70%' }} title="NTangible $7" />
-                </div>
-
-                {/* Split results */}
+                {/* Supporting breakdown */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden">
                     <div className="bg-[#070707] p-5 sm:p-6">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="w-2 h-2 rounded-full bg-blue-500" />
-                            <p className="text-sm font-medium text-blue-400">LakePoint rev share</p>
-                        </div>
+                        <p className="text-sm font-medium text-blue-400 mb-2">LakePoint rev share</p>
                         <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(lakepointRev)}</p>
-                        <p className="text-sm text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $2</p>
+                        <p className="text-xs text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $2</p>
                     </div>
                     <div className="bg-[#070707] p-5 sm:p-6">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                            <p className="text-sm font-medium text-emerald-400">Partner rev share</p>
-                        </div>
+                        <p className="text-sm font-medium text-blue-400 mb-2">Directed ad spend</p>
+                        <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(adSpend)}</p>
+                        <p className="text-xs text-gray-500 mt-1 tabular-nums">{milestones} &times; $10K milestone{milestones === 1 ? '' : 's'}</p>
+                    </div>
+                    <div className="bg-[#070707] p-5 sm:p-6">
+                        <p className="text-sm font-medium text-emerald-400 mb-2">Partner rev share</p>
                         <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(partnerRev)}</p>
-                        <p className="text-sm text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $1</p>
-                    </div>
-                    <div className="bg-[#070707] p-5 sm:p-6">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="w-2 h-2 rounded-full bg-white/40" />
-                            <p className="text-sm font-medium text-gray-400">NTangible</p>
-                        </div>
-                        <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(ntangibleRev)}</p>
-                        <p className="text-sm text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $7</p>
-                    </div>
-                </div>
-
-                {/* Directed ad-spend commitment */}
-                <div className="mt-8 rounded-2xl border border-blue-500/30 bg-gradient-to-b from-blue-500/[0.08] to-transparent p-6 sm:p-8">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-                        <div className="max-w-md">
-                            <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full mb-3">
-                                <Megaphone size={13} className="text-blue-400" />
-                                <span className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">Directed ad-spend commitment</span>
-                            </div>
-                            <p className="text-base text-gray-300 leading-relaxed">
-                                For every <span className="text-white font-semibold">$50,000</span> in gross program revenue,
-                                NTangible commits <span className="text-white font-semibold">$10,000</span> to a directed
-                                ad-spend campaign run through LakePoint Sports.
-                            </p>
-                        </div>
-                        <div className="sm:text-right shrink-0">
-                            <p className="text-sm font-medium text-blue-400 mb-1">Committed ad spend</p>
-                            <p className="text-4xl sm:text-5xl font-semibold text-white tracking-tight tabular-nums">{fmt(adSpend)}</p>
-                            <p className="text-sm text-gray-500 mt-1 tabular-nums">
-                                {milestones} &times; $10,000 milestone{milestones === 1 ? '' : 's'}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="mt-6 pt-6 border-t border-white/10">
-                        <div className="flex justify-between text-xs text-gray-500 mb-2 tabular-nums">
-                            <span>{fmt(milestones * AD_SPEND_INCREMENT)} in revenue</span>
-                            <span>Next campaign unlocks at {fmt(nextMilestoneRevenue)}</span>
-                        </div>
-                        <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
-                            <div className="h-full bg-blue-500 transition-all duration-300" style={{ width: `${progressToNext}%` }} />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Total to LakePoint */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden mt-8">
-                    <div className="bg-[#070707] p-5 sm:p-6">
-                        <p className="text-sm font-medium text-gray-500 mb-2">Total value to LakePoint Sports</p>
-                        <p className="text-3xl sm:text-4xl font-semibold text-blue-400 tracking-tight tabular-nums">{fmt(totalToLakePoint)}</p>
-                        <p className="text-sm text-gray-500 mt-2 tabular-nums">{fmt(lakepointRev)} rev share + {fmt(adSpend)} directed ad spend</p>
-                    </div>
-                    <div className="bg-[#070707] p-5 sm:p-6">
-                        <p className="text-sm font-medium text-gray-500 mb-2">Total to LakePoint + partners</p>
-                        <p className="text-3xl sm:text-4xl font-semibold text-white tracking-tight tabular-nums">{fmt(totalToLakePoint + partnerRev)}</p>
-                        <p className="text-sm text-gray-500 mt-2 tabular-nums">Includes {fmt(partnerRev)} paid to originating partners</p>
+                        <p className="text-xs text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $1</p>
                     </div>
                 </div>
 
@@ -447,7 +378,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <ul className="space-y-2.5 border-t border-white/5 pt-5">
                           <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Free access for every college coach across properties</li>
                           <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Searchable leaderboards of LakePoint athletes</li>
-                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Positions LakePoint as the recruiting front door</li>
                       </ul>
                   </div>
               </div>
@@ -577,7 +507,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <iframe
                           width="100%"
                           height="100%"
-                          src="https://www.youtube.com/embed/spKsM_5c0iM?autoplay=0&controls=1&rel=0&modestbranding=1"
+                          src="https://www.youtube.com/embed/6NS4CVbeZQg?autoplay=0&controls=1&rel=0&modestbranding=1"
                           title="Product Tour"
                           frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -593,7 +523,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         return (
           <>
               {/* HERO - THESIS */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="max-w-3xl">
                       <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-5">
                           <Target size={13} className="text-emerald-400" />
@@ -602,29 +532,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <h2 className="text-4xl sm:text-6xl font-semibold text-white tracking-tight leading-[1.02] mb-6">
                           Replace the packet. <span className="text-gray-500">Keep the relationship.</span>
                       </h2>
-                      <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-4">
+                      <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
                           Every college coach walks out of a LakePoint event with a stack of paper packets that
                           go stale on the flight home. We replace that packet with a free, always-on dashboard -
                           every LakePoint athlete, every sport, every event, year-round.
-                      </p>
-                      <p className="text-base text-gray-500 leading-relaxed">
-                          The dashboard isn't a feature of the partnership. It's the recruiting tool college
-                          coaches reach for first - and the reason they keep coming back to LakePoint.
                       </p>
                   </div>
               </section>
 
               {/* DASHBOARD MOCKUP PLACEHOLDER */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-28">
-                  <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
-                      <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">
-                          LakePoint Collegiate Dashboard &middot; coach view
-                      </p>
-                      <p className="text-sm text-gray-500">
-                          The packet, rebuilt as software.
-                      </p>
-                  </div>
-                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
                       <img
                           src="/Recruitingdashboardmockup.png"
                           alt="LakePoint Collegiate Dashboard - coach view"
@@ -637,7 +555,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </section>
 
               {/* TODAY VS LAKEPOINT */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-10 sm:mb-12 max-w-2xl">
                       <p className="text-sm font-medium text-emerald-400 mb-3">The shift</p>
                       <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
@@ -681,46 +599,79 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </section>
 
-              {/* WHAT'S IN THE NEW PACKET */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+              {/* THREE VIEWS - how a coach actually uses the dashboard */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-10 sm:mb-12 max-w-2xl">
-                      <p className="text-sm font-medium text-emerald-400 mb-3">Inside the dashboard</p>
+                      <p className="text-sm font-medium text-emerald-400 mb-3">The coach workflow</p>
                       <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
-                          Everything a recruiting packet should have had all along.
+                          From the public board to the private note.
                       </h3>
+                      <p className="text-lg text-gray-400 leading-relaxed">
+                          Three views, one workflow - the path every coach walks from first scroll to final decision.
+                      </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <Search size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Filter the whole database</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Sport, position, state, grad year, GPA, height/weight - narrow thousands to your short list in seconds.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <Brain size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Mental profile on every athlete</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">How they learn, lead, communicate, and respond under pressure - the stuff a stat line never tells you.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <Target size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Coach-Player Alignment Index</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">A fit score based on the coach's own system and style - a recruiting signal that exists nowhere else.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <UserCheck size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Verified, not self-reported</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Every profile is NTangible-verified and lives on LakePoint's official database - recruitable, trustable signal.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <FileText size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Full reports + highlights in-line</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Clutch Factor, NTerpret, and the athlete's highlight tape all live on the same card - no tab juggling.</p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <Send size={20} className="text-emerald-400 mb-4" />
-                          <h4 className="text-white text-base font-semibold mb-2">Share with the whole staff</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">Save lists, tag athletes, share boards with assistants and analysts - the dashboard is the workflow.</p>
-                      </div>
+                  <div>
+                      {[
+                          {
+                              step: '01',
+                              eyebrow: 'Discover',
+                              title: 'Clutch Factor Leaderboard',
+                              blurb: 'The public ranking every coach lands on first. Every NTangible-verified athlete in the LakePoint database, filterable by sport, position, state, grad year, GPA, and height/weight - thousands narrowed to a short list in seconds.',
+                              src: '/collegeleaderboard.png',
+                              alt: 'Clutch Factor Leaderboard - public ranking of every assessed athlete',
+                          },
+                          {
+                              step: '02',
+                              eyebrow: 'Shortlist',
+                              title: 'My Top Targets',
+                              blurb: 'The Trust Anchor view (Alignment ≥ 62.5% & Clutch Factor ≥ 750) - the coach’s personal board, ranked by fit to their program. Underneath every name: how each athlete learns, leads, communicates, and competes under pressure - the stuff a stat line never tells you.',
+                              src: '/collegetoptargets.png',
+                              alt: 'My Top Targets - athletes ranked by Alignment for the coach’s program',
+                          },
+                          {
+                              step: '03',
+                              eyebrow: 'Decide',
+                              title: 'My Watchlist',
+                              blurb: 'Clutch Factor, NTerpret, highlight tape, and the staff’s in-person observations all live on the same card - the dashboard is the workflow, shareable with assistants and analysts in one link.',
+                              src: '/collegenotes.png',
+                              alt: 'My Watchlist - private scouting log tied to each athlete profile',
+                          },
+                      ].map((view, idx, arr) => (
+                          <div key={view.step}>
+                              <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 sm:p-10 lg:p-12">
+                                  <div className="flex items-center gap-4 mb-8 sm:mb-10">
+                                      <div className="flex items-center justify-center w-11 h-11 rounded-full bg-emerald-500/10 border border-emerald-500/30 shrink-0">
+                                          <span className="text-emerald-300 text-sm font-semibold tabular-nums">{view.step}</span>
+                                      </div>
+                                      <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">{view.eyebrow}</span>
+                                      <div className="flex-1 h-px bg-gradient-to-r from-emerald-500/20 to-transparent ml-2" />
+                                  </div>
+
+                                  <div className="max-w-2xl mb-8 sm:mb-12">
+                                      <h4 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight leading-tight mb-4">{view.title}</h4>
+                                      <p className="text-base sm:text-lg text-gray-400 leading-relaxed">{view.blurb}</p>
+                                  </div>
+
+                                  <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
+                                      <img
+                                          src={view.src}
+                                          alt={view.alt}
+                                          className="w-full h-auto block"
+                                      />
+                                  </div>
+                              </div>
+                              {idx < arr.length - 1 && (
+                                  <div className="flex justify-center py-16 sm:py-20">
+                                      <div className="flex flex-col items-center gap-3">
+                                          <div className="h-12 w-px bg-gradient-to-b from-transparent to-emerald-500/40" />
+                                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/60" />
+                                          <div className="h-12 w-px bg-gradient-to-b from-emerald-500/40 to-transparent" />
+                                      </div>
+                                  </div>
+                              )}
+                          </div>
+                      ))}
                   </div>
               </section>
 
@@ -742,7 +693,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </div>
 
                       {/* MOCKUP */}
-                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.55)] mb-10 sm:mb-12">
+                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5 mb-10 sm:mb-12">
                           <img
                               src="/coachalignmentmockup.png"
                               alt="Alignment Index - athlete card showing a 93% Exceptional alignment score"
@@ -803,10 +754,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               Every $50K in revenue buys LakePoint $10K of reach.
                           </h2>
                           <p className="text-lg text-gray-300 leading-relaxed">
-                              The committed ad spend is the engine that gets this off the ground. NTangible doesn't just
-                              pay a revenue share - for every <span className="text-white font-semibold">$50,000</span> in
-                              gross program revenue, we put <span className="text-white font-semibold">$10,000</span> straight
-                              back into a directed ad campaign run through LakePoint Sports. The program funds its own growth.
+                              For every <span className="text-white font-semibold">$50,000</span> in gross program revenue, NTangible puts
+                              {' '}<span className="text-white font-semibold">$10,000</span> back into a directed ad campaign run through LakePoint Sports.
+                              The program funds its own growth.
                           </p>
                       </div>
 
@@ -902,7 +852,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <p className="text-lg text-gray-400 leading-relaxed">
                               Every 6 months, NTangible sends an automatic retest email so athletes can update their Clutch Factor
                               score. Each retest is another $10 profile - another $2 to LakePoint and $1 to the partner.
-                              The first year's volume is just the baseline.
                           </p>
                       </div>
                       <div className="lg:col-span-5">
@@ -987,8 +936,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           Pushed hard across every channel you own.
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          This is a direct-to-consumer product engineered for volume. It moves through LakePoint's own digital
-                          footprint and every partner channel we build assessments for - no field staff, no clipboards.
+                          The profile ships through LakePoint's own digital footprint and every partner channel we build assessments
+                          for - email, on-campus signage, partner sites - no field staff, no clipboards.
                       </p>
                   </div>
 
@@ -1024,13 +973,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
                               LakePoint-branded. LakePoint-controlled.
                           </h2>
-                          <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                          <p className="text-lg text-gray-400 leading-relaxed">
                               The profile carries LakePoint's name and lives on LakePoint's official database. NTangible operates
                               it - LakePoint owns the relationship with its athletes.
-                          </p>
-                          <p className="text-base text-gray-500 leading-relaxed">
-                              We measure how athletes learn, compete, and handle pressure - never psychological labels, never
-                              anything that follows the athlete outside the platform.
                           </p>
                       </div>
                       <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
@@ -1074,58 +1019,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </p>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-10 sm:mb-12">
-                      <div className="lg:col-span-5 bg-gradient-to-b from-blue-500/[0.08] to-transparent border border-blue-500/30 rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
+                  <div className="bg-gradient-to-b from-blue-500/[0.08] to-transparent border border-blue-500/30 rounded-2xl p-7 sm:p-10 mb-6">
+                      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
                           <div>
-                              <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">
-                                  The starting block
-                              </p>
-                              <p className="text-6xl sm:text-7xl font-semibold text-white tracking-tight leading-none mb-3 tabular-nums">
-                                  500
-                              </p>
+                              <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">The starting block</p>
+                              <p className="text-6xl sm:text-7xl font-semibold text-white tracking-tight leading-none mb-3 tabular-nums">500</p>
                               <p className="text-lg text-gray-300 leading-relaxed">
                                   free NTangible assessments &times; <span className="text-white font-medium">each major LakePoint partner</span>
                               </p>
                           </div>
-                          <p className="text-sm text-gray-500 leading-relaxed mt-6">
+                          <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
                               LakePoint and the partner decide who gets them. NTangible delivers the assessments,
-                              the verified profiles, and the shareable reports.
+                              verified profiles, and shareable reports.
                           </p>
-                      </div>
-
-                      <div className="lg:col-span-7 grid grid-cols-1 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                          <div className="bg-[#070707] p-6 sm:p-7">
-                              <div className="flex items-baseline gap-3 mb-2">
-                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">01</span>
-                                  <p className="text-white text-base sm:text-lg font-semibold">Get success stories on the board</p>
-                              </div>
-                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                  Real athletes, real reports, real reactions from coaches and families - the kind of
-                                  early proof points LakePoint can lead with when this product goes to market.
-                              </p>
-                          </div>
-                          <div className="bg-[#070707] p-6 sm:p-7">
-                              <div className="flex items-baseline gap-3 mb-2">
-                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">02</span>
-                                  <p className="text-white text-base sm:text-lg font-semibold">Let partners feel the product</p>
-                              </div>
-                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                  Each partner gets hands-on with the assessment, the dashboard, and the verified
-                                  profile experience - on their athletes, on their leaderboards - before being asked
-                                  to sell it.
-                              </p>
-                          </div>
-                          <div className="bg-[#070707] p-6 sm:p-7">
-                              <div className="flex items-baseline gap-3 mb-2">
-                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">03</span>
-                                  <p className="text-white text-base sm:text-lg font-semibold">Find the marketing voice</p>
-                              </div>
-                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                  500 assessments is enough volume for each partner to test how they want to position
-                                  it to their audience - perk, scholarship, recruiting boost, championship reward -
-                                  and lock in the angle that resonates before it scales.
-                              </p>
-                          </div>
                       </div>
                   </div>
 
@@ -1145,11 +1051,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           Finally know who's actually walking through the gates.
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          Millions of athletes and families pass through LakePoint every year - and today, almost none
-                          of them are <span className="text-white font-medium">known</span> to LakePoint. Tournament rosters and gate counts don't tell you who
-                          they are, where they came from, or how to reach them again. Every NTangible assessment opens
-                          with a short intake module - co-designed with LakePoint - that turns every athlete who claims
-                          their free profile into a first-party record LakePoint owns.
+                          Every NTangible assessment opens with a short intake module - co-designed with LakePoint - that turns
+                          every athlete who claims their free profile into a first-party record LakePoint owns.
                       </p>
                   </div>
 
@@ -1197,30 +1100,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-8">
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <p className="text-white text-base font-semibold mb-2">A real audience database</p>
-                          <p className="text-gray-400 text-sm leading-relaxed">
-                              Every assessed athlete becomes a named record in LakePoint's CRM - segmentable by sport,
-                              geography, age, and the property that brought them in.
-                          </p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <p className="text-white text-base font-semibold mb-2">Marketing that can actually target</p>
-                          <p className="text-gray-400 text-sm leading-relaxed">
-                              Re-invite last year's softball families to this year's showcase. Push a basketball camp
-                              to 14U athletes within 200 miles. Stop blasting; start reaching.
-                          </p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <p className="text-white text-base font-semibold mb-2">Sponsor &amp; NIL leverage</p>
-                          <p className="text-gray-400 text-sm leading-relaxed">
-                              Walk into sponsor conversations with a defined, verified audience - not a foot-traffic
-                              estimate. The same data unlocks NIL matchmaking down the road.
-                          </p>
-                      </div>
-                  </div>
-
                   <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
                       <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                           <span className="text-white font-medium">LakePoint defines the fields; LakePoint owns the data.</span>{' '}
@@ -1242,38 +1121,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </p>
                   </div>
 
-                  {/* LEADERBOARD PREVIEW - what Phase 1 ships */}
-                  <div className="mb-12 sm:mb-16">
-                      <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
-                          <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">
-                              Phase 1 output &middot; sample
-                          </p>
-                          <p className="text-sm text-gray-500">
-                              Auto-generated leaderboard, ready to publish across LakePoint and partner channels.
-                          </p>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
-                              <img
-                                  src="/clutch-factor-top10-slide1.png"
-                                  alt="Clutch Factor leaderboard - top 3 performers"
-                                  className="w-full h-auto block"
-                              />
-                          </div>
-                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
-                              <img
-                                  src="/clutch-factor-top10-slide2.png"
-                                  alt="Clutch Factor leaderboard - ranks 4 through 10"
-                                  className="w-full h-auto block"
-                              />
-                          </div>
-                      </div>
-                      <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
-                          Co-branded for each LakePoint partner. Generated per event, per property, per sport - on autopilot.
-                      </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12">
                       <div className="bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
                           <div className="flex items-baseline gap-3 mb-4">
                               <span className="text-blue-400 text-sm font-semibold tabular-nums">Phase 1</span>
@@ -1295,6 +1143,34 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               Provide free dashboard access to <span className="text-white font-medium">college coaches across every property</span>.
                               Demand from coaches pulls athletes into paid profiles - the flywheel starts turning.
                           </p>
+                      </div>
+                  </div>
+
+                  {/* PHASE 1 OUTPUT - SAMPLE LEADERBOARDS */}
+                  <div>
+                      <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
+                          <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">
+                              Phase 1 output &middot; sample
+                          </p>
+                          <p className="text-sm text-gray-500">
+                              Auto-generated, co-branded per partner - ready to publish on day one.
+                          </p>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
+                              <img
+                                  src="/clutch-factor-top10-slide1.png"
+                                  alt="Clutch Factor leaderboard - top 3 performers"
+                                  className="w-full h-auto block"
+                              />
+                          </div>
+                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
+                              <img
+                                  src="/clutch-factor-top10-slide2.png"
+                                  alt="Clutch Factor leaderboard - ranks 4 through 10"
+                                  className="w-full h-auto block"
+                              />
+                          </div>
                       </div>
                   </div>
               </section>
@@ -1384,7 +1260,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
 
       {/* Header / Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 h-16 flex items-center justify-between backdrop-blur-md border-b border-white/5 bg-black/60">
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleEnter()}>
+          <div className="flex items-center gap-3">
               <Logo className="text-white" size="small" />
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
@@ -1453,12 +1329,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   >
                       Try a sample assessment
                   </button>
-                  <button
-                    onClick={() => handleEnter()}
-                    className="hidden sm:inline-flex text-gray-500 hover:text-gray-300 text-sm font-medium transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-white/40"
-                  >
-                      Explore the LakePoint dashboard
-                  </button>
               </div>
           </section>
 
@@ -1522,18 +1392,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </div>
           </div>
 
-          {/* PULL QUOTE */}
-          <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
-              <figure className="border-l-2 border-blue-500 pl-6 sm:pl-8">
-                  <blockquote className="text-2xl sm:text-3xl md:text-4xl text-white font-medium leading-snug tracking-tight mb-4">
-                      "Full mental data plus college access - <span className="text-blue-400">for the price of a t-shirt.</span>"
-                  </blockquote>
-                  <figcaption className="text-sm text-gray-500">
-                      The consumer offer that makes LakePoint the standard.
-                  </figcaption>
-              </figure>
-          </section>
-
           {/* FINAL CTA */}
           <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
               <div className="border-t border-white/10 pt-16 sm:pt-20 text-center">
@@ -1579,7 +1437,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <li><button onClick={() => handleTabChange('offer')} className="text-gray-400 hover:text-white transition-colors">The offer</button></li>
                           <li><button onClick={() => handleTabChange('economics')} className="text-gray-400 hover:text-white transition-colors">Economics</button></li>
                           <li><button onClick={() => handleTabChange('distribution')} className="text-gray-400 hover:text-white transition-colors">Distribution &amp; rollout</button></li>
-                          <li><button onClick={() => handleEnter()} className="text-gray-400 hover:text-white transition-colors">LakePoint dashboard</button></li>
                       </ul>
                   </div>
                   <div>
