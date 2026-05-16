@@ -852,6 +852,87 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </section>
 
               {/* FRONT-LOAD STRATEGY */}
+              {/* ACTIVATION KICKOFF */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="mb-12 sm:mb-16 max-w-2xl">
+                      <p className="text-sm font-medium text-blue-400 mb-3">Activation kickoff</p>
+                      <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                          500 free assessments for every major partner.
+                      </h2>
+                      <p className="text-lg text-gray-400 leading-relaxed">
+                          Before a single dollar is asked for, NTangible gives each of LakePoint's flagship partners
+                          a block of 500 assessments to hand out however they want - to top teams, standout athletes,
+                          tournament champions, camp invitees. A no-risk on-ramp that lets the product prove itself
+                          inside each property before it goes wide.
+                      </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-10 sm:mb-12">
+                      <div className="lg:col-span-5 bg-gradient-to-b from-blue-500/[0.08] to-transparent border border-blue-500/30 rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
+                          <div>
+                              <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">
+                                  The starting block
+                              </p>
+                              <p className="text-6xl sm:text-7xl font-semibold text-white tracking-tight leading-none mb-3 tabular-nums">
+                                  500
+                              </p>
+                              <p className="text-lg text-gray-300 leading-relaxed">
+                                  free NTangible assessments &times; <span className="text-white font-medium">each major LakePoint partner</span>
+                              </p>
+                          </div>
+                          <p className="text-sm text-gray-500 leading-relaxed mt-6">
+                              LakePoint and the partner decide who gets them. NTangible delivers the assessments,
+                              the verified profiles, and the shareable reports.
+                          </p>
+                      </div>
+
+                      <div className="lg:col-span-7 grid grid-cols-1 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                          <div className="bg-[#070707] p-6 sm:p-7">
+                              <div className="flex items-baseline gap-3 mb-2">
+                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">01</span>
+                                  <p className="text-white text-base sm:text-lg font-semibold">Get success stories on the board</p>
+                              </div>
+                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                                  Real athletes, real reports, real reactions from coaches and families - the kind of
+                                  early proof points LakePoint can lead with when this product goes to market.
+                              </p>
+                          </div>
+                          <div className="bg-[#070707] p-6 sm:p-7">
+                              <div className="flex items-baseline gap-3 mb-2">
+                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">02</span>
+                                  <p className="text-white text-base sm:text-lg font-semibold">Let partners feel the product</p>
+                              </div>
+                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                                  Each partner gets hands-on with the assessment, the dashboard, and the verified
+                                  profile experience - on their athletes, on their leaderboards - before being asked
+                                  to sell it.
+                              </p>
+                          </div>
+                          <div className="bg-[#070707] p-6 sm:p-7">
+                              <div className="flex items-baseline gap-3 mb-2">
+                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">03</span>
+                                  <p className="text-white text-base sm:text-lg font-semibold">Find the marketing voice</p>
+                              </div>
+                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                                  500 assessments is enough volume for each partner to test how they want to position
+                                  it to their audience - perk, scholarship, recruiting boost, championship reward -
+                                  and lock in the angle that resonates before it scales.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                      <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+                          <span className="text-white font-medium">No cost. No commitment.</span> Just enough volume
+                          for each partner to walk into the wider rollout with stories, instincts, and proof in hand.
+                      </p>
+                      <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest shrink-0">
+                          Then &rarr; Phase 1
+                      </p>
+                  </div>
+              </section>
+
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-12 sm:mb-16 max-w-2xl">
                       <p className="text-sm font-medium text-blue-400 mb-3">The rollout</p>
