@@ -736,7 +736,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </p>
                   </div>
 
-                  <div className="space-y-20 sm:space-y-28 lg:space-y-36">
+                  <div className="space-y-16 sm:space-y-24">
                       {[
                           {
                               step: '01',
@@ -763,31 +763,36 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               alt: 'My Watchlist - private scouting log tied to each athlete profile',
                           },
                       ].map((view, idx, arr) => (
-                          <div key={view.step} className="relative">
-                              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                                  <div className="lg:col-span-4 lg:sticky lg:top-24">
-                                      <div className="flex items-center gap-4 mb-5">
-                                          <div className="flex items-center justify-center w-11 h-11 rounded-full bg-emerald-500/10 border border-emerald-500/30">
-                                              <span className="text-emerald-300 text-sm font-semibold tabular-nums">{view.step}</span>
-                                          </div>
-                                          <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">{view.eyebrow}</span>
+                          <div key={view.step}>
+                              <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 sm:p-10 lg:p-12">
+                                  <div className="flex items-center gap-4 mb-8 sm:mb-10">
+                                      <div className="flex items-center justify-center w-11 h-11 rounded-full bg-emerald-500/10 border border-emerald-500/30 shrink-0">
+                                          <span className="text-emerald-300 text-sm font-semibold tabular-nums">{view.step}</span>
                                       </div>
-                                      <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-tight mb-4">{view.title}</h4>
-                                      <p className="text-base text-gray-400 leading-relaxed">{view.blurb}</p>
+                                      <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">{view.eyebrow}</span>
+                                      <div className="flex-1 h-px bg-gradient-to-r from-emerald-500/20 to-transparent ml-2" />
                                   </div>
-                                  <div className="lg:col-span-8">
-                                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_40px_100px_rgba(0,0,0,0.6)] ring-1 ring-white/5">
-                                          <img
-                                              src={view.src}
-                                              alt={view.alt}
-                                              className="w-full h-auto block"
-                                          />
-                                      </div>
+
+                                  <div className="max-w-2xl mb-8 sm:mb-12">
+                                      <h4 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight leading-tight mb-4">{view.title}</h4>
+                                      <p className="text-base sm:text-lg text-gray-400 leading-relaxed">{view.blurb}</p>
+                                  </div>
+
+                                  <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_40px_100px_rgba(0,0,0,0.6)] ring-1 ring-white/5">
+                                      <img
+                                          src={view.src}
+                                          alt={view.alt}
+                                          className="w-full h-auto block"
+                                      />
                                   </div>
                               </div>
                               {idx < arr.length - 1 && (
-                                  <div className="hidden sm:flex justify-center mt-20 sm:mt-28 lg:mt-36">
-                                      <div className="h-px w-24 bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
+                                  <div className="flex justify-center py-10 sm:py-14">
+                                      <div className="flex flex-col items-center gap-3">
+                                          <div className="h-12 w-px bg-gradient-to-b from-transparent to-emerald-500/40" />
+                                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/60" />
+                                          <div className="h-12 w-px bg-gradient-to-b from-emerald-500/40 to-transparent" />
+                                      </div>
                                   </div>
                               )}
                           </div>
