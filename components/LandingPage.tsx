@@ -636,37 +636,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </p>
               </section>
 
-              {/* DASHBOARD OUTPUT - LEADERBOARDS */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-28">
-                  <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
-                      <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">
-                          Dashboard output &middot; leaderboards
-                      </p>
-                      <p className="text-sm text-gray-500">
-                          The shortlist, ranked before the coach lands.
-                      </p>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
-                          <img
-                              src="/clutch-factor-top10-slide1.png"
-                              alt="Clutch Factor leaderboard - top 3 performers"
-                              className="w-full h-auto block"
-                          />
-                      </div>
-                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
-                          <img
-                              src="/clutch-factor-top10-slide2.png"
-                              alt="Clutch Factor leaderboard - ranks 4 through 10"
-                              className="w-full h-auto block"
-                          />
-                      </div>
-                  </div>
-                  <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
-                      Every search in the dashboard collapses into a ranked board - by sport, position, grad year, or coach-fit.
-                  </p>
-              </section>
-
               {/* TODAY VS LAKEPOINT */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
                   <div className="mb-10 sm:mb-12 max-w-2xl">
@@ -758,73 +727,60 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               {/* THREE VIEWS - how a coach actually uses the dashboard */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-10 sm:mb-12 max-w-2xl">
-                      <p className="text-sm font-medium text-emerald-400 mb-3">Inside the coach packet</p>
+                      <p className="text-sm font-medium text-emerald-400 mb-3">The coach workflow</p>
                       <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
-                          Three views. One recruiting workflow.
+                          From the public board to the private note.
                       </h3>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          From the public leaderboard down to the private scouting note - every step of the coach's
-                          process lives in the dashboard.
+                          Three views, one workflow - the path every coach walks from first scroll to final decision.
                       </p>
                   </div>
 
-                  <div className="space-y-10 sm:space-y-14">
-                      <div>
-                          <div className="flex items-baseline justify-between mb-4 flex-wrap gap-2">
-                              <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">
-                                  View 1 &middot; Clutch Factor Leaderboard
-                              </p>
-                              <p className="text-sm text-gray-500">The public ranking every coach lands on first.</p>
+                  <div className="space-y-14 sm:space-y-20">
+                      {[
+                          {
+                              step: '01',
+                              eyebrow: 'Discover',
+                              title: 'Clutch Factor Leaderboard',
+                              blurb: 'The public ranking every coach lands on first. Every assessed athlete, sorted by Clutch Factor and filterable by position and grad year.',
+                              src: '/collegeleaderboard.png',
+                              alt: 'Clutch Factor Leaderboard - public ranking of every assessed athlete',
+                          },
+                          {
+                              step: '02',
+                              eyebrow: 'Shortlist',
+                              title: 'My Top Targets',
+                              blurb: 'The Trust Anchor view (Alignment ≥ 62.5% & Clutch Factor ≥ 750) - the coach’s personal board, ranked by fit to their program.',
+                              src: '/collegetoptargets.png',
+                              alt: 'My Top Targets - athletes ranked by Alignment for the coach’s program',
+                          },
+                          {
+                              step: '03',
+                              eyebrow: 'Decide',
+                              title: 'My Watchlist',
+                              blurb: 'Private scouting notes tied back to every athlete profile - the in-person observation, captured where the rest of the data lives.',
+                              src: '/collegenotes.png',
+                              alt: 'My Watchlist - private scouting log tied to each athlete profile',
+                          },
+                      ].map((view) => (
+                          <div key={view.step} className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+                              <div className="lg:col-span-4 lg:sticky lg:top-24">
+                                  <div className="flex items-baseline gap-3 mb-3">
+                                      <span className="text-emerald-400/80 text-sm font-semibold tabular-nums">{view.step}</span>
+                                      <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">{view.eyebrow}</span>
+                                  </div>
+                                  <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-tight mb-3">{view.title}</h4>
+                                  <p className="text-base text-gray-400 leading-relaxed">{view.blurb}</p>
+                              </div>
+                              <div className="lg:col-span-8 rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
+                                  <img
+                                      src={view.src}
+                                      alt={view.alt}
+                                      className="w-full h-auto block"
+                                  />
+                              </div>
                           </div>
-                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
-                              <img
-                                  src="/collegeleaderboard.png"
-                                  alt="Clutch Factor Leaderboard - public ranking of every assessed athlete"
-                                  className="w-full h-auto block"
-                              />
-                          </div>
-                          <p className="text-xs text-gray-600 mt-3">
-                              Every assessed athlete, ranked by Clutch Factor and filterable by position and grad year.
-                          </p>
-                      </div>
-
-                      <div>
-                          <div className="flex items-baseline justify-between mb-4 flex-wrap gap-2">
-                              <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">
-                                  View 2 &middot; My Top Targets
-                              </p>
-                              <p className="text-sm text-gray-500">The coach's shortlist, ranked by fit to their program.</p>
-                          </div>
-                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
-                              <img
-                                  src="/collegetoptargets.png"
-                                  alt="My Top Targets - athletes ranked by Alignment for the coach's program"
-                                  className="w-full h-auto block"
-                              />
-                          </div>
-                          <p className="text-xs text-gray-600 mt-3">
-                              Trust Anchor athletes (Alignment &ge; 62.5% &amp; Clutch Factor &ge; 750) sorted to the top of the coach's board.
-                          </p>
-                      </div>
-
-                      <div>
-                          <div className="flex items-baseline justify-between mb-4 flex-wrap gap-2">
-                              <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">
-                                  View 3 &middot; My Watchlist
-                              </p>
-                              <p className="text-sm text-gray-500">Private scouting notes that stay with the program.</p>
-                          </div>
-                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
-                              <img
-                                  src="/collegenotes.png"
-                                  alt="My Watchlist - private scouting log tied to each athlete profile"
-                                  className="w-full h-auto block"
-                              />
-                          </div>
-                          <p className="text-xs text-gray-600 mt-3">
-                              Tie every in-person observation back to the athlete's NTangible profile - private to the staff.
-                          </p>
-                      </div>
+                      ))}
                   </div>
               </section>
 
