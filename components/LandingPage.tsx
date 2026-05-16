@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
     Activity, Brain, ArrowRight, Check, X, FileText, Monitor, ShieldCheck,
     Megaphone, RefreshCw, Mail, Database, Tv, Building2, Send, Trophy, LayoutGrid,
-    Target, ClipboardList, Filter, Search, UserCheck
+    Target, ClipboardList, Search, UserCheck
 } from 'lucide-react';
 import { ViewType } from '../types';
 import { TestDriveModal } from './TestDriveModal';
@@ -724,56 +724,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </section>
 
-              {/* COACH WORKFLOW STRIP */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
-                  <div className="mb-10 sm:mb-12 max-w-2xl">
-                      <p className="text-sm font-medium text-emerald-400 mb-3">The new workflow</p>
-                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08]">
-                          Three steps. From any laptop. No flight required.
-                      </h3>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-                      <div className="rounded-2xl border border-white/10 bg-[#070707] p-7 sm:p-8">
-                          <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
-                              <Monitor size={22} className="text-emerald-400" />
-                          </div>
-                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">Step 01</p>
-                          <h4 className="text-lg font-semibold text-white tracking-tight mb-2">Log in</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">
-                              Free access for every verified college coach - no per-seat license, no procurement cycle.
-                          </p>
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-[#070707] p-7 sm:p-8">
-                          <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
-                              <Filter size={22} className="text-emerald-400" />
-                          </div>
-                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">Step 02</p>
-                          <h4 className="text-lg font-semibold text-white tracking-tight mb-2">Filter the field</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">
-                              Narrow by sport, position, state, grad year, fit score - get from thousands to your short list.
-                          </p>
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-[#070707] p-7 sm:p-8">
-                          <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5">
-                              <Send size={22} className="text-emerald-400" />
-                          </div>
-                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">Step 03</p>
-                          <h4 className="text-lg font-semibold text-white tracking-tight mb-2">Reach out with the full picture</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">
-                              Open an athlete card to the full mental profile, fit score, and highlight reel - then DM the family from inside the dashboard.
-                          </p>
-                      </div>
-                  </div>
-              </section>
-
               {/* CPA INDEX - signature feature spotlight */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-emerald-500/[0.10] via-emerald-500/[0.03] to-transparent p-6 sm:p-10 lg:p-12">
                       <div className="max-w-3xl mb-10 sm:mb-12">
                           <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-5">
                               <Target size={13} className="text-emerald-400" />
-                              <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Exclusive to LakePoint</span>
+                              <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Powered by NTangible IP</span>
                           </div>
                           <h3 className="text-3xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
                               The Alignment Index.
@@ -793,33 +750,24 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           />
                       </div>
 
-                      {/* RUBRIC - 5 real tiers */}
+                      {/* RUBRIC - 5 tiers, compact horizontal */}
                       <div className="mb-10 sm:mb-12">
                           <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest mb-4">
                               The rubric
                           </p>
-                          <div className="rounded-2xl border border-white/10 overflow-hidden bg-[#070707]">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
                               {[
-                                  { range: '75 - 100', tier: 'Exceptional', dot: 'bg-emerald-400', tone: 'text-emerald-400', line: 'Processes the game exactly like the coach. Minimal verbal instruction needed.' },
-                                  { range: '62.5 - 74.9', tier: 'Strong', dot: 'bg-blue-400', tone: 'text-blue-400', line: "Agrees with the coach's goals; may take a different path. Healthy friction in the film room." },
-                                  { range: '50 - 62.4', tier: 'Conditional', dot: 'bg-amber-400', tone: 'text-amber-400', line: "Transactional fit. Works with clear rules and explicit rewards - cracks under losing." },
-                                  { range: '37.5 - 49.9', tier: 'Developmental', dot: 'bg-orange-400', tone: 'text-orange-400', line: 'Processes key decisions differently. Success requires explicit role clarity and structured comms.' },
-                                  { range: '0 - 37.4', tier: 'Low alignment', dot: 'bg-red-400', tone: 'text-red-400', line: 'High friction risk. Prompt deeper conversation before any long-term commitment.' },
-                              ].map((row, i, arr) => (
-                                  <div
-                                      key={row.tier}
-                                      className={`grid grid-cols-12 items-center gap-4 px-5 sm:px-6 py-4 ${i < arr.length - 1 ? 'border-b border-white/5' : ''}`}
-                                  >
-                                      <div className="col-span-4 sm:col-span-3 flex items-center gap-3">
-                                          <span className={`w-2 h-2 rounded-full ${row.dot} shrink-0`} />
-                                          <span className="text-white text-sm sm:text-base font-semibold tabular-nums">{row.range}%</span>
-                                      </div>
-                                      <div className={`col-span-8 sm:col-span-3 text-sm sm:text-base font-semibold ${row.tone}`}>
-                                          {row.tier}
-                                      </div>
-                                      <div className="col-span-12 sm:col-span-6 text-sm text-gray-400 leading-snug">
-                                          {row.line}
-                                      </div>
+                                  { range: '75 - 100',    tier: 'Exceptional',   bar: 'bg-emerald-400', tone: 'text-emerald-400', line: 'Processes the game exactly like the coach.' },
+                                  { range: '62.5 - 74.9', tier: 'Strong',        bar: 'bg-blue-400',    tone: 'text-blue-400',    line: "Agrees with the goal, may take a different path." },
+                                  { range: '50 - 62.4',   tier: 'Conditional',   bar: 'bg-amber-400',   tone: 'text-amber-400',   line: 'Transactional fit. Cracks under losing.' },
+                                  { range: '37.5 - 49.9', tier: 'Developmental', bar: 'bg-orange-400',  tone: 'text-orange-400',  line: 'Processes decisions differently. Needs structure.' },
+                                  { range: '0 - 37.4',    tier: 'Low alignment', bar: 'bg-red-400',     tone: 'text-red-400',     line: 'High friction risk. Talk before committing.' },
+                              ].map((row) => (
+                                  <div key={row.tier} className="bg-[#070707] p-4 sm:p-5 flex flex-col">
+                                      <span className={`block h-0.5 w-8 ${row.bar} rounded-full mb-3`} />
+                                      <p className="text-white text-sm sm:text-base font-semibold tabular-nums mb-0.5">{row.range}%</p>
+                                      <p className={`text-xs sm:text-sm font-semibold uppercase tracking-wider ${row.tone} mb-2`}>{row.tier}</p>
+                                      <p className="text-xs sm:text-[13px] text-gray-500 leading-snug">{row.line}</p>
                                   </div>
                               ))}
                           </div>
