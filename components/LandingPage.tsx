@@ -362,13 +362,14 @@ const PartnerProperties = () => (
 );
 
 // --- INSET TAB NAVIGATION ---
-type TabId = 'offer' | 'assessments' | 'economics' | 'distribution';
+type TabId = 'offer' | 'assessments' | 'economics' | 'distribution' | 'activation';
 
 const TABS: { id: TabId; label: string }[] = [
     { id: 'offer', label: 'The Offer' },
     { id: 'assessments', label: 'The Assessments' },
     { id: 'economics', label: 'The Economics' },
-    { id: 'distribution', label: 'Distribution & Rollout' },
+    { id: 'distribution', label: 'Distribution' },
+    { id: 'activation', label: 'Activation & Rollout' },
 ];
 
 // --- MAIN LANDING PAGE ---
@@ -846,7 +847,49 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </section>
 
-              {/* FRONT-LOAD STRATEGY */}
+              {/* DATA & TRUST */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+                      <div className="lg:col-span-5">
+                          <p className="text-sm font-medium text-blue-400 mb-3">Data &amp; trust</p>
+                          <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
+                              LakePoint-branded. LakePoint-controlled.
+                          </h2>
+                          <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                              The profile carries LakePoint's name and lives on LakePoint's official database. NTangible operates
+                              it - LakePoint owns the relationship with its athletes.
+                          </p>
+                          <p className="text-base text-gray-500 leading-relaxed">
+                              We measure how athletes learn, compete, and handle pressure - never psychological labels, never
+                              anything that follows the athlete outside the platform.
+                          </p>
+                      </div>
+                      <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                          <div className="bg-[#070707] p-6">
+                              <p className="text-white text-base font-semibold mb-2">Hosted on LakePoint's database</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">Verified profiles sit on the official campus database, branded as a LakePoint product.</p>
+                          </div>
+                          <div className="bg-[#070707] p-6">
+                              <p className="text-white text-base font-semibold mb-2">COPPA-aligned</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">For athletes 13-18, with parental consent built into onboarding for every athlete.</p>
+                          </div>
+                          <div className="bg-[#070707] p-6">
+                              <p className="text-white text-base font-semibold mb-2">Opt-out anytime</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">Families can remove an athlete's profile at any time. We delete everything we hold on them.</p>
+                          </div>
+                          <div className="bg-[#070707] p-6">
+                              <p className="text-white text-base font-semibold mb-2">Growth, not diagnosis</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">We measure how athletes compete and handle pressure - not personality or clinical labels.</p>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+          </>
+        );
+
+      case 'activation':
+        return (
+          <>
               {/* ACTIVATION KICKOFF */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-12 sm:mb-16 max-w-2xl">
@@ -1056,43 +1099,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </section>
 
-              {/* DATA & TRUST */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-                      <div className="lg:col-span-5">
-                          <p className="text-sm font-medium text-blue-400 mb-3">Data &amp; trust</p>
-                          <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
-                              LakePoint-branded. LakePoint-controlled.
-                          </h2>
-                          <p className="text-lg text-gray-400 leading-relaxed mb-4">
-                              The profile carries LakePoint's name and lives on LakePoint's official database. NTangible operates
-                              it - LakePoint owns the relationship with its athletes.
-                          </p>
-                          <p className="text-base text-gray-500 leading-relaxed">
-                              We measure how athletes learn, compete, and handle pressure - never psychological labels, never
-                              anything that follows the athlete outside the platform.
-                          </p>
-                      </div>
-                      <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                          <div className="bg-[#070707] p-6">
-                              <p className="text-white text-base font-semibold mb-2">Hosted on LakePoint's database</p>
-                              <p className="text-gray-500 text-sm leading-relaxed">Verified profiles sit on the official campus database, branded as a LakePoint product.</p>
-                          </div>
-                          <div className="bg-[#070707] p-6">
-                              <p className="text-white text-base font-semibold mb-2">COPPA-aligned</p>
-                              <p className="text-gray-500 text-sm leading-relaxed">For athletes 13-18, with parental consent built into onboarding for every athlete.</p>
-                          </div>
-                          <div className="bg-[#070707] p-6">
-                              <p className="text-white text-base font-semibold mb-2">Opt-out anytime</p>
-                              <p className="text-gray-500 text-sm leading-relaxed">Families can remove an athlete's profile at any time. We delete everything we hold on them.</p>
-                          </div>
-                          <div className="bg-[#070707] p-6">
-                              <p className="text-white text-base font-semibold mb-2">Growth, not diagnosis</p>
-                              <p className="text-gray-500 text-sm leading-relaxed">We measure how athletes compete and handle pressure - not personality or clinical labels.</p>
-                          </div>
-                      </div>
-                  </div>
-              </section>
           </>
         );
 
