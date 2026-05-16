@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
     Activity, Brain, ArrowRight, Check, X, FileText, Monitor, ShieldCheck,
     Megaphone, RefreshCw, Mail, Database, Tv, Building2, Send, Trophy, LayoutGrid,
-    Target, ClipboardList
+    Target, ClipboardList, Search, UserCheck
 } from 'lucide-react';
 import { ViewType } from '../types';
 import { TestDriveModal } from './TestDriveModal';
@@ -16,7 +16,7 @@ interface LandingPageProps {
 }
 
 // --- CO-BRANDED LOGO ---
-const Logo = ({ className = "", size = "normal", showLabel = true }: { className?: string, size?: "small" | "normal", showLabel?: boolean }) => {
+const Logo = ({ className = "", size = "normal" }: { className?: string, size?: "small" | "normal" }) => {
     const height = size === "small" ? "h-7" : "h-9";
 
     return (
@@ -32,11 +32,6 @@ const Logo = ({ className = "", size = "normal", showLabel = true }: { className
                 alt="LakePoint Sports"
                 className={`${height} w-auto object-contain`}
             />
-            {showLabel && (
-                <span className="text-white font-semibold tracking-tight text-sm sm:text-base whitespace-nowrap">
-                    LakePoint Sports
-                </span>
-            )}
         </div>
     );
 };
@@ -367,13 +362,15 @@ const PartnerProperties = () => (
 );
 
 // --- INSET TAB NAVIGATION ---
-type TabId = 'offer' | 'assessments' | 'economics' | 'distribution';
+type TabId = 'offer' | 'assessments' | 'coaches' | 'economics' | 'distribution' | 'activation';
 
 const TABS: { id: TabId; label: string }[] = [
     { id: 'offer', label: 'The Offer' },
     { id: 'assessments', label: 'The Assessments' },
+    { id: 'coaches', label: "The Coaches' Packet" },
     { id: 'economics', label: 'The Economics' },
-    { id: 'distribution', label: 'Distribution & Rollout' },
+    { id: 'distribution', label: 'Distribution' },
+    { id: 'activation', label: 'Activation & Rollout' },
 ];
 
 // --- MAIN LANDING PAGE ---
@@ -455,66 +452,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </div>
 
-              {/* THE RECRUITING EDGE */}
-              <div className="mt-16 sm:mt-20 border-t border-white/10 pt-16 sm:pt-20">
-                  <div className="mb-10 sm:mb-12 max-w-2xl">
-                      <p className="text-sm font-medium text-emerald-400 mb-3">The recruiting edge</p>
-                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
-                          The coaches' packet, made digital - and smarter.
-                      </h3>
-                      <p className="text-lg text-gray-400 leading-relaxed">
-                          College coaches already come to LakePoint events for talent - and today they walk away
-                          with a printed packet of players. The Collegiate Dashboard turns that packet into a live,
-                          searchable database, and adds a recruiting signal no one else has.
-                      </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-6 sm:mb-8">
-                      <div className="bg-[#070707] p-7 sm:p-9">
-                          <div className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
-                              <ClipboardList size={20} className="text-gray-500" />
-                          </div>
-                          <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">Today</p>
-                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The in-person paper packet</h4>
-                          <ul className="space-y-2.5">
-                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Printed at the event, outdated the moment it's handed out</li>
-                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Limited to whoever happens to be in the room that weekend</li>
-                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Stat lines and measurables - nothing on how the athlete competes</li>
-                          </ul>
-                      </div>
-                      <div className="bg-[#070707] p-7 sm:p-9">
-                          <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
-                              <Monitor size={20} className="text-emerald-400" />
-                          </div>
-                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">With LakePoint</p>
-                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The live recruiting dashboard</h4>
-                          <ul className="space-y-2.5">
-                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Logged into from anywhere, current the moment a profile updates</li>
-                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Every verified athlete across every LakePoint property, searchable</li>
-                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Full mental profile and coaching fit built into every athlete</li>
-                          </ul>
-                      </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-emerald-500/[0.08] to-transparent p-7 sm:p-9">
-                      <div className="flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-6">
-                          <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
-                              <Target size={22} className="text-emerald-400" />
-                          </div>
-                          <div>
-                              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-3">
-                                  <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Exclusive to LakePoint</span>
-                              </div>
-                              <h4 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3">The Coach-Player Alignment Index</h4>
-                              <p className="text-lg text-gray-300 leading-relaxed max-w-3xl">
-                                  Every college coach sees which LakePoint athletes actually fit their coaching style and
-                                  system - a recruiting signal that exists nowhere else. It's why coaches make
-                                  LakePoint their first stop, and why athletes buy a profile to be seen.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
           </section>
         );
 
@@ -652,6 +589,203 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           </>
         );
 
+      case 'coaches':
+        return (
+          <>
+              {/* HERO - THESIS */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+                  <div className="max-w-3xl">
+                      <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-5">
+                          <Target size={13} className="text-emerald-400" />
+                          <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">For the coach on the other end</span>
+                      </div>
+                      <h2 className="text-4xl sm:text-6xl font-semibold text-white tracking-tight leading-[1.02] mb-6">
+                          Replace the packet. <span className="text-gray-500">Keep the relationship.</span>
+                      </h2>
+                      <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-4">
+                          Every college coach walks out of a LakePoint event with a stack of paper packets that
+                          go stale on the flight home. We replace that packet with a free, always-on dashboard -
+                          every LakePoint athlete, every sport, every event, year-round.
+                      </p>
+                      <p className="text-base text-gray-500 leading-relaxed">
+                          The dashboard isn't a feature of the partnership. It's the recruiting tool college
+                          coaches reach for first - and the reason they keep coming back to LakePoint.
+                      </p>
+                  </div>
+              </section>
+
+              {/* DASHBOARD MOCKUP PLACEHOLDER */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-28">
+                  <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
+                      <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">
+                          LakePoint Collegiate Dashboard &middot; coach view
+                      </p>
+                      <p className="text-sm text-gray-500">
+                          The packet, rebuilt as software.
+                      </p>
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
+                      <img
+                          src="/Recruitingdashboardmockup.png"
+                          alt="LakePoint Collegiate Dashboard - coach view"
+                          className="w-full h-auto block"
+                      />
+                  </div>
+                  <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
+                      One login. Every verified LakePoint athlete, filterable by sport, position, state, grad year, and fit.
+                  </p>
+              </section>
+
+              {/* TODAY VS LAKEPOINT */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+                  <div className="mb-10 sm:mb-12 max-w-2xl">
+                      <p className="text-sm font-medium text-emerald-400 mb-3">The shift</p>
+                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
+                          A coach's recruiting cycle today vs. with LakePoint.
+                      </h3>
+                      <p className="text-lg text-gray-400 leading-relaxed">
+                          The paper packet has been the standard recruiting artifact for decades. It's also the
+                          weakest link in a coach's workflow - and the thing we replace end-to-end.
+                      </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                      <div className="bg-[#070707] p-7 sm:p-9">
+                          <div className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
+                              <ClipboardList size={20} className="text-gray-500" />
+                          </div>
+                          <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">Today</p>
+                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The in-person paper packet</h4>
+                          <ul className="space-y-2.5">
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Printed at the event - stale the moment it's handed out</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Limited to whichever coaches happened to be in the room that weekend</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Stat lines and measurables only - nothing on how the athlete competes or learns</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> One event, one sport - rebuild it from scratch next weekend</li>
+                              <li className="text-[15px] text-gray-400 leading-relaxed flex gap-2.5"><span className="text-gray-600 mt-0.5">-</span> Lives in a folder on the assistant coach's desk</li>
+                          </ul>
+                      </div>
+                      <div className="bg-[#070707] p-7 sm:p-9">
+                          <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
+                              <Monitor size={20} className="text-emerald-400" />
+                          </div>
+                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">With LakePoint</p>
+                          <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The live coaches' dashboard</h4>
+                          <ul className="space-y-2.5">
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Logged in from any laptop - current the moment a profile updates</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Every verified athlete across every LakePoint property, searchable</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Full mental profile and coach-fit index built into every athlete card</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Year-round, every sport - no rebuild, no event dependency</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Shareable with the full staff in one link</li>
+                          </ul>
+                      </div>
+                  </div>
+              </section>
+
+              {/* WHAT'S IN THE NEW PACKET */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
+                  <div className="mb-10 sm:mb-12 max-w-2xl">
+                      <p className="text-sm font-medium text-emerald-400 mb-3">Inside the dashboard</p>
+                      <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
+                          Everything a recruiting packet should have had all along.
+                      </h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <Search size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Filter the whole database</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">Sport, position, state, grad year, GPA, height/weight - narrow thousands to your short list in seconds.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <Brain size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Mental profile on every athlete</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">How they learn, lead, communicate, and respond under pressure - the stuff a stat line never tells you.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <Target size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Coach-Player Alignment Index</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">A fit score based on the coach's own system and style - a recruiting signal that exists nowhere else.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <UserCheck size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Verified, not self-reported</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">Every profile is NTangible-verified and lives on LakePoint's official database - recruitable, trustable signal.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <FileText size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Full reports + highlights in-line</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">Clutch Factor, NTerpret, and the athlete's highlight tape all live on the same card - no tab juggling.</p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <Send size={20} className="text-emerald-400 mb-4" />
+                          <h4 className="text-white text-base font-semibold mb-2">Share with the whole staff</h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">Save lists, tag athletes, share boards with assistants and analysts - the dashboard is the workflow.</p>
+                      </div>
+                  </div>
+              </section>
+
+              {/* CPA INDEX - signature feature spotlight */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-emerald-500/[0.10] via-emerald-500/[0.03] to-transparent p-6 sm:p-10 lg:p-12">
+                      <div className="max-w-3xl mb-10 sm:mb-12">
+                          <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full mb-5">
+                              <Target size={13} className="text-emerald-400" />
+                              <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest">Powered by NTangible IP</span>
+                          </div>
+                          <h3 className="text-3xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
+                              The Alignment Index.
+                          </h3>
+                          <p className="text-lg sm:text-xl text-gray-200 leading-relaxed">
+                              One 0-100 score that tells a coach - before the first call - whether an athlete
+                              will execute the system, fit the room, and stay.
+                          </p>
+                      </div>
+
+                      {/* MOCKUP */}
+                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.55)] mb-10 sm:mb-12">
+                          <img
+                              src="/coachalignmentmockup.png"
+                              alt="Alignment Index - athlete card showing a 93% Exceptional alignment score"
+                              className="w-full h-auto block"
+                          />
+                      </div>
+
+                      {/* RUBRIC - 5 tiers, compact horizontal */}
+                      <div className="mb-10 sm:mb-12">
+                          <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest mb-4">
+                              The rubric
+                          </p>
+                          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                              {[
+                                  { range: '75 - 100',    tier: 'Exceptional',   bar: 'bg-emerald-400', tone: 'text-emerald-400', line: 'Processes the game exactly like the coach.' },
+                                  { range: '62.5 - 74.9', tier: 'Strong',        bar: 'bg-blue-400',    tone: 'text-blue-400',    line: "Agrees with the goal, may take a different path." },
+                                  { range: '50 - 62.4',   tier: 'Conditional',   bar: 'bg-amber-400',   tone: 'text-amber-400',   line: 'Transactional fit. Cracks under losing.' },
+                                  { range: '37.5 - 49.9', tier: 'Developmental', bar: 'bg-orange-400',  tone: 'text-orange-400',  line: 'Processes decisions differently. Needs structure.' },
+                                  { range: '0 - 37.4',    tier: 'Low alignment', bar: 'bg-red-400',     tone: 'text-red-400',     line: 'High friction risk. Talk before committing.' },
+                              ].map((row) => (
+                                  <div key={row.tier} className="bg-[#070707] p-4 sm:p-5 flex flex-col">
+                                      <span className={`block h-0.5 w-8 ${row.bar} rounded-full mb-3`} />
+                                      <p className="text-white text-sm sm:text-base font-semibold tabular-nums mb-0.5">{row.range}%</p>
+                                      <p className={`text-xs sm:text-sm font-semibold uppercase tracking-wider ${row.tone} mb-2`}>{row.tier}</p>
+                                      <p className="text-xs sm:text-[13px] text-gray-500 leading-snug">{row.line}</p>
+                                  </div>
+                              ))}
+                          </div>
+                      </div>
+
+                      {/* THE PUNCH LINE */}
+                      <div className="rounded-2xl border border-emerald-500/30 bg-[#070707] p-7 sm:p-9">
+                          <p className="text-xl sm:text-2xl text-white leading-snug font-medium max-w-3xl">
+                              Coaches keep coming back to LakePoint because this signal lives nowhere else.
+                              Athletes buy the profile to be seen by the programs they'll actually fit.
+                              That's the moat.
+                          </p>
+                      </div>
+                  </div>
+              </section>
+          </>
+        );
+
       case 'economics':
         return (
           <>
@@ -719,6 +853,37 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="mt-8 flex items-center gap-2 text-blue-300/80">
                           <RefreshCw size={14} className="shrink-0" />
                           <p className="text-sm">The more the program earns, the harder NTangible markets LakePoint.</p>
+                      </div>
+
+                      {/* AD SPEND FLEXIBILITY */}
+                      <div className="mt-10 rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-8">
+                          <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">
+                              LakePoint's call on where it goes
+                          </p>
+                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight leading-tight mb-3">
+                              The ad spend isn't locked to a channel - it's a marketing budget LakePoint deploys.
+                          </h3>
+                          <p className="text-base text-gray-400 leading-relaxed mb-6">
+                              The $10K-per-increment commitment is dollars NTangible is putting on the table. LakePoint
+                              decides how to spend them - whatever moves the needle hardest at that moment.
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+                              <div className="bg-[#0a0a0a] p-5 sm:p-6">
+                                  <p className="text-white text-base font-semibold mb-2">General marketing fund</p>
+                                  <p className="text-gray-500 text-sm leading-relaxed">
+                                      Roll it into LakePoint's broader paid media, owned-channel campaigns, or event
+                                      promotion - whatever the marketing team is already pushing.
+                                  </p>
+                              </div>
+                              <div className="bg-[#0a0a0a] p-5 sm:p-6">
+                                  <p className="text-white text-base font-semibold mb-2">Redirect to strategic partners</p>
+                                  <p className="text-gray-500 text-sm leading-relaxed">
+                                      Or aim it at a flagship partner like <span className="text-white font-medium">Publix</span>
+                                      {' '}to deepen that integration - co-branded campaigns, in-store activations, joint
+                                      promotions that strengthen the relationship LakePoint cares about most.
+                                  </p>
+                              </div>
+                          </div>
                       </div>
                   </div>
               </section>
@@ -851,45 +1016,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </section>
 
-              {/* FRONT-LOAD STRATEGY */}
-              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
-                  <div className="mb-12 sm:mb-16 max-w-2xl">
-                      <p className="text-sm font-medium text-blue-400 mb-3">The rollout</p>
-                      <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
-                          Front-load the leaderboards. Then open the doors.
-                      </h2>
-                      <p className="text-lg text-gray-400 leading-relaxed">
-                          We seed the database with elite talent first, so the dashboard has real depth on day one - then
-                          bring college coaches in to a platform that already works.
-                      </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                      <div className="bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
-                          <div className="flex items-baseline gap-3 mb-4">
-                              <span className="text-blue-400 text-sm font-semibold tabular-nums">Phase 1</span>
-                              <span className="text-sm text-gray-500 font-medium">Seed</span>
-                          </div>
-                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Pre-fill the leaderboards</h3>
-                          <p className="text-base text-gray-400 leading-relaxed">
-                              NTangible runs free testing for roughly <span className="text-white font-medium">500 top athletes from each property</span>,
-                              so every LakePoint leaderboard launches with credible, verified depth.
-                          </p>
-                      </div>
-                      <div className="bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
-                          <div className="flex items-baseline gap-3 mb-4">
-                              <span className="text-emerald-400 text-sm font-semibold tabular-nums">Phase 2</span>
-                              <span className="text-sm text-gray-500 font-medium">Open</span>
-                          </div>
-                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Open up college coach access</h3>
-                          <p className="text-base text-gray-400 leading-relaxed">
-                              Provide free dashboard access to <span className="text-white font-medium">college coaches across every property</span>.
-                              Demand from coaches pulls athletes into paid profiles - the flywheel starts turning.
-                          </p>
-                      </div>
-                  </div>
-              </section>
-
               {/* DATA & TRUST */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
@@ -927,6 +1053,252 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </div>
                   </div>
               </section>
+          </>
+        );
+
+      case 'activation':
+        return (
+          <>
+              {/* ACTIVATION KICKOFF */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="mb-12 sm:mb-16 max-w-2xl">
+                      <p className="text-sm font-medium text-blue-400 mb-3">Activation kickoff</p>
+                      <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                          500 free assessments for every major partner.
+                      </h2>
+                      <p className="text-lg text-gray-400 leading-relaxed">
+                          Before a single dollar is asked for, NTangible gives each of LakePoint's flagship partners
+                          a block of 500 assessments to hand out however they want - to top teams, standout athletes,
+                          tournament champions, camp invitees. A no-risk on-ramp that lets the product prove itself
+                          inside each property before it goes wide.
+                      </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-10 sm:mb-12">
+                      <div className="lg:col-span-5 bg-gradient-to-b from-blue-500/[0.08] to-transparent border border-blue-500/30 rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
+                          <div>
+                              <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">
+                                  The starting block
+                              </p>
+                              <p className="text-6xl sm:text-7xl font-semibold text-white tracking-tight leading-none mb-3 tabular-nums">
+                                  500
+                              </p>
+                              <p className="text-lg text-gray-300 leading-relaxed">
+                                  free NTangible assessments &times; <span className="text-white font-medium">each major LakePoint partner</span>
+                              </p>
+                          </div>
+                          <p className="text-sm text-gray-500 leading-relaxed mt-6">
+                              LakePoint and the partner decide who gets them. NTangible delivers the assessments,
+                              the verified profiles, and the shareable reports.
+                          </p>
+                      </div>
+
+                      <div className="lg:col-span-7 grid grid-cols-1 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+                          <div className="bg-[#070707] p-6 sm:p-7">
+                              <div className="flex items-baseline gap-3 mb-2">
+                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">01</span>
+                                  <p className="text-white text-base sm:text-lg font-semibold">Get success stories on the board</p>
+                              </div>
+                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                                  Real athletes, real reports, real reactions from coaches and families - the kind of
+                                  early proof points LakePoint can lead with when this product goes to market.
+                              </p>
+                          </div>
+                          <div className="bg-[#070707] p-6 sm:p-7">
+                              <div className="flex items-baseline gap-3 mb-2">
+                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">02</span>
+                                  <p className="text-white text-base sm:text-lg font-semibold">Let partners feel the product</p>
+                              </div>
+                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                                  Each partner gets hands-on with the assessment, the dashboard, and the verified
+                                  profile experience - on their athletes, on their leaderboards - before being asked
+                                  to sell it.
+                              </p>
+                          </div>
+                          <div className="bg-[#070707] p-6 sm:p-7">
+                              <div className="flex items-baseline gap-3 mb-2">
+                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">03</span>
+                                  <p className="text-white text-base sm:text-lg font-semibold">Find the marketing voice</p>
+                              </div>
+                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                                  500 assessments is enough volume for each partner to test how they want to position
+                                  it to their audience - perk, scholarship, recruiting boost, championship reward -
+                                  and lock in the angle that resonates before it scales.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
+                      <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+                          <span className="text-white font-medium">No cost. No commitment.</span> Just enough volume
+                          for each partner to walk into the wider rollout with stories, instincts, and proof in hand.
+                      </p>
+                  </div>
+              </section>
+
+              {/* INTAKE / FIRST-PARTY DATA */}
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="mb-12 sm:mb-16 max-w-3xl">
+                      <p className="text-sm font-medium text-emerald-400 mb-3">Pre-assessment intake</p>
+                      <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                          Finally know who's actually walking through the gates.
+                      </h2>
+                      <p className="text-lg text-gray-400 leading-relaxed">
+                          Millions of athletes and families pass through LakePoint every year - and today, almost none
+                          of them are <span className="text-white font-medium">known</span> to LakePoint. Tournament rosters and gate counts don't tell you who
+                          they are, where they came from, or how to reach them again. Every NTangible assessment opens
+                          with a short intake module - co-designed with LakePoint - that turns every athlete who claims
+                          their free profile into a first-party record LakePoint owns.
+                      </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-10 sm:mb-12">
+                      <div className="lg:col-span-5 bg-gradient-to-b from-red-500/[0.07] to-transparent border border-red-500/25 rounded-2xl p-7 sm:p-9">
+                          <p className="text-[11px] font-semibold text-red-300 uppercase tracking-widest mb-3">
+                              The pain point
+                          </p>
+                          <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-tight mb-4">
+                              LakePoint hosts the country's most concentrated youth-sports audience - and can't name
+                              a single one of them.
+                          </p>
+                          <p className="text-base text-gray-400 leading-relaxed">
+                              No demographic profile of who's on campus. No way to retarget the families who came for
+                              a tournament last spring. No data to sell sponsors on <span className="text-white font-medium">who</span> their dollars are reaching.
+                          </p>
+                      </div>
+
+                      <div className="lg:col-span-7 bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
+                          <p className="text-[11px] font-semibold text-emerald-300 uppercase tracking-widest mb-4">
+                              What the intake captures
+                          </p>
+                          <p className="text-base text-gray-400 leading-relaxed mb-6">
+                              A 60-90 second module gated in front of every free assessment. Required to unlock the
+                              NTangible profile - so completion rate sits near 100%, not the 5-15% of an optional survey.
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                              {[
+                                  { label: 'Identity', detail: 'Athlete + parent/guardian name, age, grade' },
+                                  { label: 'Geography', detail: 'Home city, state, travel radius, club home base' },
+                                  { label: 'Sport profile', detail: 'Primary sport, positions, level, team affiliations' },
+                                  { label: 'Why they came', detail: 'Tournament, camp, showcase, training, league play' },
+                                  { label: 'Reach', detail: 'Parent email + mobile, opt-ins, communication preferences' },
+                                  { label: 'Spend signals', detail: 'Travel frequency, lodging, equipment brands, NIL interest' },
+                              ].map((row) => (
+                                  <div key={row.label} className="flex gap-3">
+                                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                                      <div>
+                                          <p className="text-white text-sm font-semibold mb-0.5">{row.label}</p>
+                                          <p className="text-gray-500 text-sm leading-snug">{row.detail}</p>
+                                      </div>
+                                  </div>
+                              ))}
+                          </div>
+                      </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-8">
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <p className="text-white text-base font-semibold mb-2">A real audience database</p>
+                          <p className="text-gray-400 text-sm leading-relaxed">
+                              Every assessed athlete becomes a named record in LakePoint's CRM - segmentable by sport,
+                              geography, age, and the property that brought them in.
+                          </p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <p className="text-white text-base font-semibold mb-2">Marketing that can actually target</p>
+                          <p className="text-gray-400 text-sm leading-relaxed">
+                              Re-invite last year's softball families to this year's showcase. Push a basketball camp
+                              to 14U athletes within 200 miles. Stop blasting; start reaching.
+                          </p>
+                      </div>
+                      <div className="bg-[#070707] p-6 sm:p-7">
+                          <p className="text-white text-base font-semibold mb-2">Sponsor &amp; NIL leverage</p>
+                          <p className="text-gray-400 text-sm leading-relaxed">
+                              Walk into sponsor conversations with a defined, verified audience - not a foot-traffic
+                              estimate. The same data unlocks NIL matchmaking down the road.
+                          </p>
+                      </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
+                      <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+                          <span className="text-white font-medium">LakePoint defines the fields; LakePoint owns the data.</span>{' '}
+                          NTangible operates the intake inside the assessment flow - the records land in LakePoint's
+                          database, branded as a LakePoint product, governed by LakePoint's privacy posture.
+                      </p>
+                  </div>
+              </section>
+
+              <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
+                  <div className="mb-12 sm:mb-16 max-w-2xl">
+                      <p className="text-sm font-medium text-blue-400 mb-3">The rollout</p>
+                      <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
+                          Front-load the leaderboards. Then open the doors.
+                      </h2>
+                      <p className="text-lg text-gray-400 leading-relaxed">
+                          We seed the database with elite talent first, so the dashboard has real depth on day one - then
+                          bring college coaches in to a platform that already works.
+                      </p>
+                  </div>
+
+                  {/* LEADERBOARD PREVIEW - what Phase 1 ships */}
+                  <div className="mb-12 sm:mb-16">
+                      <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
+                          <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">
+                              Phase 1 output &middot; sample
+                          </p>
+                          <p className="text-sm text-gray-500">
+                              Auto-generated leaderboard, ready to publish across LakePoint and partner channels.
+                          </p>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
+                              <img
+                                  src="/clutch-factor-top10-slide1.png"
+                                  alt="Clutch Factor leaderboard - top 3 performers"
+                                  className="w-full h-auto block"
+                              />
+                          </div>
+                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707]">
+                              <img
+                                  src="/clutch-factor-top10-slide2.png"
+                                  alt="Clutch Factor leaderboard - ranks 4 through 10"
+                                  className="w-full h-auto block"
+                              />
+                          </div>
+                      </div>
+                      <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
+                          Co-branded for each LakePoint partner. Generated per event, per property, per sport - on autopilot.
+                      </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                      <div className="bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
+                          <div className="flex items-baseline gap-3 mb-4">
+                              <span className="text-blue-400 text-sm font-semibold tabular-nums">Phase 1</span>
+                              <span className="text-sm text-gray-500 font-medium">Seed</span>
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Pre-fill the leaderboards</h3>
+                          <p className="text-base text-gray-400 leading-relaxed">
+                              NTangible runs free testing for roughly <span className="text-white font-medium">500 top athletes from each property</span>,
+                              so every LakePoint leaderboard launches with credible, verified depth.
+                          </p>
+                      </div>
+                      <div className="bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
+                          <div className="flex items-baseline gap-3 mb-4">
+                              <span className="text-emerald-400 text-sm font-semibold tabular-nums">Phase 2</span>
+                              <span className="text-sm text-gray-500 font-medium">Open</span>
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Open up college coach access</h3>
+                          <p className="text-base text-gray-400 leading-relaxed">
+                              Provide free dashboard access to <span className="text-white font-medium">college coaches across every property</span>.
+                              Demand from coaches pulls athletes into paid profiles - the flywheel starts turning.
+                          </p>
+                      </div>
+                  </div>
+              </section>
+
           </>
         );
 
@@ -1196,7 +1568,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
                   <div className="col-span-2 sm:col-span-1">
-                      <Logo className="text-white opacity-90 mb-4" size="small" showLabel={false} />
+                      <Logo className="text-white opacity-90 mb-4" size="small" />
                       <p className="text-sm text-gray-500 leading-relaxed">
                           An integration proposal for LakePoint Sports.
                       </p>
