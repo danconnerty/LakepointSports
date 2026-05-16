@@ -1121,7 +1121,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12">
                       <div className="bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
                           <div className="flex items-baseline gap-3 mb-4">
                               <span className="text-blue-400 text-sm font-semibold tabular-nums">Phase 1</span>
@@ -1143,6 +1143,34 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               Provide free dashboard access to <span className="text-white font-medium">college coaches across every property</span>.
                               Demand from coaches pulls athletes into paid profiles - the flywheel starts turning.
                           </p>
+                      </div>
+                  </div>
+
+                  {/* PHASE 1 OUTPUT - SAMPLE LEADERBOARDS */}
+                  <div>
+                      <div className="flex items-baseline justify-between mb-5 flex-wrap gap-2">
+                          <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">
+                              Phase 1 output &middot; sample
+                          </p>
+                          <p className="text-sm text-gray-500">
+                              Auto-generated, co-branded per partner - ready to publish on day one.
+                          </p>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
+                              <img
+                                  src="/clutch-factor-top10-slide1.png"
+                                  alt="Clutch Factor leaderboard - top 3 performers"
+                                  className="w-full h-auto block"
+                              />
+                          </div>
+                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
+                              <img
+                                  src="/clutch-factor-top10-slide2.png"
+                                  alt="Clutch Factor leaderboard - ranks 4 through 10"
+                                  className="w-full h-auto block"
+                              />
+                          </div>
                       </div>
                   </div>
               </section>
