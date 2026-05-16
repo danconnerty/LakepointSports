@@ -1019,58 +1019,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </p>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-10 sm:mb-12">
-                      <div className="lg:col-span-5 bg-gradient-to-b from-blue-500/[0.08] to-transparent border border-blue-500/30 rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
+                  <div className="bg-gradient-to-b from-blue-500/[0.08] to-transparent border border-blue-500/30 rounded-2xl p-7 sm:p-10 mb-6">
+                      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
                           <div>
-                              <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">
-                                  The starting block
-                              </p>
-                              <p className="text-6xl sm:text-7xl font-semibold text-white tracking-tight leading-none mb-3 tabular-nums">
-                                  500
-                              </p>
+                              <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">The starting block</p>
+                              <p className="text-6xl sm:text-7xl font-semibold text-white tracking-tight leading-none mb-3 tabular-nums">500</p>
                               <p className="text-lg text-gray-300 leading-relaxed">
                                   free NTangible assessments &times; <span className="text-white font-medium">each major LakePoint partner</span>
                               </p>
                           </div>
-                          <p className="text-sm text-gray-500 leading-relaxed mt-6">
+                          <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
                               LakePoint and the partner decide who gets them. NTangible delivers the assessments,
-                              the verified profiles, and the shareable reports.
+                              verified profiles, and shareable reports.
                           </p>
-                      </div>
-
-                      <div className="lg:col-span-7 grid grid-cols-1 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                          <div className="bg-[#070707] p-6 sm:p-7">
-                              <div className="flex items-baseline gap-3 mb-2">
-                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">01</span>
-                                  <p className="text-white text-base sm:text-lg font-semibold">Get success stories on the board</p>
-                              </div>
-                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                  Real athletes, real reports, real reactions from coaches and families - the kind of
-                                  early proof points LakePoint can lead with when this product goes to market.
-                              </p>
-                          </div>
-                          <div className="bg-[#070707] p-6 sm:p-7">
-                              <div className="flex items-baseline gap-3 mb-2">
-                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">02</span>
-                                  <p className="text-white text-base sm:text-lg font-semibold">Let partners feel the product</p>
-                              </div>
-                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                  Each partner gets hands-on with the assessment, the dashboard, and the verified
-                                  profile experience - on their athletes, on their leaderboards - before being asked
-                                  to sell it.
-                              </p>
-                          </div>
-                          <div className="bg-[#070707] p-6 sm:p-7">
-                              <div className="flex items-baseline gap-3 mb-2">
-                                  <span className="text-blue-400 text-sm font-semibold tabular-nums">03</span>
-                                  <p className="text-white text-base sm:text-lg font-semibold">Find the marketing voice</p>
-                              </div>
-                              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                  500 assessments is enough volume for each partner to test how they want to position
-                                  it to their audience - perk, scholarship, recruiting boost, championship reward -
-                                  and lock in the angle that resonates before it scales.
-                              </p>
-                          </div>
                       </div>
                   </div>
 
@@ -1136,30 +1097,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                   </div>
                               ))}
                           </div>
-                      </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-8">
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <p className="text-white text-base font-semibold mb-2">A real audience database</p>
-                          <p className="text-gray-400 text-sm leading-relaxed">
-                              Every assessed athlete becomes a named record in LakePoint's CRM - segmentable by sport,
-                              geography, age, and the property that brought them in.
-                          </p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <p className="text-white text-base font-semibold mb-2">Marketing that can actually target</p>
-                          <p className="text-gray-400 text-sm leading-relaxed">
-                              Re-invite last year's softball families to this year's showcase. Push a basketball camp
-                              to 14U athletes within 200 miles. Stop blasting; start reaching.
-                          </p>
-                      </div>
-                      <div className="bg-[#070707] p-6 sm:p-7">
-                          <p className="text-white text-base font-semibold mb-2">Sponsor &amp; NIL leverage</p>
-                          <p className="text-gray-400 text-sm leading-relaxed">
-                              Walk into sponsor conversations with a defined, verified audience - not a foot-traffic
-                              estimate. The same data unlocks NIL matchmaking down the road.
-                          </p>
                       </div>
                   </div>
 
