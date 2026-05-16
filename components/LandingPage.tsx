@@ -1417,7 +1417,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
 
       {/* Header / Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 h-16 flex items-center justify-between backdrop-blur-md border-b border-white/5 bg-black/60">
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleEnter()}>
+          <div className="flex items-center gap-3">
               <Logo className="text-white" size="small" />
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
@@ -1485,12 +1485,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                     className="text-gray-500 hover:text-gray-300 text-sm font-medium transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-white/40"
                   >
                       Try a sample assessment
-                  </button>
-                  <button
-                    onClick={() => handleEnter()}
-                    className="hidden sm:inline-flex text-gray-500 hover:text-gray-300 text-sm font-medium transition-colors underline underline-offset-4 decoration-white/10 hover:decoration-white/40"
-                  >
-                      Explore the LakePoint dashboard
                   </button>
               </div>
           </section>
@@ -1612,7 +1606,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <li><button onClick={() => handleTabChange('offer')} className="text-gray-400 hover:text-white transition-colors">The offer</button></li>
                           <li><button onClick={() => handleTabChange('economics')} className="text-gray-400 hover:text-white transition-colors">Economics</button></li>
                           <li><button onClick={() => handleTabChange('distribution')} className="text-gray-400 hover:text-white transition-colors">Distribution &amp; rollout</button></li>
-                          <li><button onClick={() => handleEnter()} className="text-gray-400 hover:text-white transition-colors">LakePoint dashboard</button></li>
                       </ul>
                   </div>
                   <div>
