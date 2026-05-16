@@ -115,7 +115,6 @@ const SampleReportModal = ({ onClose, onViewClutch, onViewNterpret }: { onClose:
 const PRICE = 10;
 const LAKEPOINT_SHARE = 2;
 const PARTNER_SHARE = 1;
-const NTANGIBLE_SHARE = 7;
 const AD_SPEND_INCREMENT = 50000;
 const AD_SPEND_PER_INCREMENT = 10000;
 const MAX_PROFILES = 250000;
@@ -128,12 +127,9 @@ const PricingCalculator = () => {
     const grossRevenue = clamped * PRICE;
     const lakepointRev = clamped * LAKEPOINT_SHARE;
     const partnerRev = clamped * PARTNER_SHARE;
-    const ntangibleRev = clamped * NTANGIBLE_SHARE;
 
     const milestones = Math.floor(grossRevenue / AD_SPEND_INCREMENT);
     const adSpend = milestones * AD_SPEND_PER_INCREMENT;
-    const nextMilestoneRevenue = (milestones + 1) * AD_SPEND_INCREMENT;
-    const progressToNext = grossRevenue === 0 ? 0 : ((grossRevenue % AD_SPEND_INCREMENT) / AD_SPEND_INCREMENT) * 100;
     const totalToLakePoint = lakepointRev + adSpend;
 
     const fmt = (n: number) => `$${Math.round(n).toLocaleString('en-US')}`;
@@ -148,9 +144,8 @@ const PricingCalculator = () => {
                     $10 a profile. Revenue on every one.
                 </h2>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                    A direct-to-consumer price point built to move across every LakePoint digital channel and partner property.
-                    LakePoint and the originating partner earn on every profile sold - and at scale, NTangible reinvests
-                    directly back into LakePoint ad spend.
+                    LakePoint and the originating partner earn on every profile sold. At scale, NTangible reinvests directly
+                    back into LakePoint ad spend.
                 </p>
             </div>
 
@@ -159,25 +154,25 @@ const PricingCalculator = () => {
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-blue-400 tracking-tight mb-1 tabular-nums">$2</p>
                     <p className="text-white text-base font-semibold mb-1">LakePoint Sports</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Direct revenue share to LakePoint on every profile sold, across all channels.</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Direct revenue share to LakePoint on every profile sold.</p>
                 </div>
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-emerald-400 tracking-tight mb-1 tabular-nums">$1</p>
                     <p className="text-white text-base font-semibold mb-1">Originating partner</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Paid to the specific LakePoint partner or property that drove the sale.</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Paid to the specific partner or property that drove the sale.</p>
                 </div>
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mb-1 tabular-nums">$7</p>
                     <p className="text-white text-base font-semibold mb-1">NTangible</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Covers assessment delivery, hosting, the collegiate dashboard, and the directed ad-spend commitment.</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Covers assessments, hosting, the collegiate dashboard, and ad-spend commitment.</p>
                 </div>
             </div>
 
             {/* Calculator card */}
             <div className="bg-[#070707] border border-white/10 rounded-2xl p-6 sm:p-10">
-                <div className="mb-6 sm:mb-8">
-                    <p className="text-sm text-gray-500 font-medium mb-1">Revenue calculator</p>
-                    <p className="text-base text-gray-400">Drag to model the integration at scale.</p>
+                <div className="mb-8">
+                    <p className="text-sm text-gray-500 font-medium mb-1">Model it at scale</p>
+                    <p className="text-base text-gray-400">Drag to set the number of profiles sold.</p>
                 </div>
 
                 {/* Slider */}
@@ -222,93 +217,29 @@ const PricingCalculator = () => {
                     </div>
                 </div>
 
-                {/* Gross revenue */}
-                <div className="mb-6">
-                    <p className="text-sm font-medium text-gray-500 mb-2">Gross program revenue</p>
-                    <p className="text-5xl sm:text-6xl font-semibold text-white tracking-tight tabular-nums">{fmt(grossRevenue)}</p>
-                    <p className="text-sm text-gray-500 mt-2 tabular-nums">{clamped.toLocaleString('en-US')} profiles &times; $10</p>
+                {/* Total to LakePoint - hero result */}
+                <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-b from-blue-500/[0.08] to-transparent p-6 sm:p-8 mb-6">
+                    <p className="text-sm font-medium text-blue-400 mb-2">Total value to LakePoint Sports</p>
+                    <p className="text-5xl sm:text-6xl font-semibold text-white tracking-tight tabular-nums mb-2">{fmt(totalToLakePoint)}</p>
+                    <p className="text-sm text-gray-400 tabular-nums">{fmt(lakepointRev)} rev share + {fmt(adSpend)} directed ad spend</p>
                 </div>
 
-                {/* Stacked split bar */}
-                <div className="flex h-3 rounded-full overflow-hidden bg-white/5 mb-8">
-                    <div className="bg-blue-500" style={{ width: '20%' }} title="LakePoint $2" />
-                    <div className="bg-emerald-500" style={{ width: '10%' }} title="Partner $1" />
-                    <div className="bg-white/30" style={{ width: '70%' }} title="NTangible $7" />
-                </div>
-
-                {/* Split results */}
+                {/* Supporting breakdown */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden">
                     <div className="bg-[#070707] p-5 sm:p-6">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="w-2 h-2 rounded-full bg-blue-500" />
-                            <p className="text-sm font-medium text-blue-400">LakePoint rev share</p>
-                        </div>
+                        <p className="text-sm font-medium text-blue-400 mb-2">LakePoint rev share</p>
                         <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(lakepointRev)}</p>
-                        <p className="text-sm text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $2</p>
+                        <p className="text-xs text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $2</p>
                     </div>
                     <div className="bg-[#070707] p-5 sm:p-6">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                            <p className="text-sm font-medium text-emerald-400">Partner rev share</p>
-                        </div>
+                        <p className="text-sm font-medium text-blue-400 mb-2">Directed ad spend</p>
+                        <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(adSpend)}</p>
+                        <p className="text-xs text-gray-500 mt-1 tabular-nums">{milestones} &times; $10K milestone{milestones === 1 ? '' : 's'}</p>
+                    </div>
+                    <div className="bg-[#070707] p-5 sm:p-6">
+                        <p className="text-sm font-medium text-emerald-400 mb-2">Partner rev share</p>
                         <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(partnerRev)}</p>
-                        <p className="text-sm text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $1</p>
-                    </div>
-                    <div className="bg-[#070707] p-5 sm:p-6">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="w-2 h-2 rounded-full bg-white/40" />
-                            <p className="text-sm font-medium text-gray-400">NTangible</p>
-                        </div>
-                        <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(ntangibleRev)}</p>
-                        <p className="text-sm text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $7</p>
-                    </div>
-                </div>
-
-                {/* Directed ad-spend commitment */}
-                <div className="mt-8 rounded-2xl border border-blue-500/30 bg-gradient-to-b from-blue-500/[0.08] to-transparent p-6 sm:p-8">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-                        <div className="max-w-md">
-                            <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full mb-3">
-                                <Megaphone size={13} className="text-blue-400" />
-                                <span className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">Directed ad-spend commitment</span>
-                            </div>
-                            <p className="text-base text-gray-300 leading-relaxed">
-                                For every <span className="text-white font-semibold">$50,000</span> in gross program revenue,
-                                NTangible commits <span className="text-white font-semibold">$10,000</span> to a directed
-                                ad-spend campaign run through LakePoint Sports.
-                            </p>
-                        </div>
-                        <div className="sm:text-right shrink-0">
-                            <p className="text-sm font-medium text-blue-400 mb-1">Committed ad spend</p>
-                            <p className="text-4xl sm:text-5xl font-semibold text-white tracking-tight tabular-nums">{fmt(adSpend)}</p>
-                            <p className="text-sm text-gray-500 mt-1 tabular-nums">
-                                {milestones} &times; $10,000 milestone{milestones === 1 ? '' : 's'}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="mt-6 pt-6 border-t border-white/10">
-                        <div className="flex justify-between text-xs text-gray-500 mb-2 tabular-nums">
-                            <span>{fmt(milestones * AD_SPEND_INCREMENT)} in revenue</span>
-                            <span>Next campaign unlocks at {fmt(nextMilestoneRevenue)}</span>
-                        </div>
-                        <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
-                            <div className="h-full bg-blue-500 transition-all duration-300" style={{ width: `${progressToNext}%` }} />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Total to LakePoint */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden mt-8">
-                    <div className="bg-[#070707] p-5 sm:p-6">
-                        <p className="text-sm font-medium text-gray-500 mb-2">Total value to LakePoint Sports</p>
-                        <p className="text-3xl sm:text-4xl font-semibold text-blue-400 tracking-tight tabular-nums">{fmt(totalToLakePoint)}</p>
-                        <p className="text-sm text-gray-500 mt-2 tabular-nums">{fmt(lakepointRev)} rev share + {fmt(adSpend)} directed ad spend</p>
-                    </div>
-                    <div className="bg-[#070707] p-5 sm:p-6">
-                        <p className="text-sm font-medium text-gray-500 mb-2">Total to LakePoint + partners</p>
-                        <p className="text-3xl sm:text-4xl font-semibold text-white tracking-tight tabular-nums">{fmt(totalToLakePoint + partnerRev)}</p>
-                        <p className="text-sm text-gray-500 mt-2 tabular-nums">Includes {fmt(partnerRev)} paid to originating partners</p>
+                        <p className="text-xs text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $1</p>
                     </div>
                 </div>
 
