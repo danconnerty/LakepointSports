@@ -1332,6 +1332,34 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </div>
           </section>
 
+          {/* YSBR AWARD BANNER */}
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-16 sm:mb-20">
+              <div className="relative rounded-3xl border border-amber-400/40 bg-gradient-to-br from-amber-500/[0.06] via-transparent to-transparent shadow-[0_0_60px_-20px_rgba(251,191,36,0.35)] overflow-hidden">
+                  <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_left,rgba(251,191,36,0.10),transparent_60%)]"></div>
+                  <div className="relative flex flex-col sm:flex-row items-center gap-6 sm:gap-8 px-6 sm:px-10 py-8 sm:py-9">
+                      <img
+                          src="/ysbr.png"
+                          alt="Youth Sports Business Report"
+                          width="140"
+                          height="140"
+                          className="h-24 w-24 sm:h-32 sm:w-32 object-contain shrink-0"
+                      />
+                      <div className="hidden sm:block h-24 w-px bg-amber-400/30 shrink-0"></div>
+                      <div className="text-center sm:text-left flex-1">
+                          <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-amber-300 mb-3">
+                              Industry Recognition
+                          </p>
+                          <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white leading-tight mb-3">
+                              2026 Rising Star Award <span className="text-amber-200/40">&middot;</span> <span className="text-amber-300">Youth Sports Business Report</span>
+                          </h3>
+                          <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-3xl">
+                              Selected by the industry trade for category-defining work in youth sports technology - the same year IMG Academy is consolidating its digital recruiting portfolio.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
           {/* SOCIAL PROOF / TRUSTED TEAMS TICKER */}
           <div className="w-full mb-16 sm:mb-20">
               <TrustedTeams />
@@ -1427,9 +1455,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
                   <div className="col-span-2 sm:col-span-1">
                       <Logo className="text-white opacity-90 mb-4" size="small" />
-                      <p className="text-sm text-gray-500 leading-relaxed">
+                      <p className="text-sm text-gray-500 leading-relaxed mb-4">
                           An integration proposal for LakePoint Sports.
                       </p>
+                      <div className="inline-flex items-center gap-2.5 text-[10px] font-semibold uppercase tracking-wider text-amber-300/80">
+                          <img
+                              src="/ysbr.png"
+                              alt="Youth Sports Business Report"
+                              width="32"
+                              height="32"
+                              className="h-8 w-8 object-contain"
+                          />
+                          <span>2026 Rising Star Award Winner</span>
+                      </div>
                   </div>
                   <div>
                       <p className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Proposal</p>
