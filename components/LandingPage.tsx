@@ -1285,9 +1285,22 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       className="h-20 sm:h-24 w-auto object-contain drop-shadow-[0_10px_40px_rgba(37,99,235,0.25)]"
                   />
               </div>
-              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-8 ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
+              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-4 ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
                   <span className="inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
                   <span className="text-[11px] font-medium text-gray-300 tracking-wide">Partnership Proposal &middot; NTangible &times; LakePoint Sports</span>
+              </div>
+
+              <div className={`flex justify-center mb-8 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'} transition-all duration-700 delay-100`}>
+                  <div className="inline-flex items-center gap-2.5 pl-2 pr-3.5 py-1.5 rounded-full border border-amber-400/40 bg-gradient-to-r from-amber-500/[0.12] via-amber-400/[0.08] to-transparent shadow-[0_0_30px_-8px_rgba(251,191,36,0.4)]">
+                      <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-amber-400/20 text-amber-300">
+                          <Trophy size={11} />
+                      </span>
+                      <span className="text-[11px] font-semibold tracking-wide">
+                          <span className="text-amber-300">Winner</span>
+                          <span className="text-amber-200/50 mx-1.5">&middot;</span>
+                          <span className="text-amber-100/90">Youth Sports Business Report 2026 Rising Star Award</span>
+                      </span>
+                  </div>
               </div>
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight mb-6 leading-[1.02] text-white">
@@ -1427,9 +1440,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
                   <div className="col-span-2 sm:col-span-1">
                       <Logo className="text-white opacity-90 mb-4" size="small" />
-                      <p className="text-sm text-gray-500 leading-relaxed">
+                      <p className="text-sm text-gray-500 leading-relaxed mb-4">
                           An integration proposal for LakePoint Sports.
                       </p>
+                      <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-amber-300/80">
+                          <Trophy size={11} />
+                          <span>YSBR 2026 Rising Star Award Winner</span>
+                      </div>
                   </div>
                   <div>
                       <p className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Proposal</p>
