@@ -1291,19 +1291,23 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </div>
 
               <div className={`flex justify-center mb-8 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'} transition-all duration-700 delay-100`}>
-                  <div className="inline-flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full border border-amber-400/40 bg-gradient-to-r from-amber-500/[0.12] via-amber-400/[0.08] to-transparent shadow-[0_0_30px_-8px_rgba(251,191,36,0.4)]">
+                  <div className="inline-flex items-center gap-4 sm:gap-5 px-5 py-3 rounded-2xl border border-amber-400/40 bg-gradient-to-r from-amber-500/[0.10] via-amber-400/[0.06] to-transparent shadow-[0_0_40px_-10px_rgba(251,191,36,0.45)]">
                       <img
                           src="/ysbr.png"
                           alt="Youth Sports Business Report"
-                          width="28"
-                          height="28"
-                          className="h-7 w-7 object-contain rounded-full bg-white/95 p-0.5"
+                          width="56"
+                          height="56"
+                          className="h-12 w-12 sm:h-14 sm:w-14 object-contain shrink-0"
                       />
-                      <span className="text-[11px] font-semibold tracking-wide">
-                          <span className="text-amber-300">Winner</span>
-                          <span className="text-amber-200/50 mx-1.5">&middot;</span>
-                          <span className="text-amber-100/90">Youth Sports Business Report 2026 Rising Star Award</span>
-                      </span>
+                      <div className="h-10 w-px bg-amber-400/30"></div>
+                      <div className="text-left">
+                          <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-amber-300 mb-0.5">
+                              2026 Rising Star Award
+                          </p>
+                          <p className="text-sm font-semibold text-amber-100/90 leading-tight">
+                              Winner &middot; Youth Sports Business Report
+                          </p>
+                      </div>
                   </div>
               </div>
 
@@ -1447,15 +1451,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <p className="text-sm text-gray-500 leading-relaxed mb-4">
                           An integration proposal for LakePoint Sports.
                       </p>
-                      <div className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-amber-300/80">
+                      <div className="inline-flex items-center gap-2.5 text-[10px] font-semibold uppercase tracking-wider text-amber-300/80">
                           <img
                               src="/ysbr.png"
                               alt="Youth Sports Business Report"
-                              width="20"
-                              height="20"
-                              className="h-5 w-5 object-contain rounded-full bg-white/95 p-0.5"
+                              width="32"
+                              height="32"
+                              className="h-8 w-8 object-contain"
                           />
-                          <span>YSBR 2026 Rising Star Award Winner</span>
+                          <span>2026 Rising Star Award Winner</span>
                       </div>
                   </div>
                   <div>
