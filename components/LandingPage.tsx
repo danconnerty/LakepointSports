@@ -1291,10 +1291,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </div>
 
               <div className={`flex justify-center mb-8 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'} transition-all duration-700 delay-100`}>
-                  <div className="inline-flex items-center gap-2.5 pl-2 pr-3.5 py-1.5 rounded-full border border-amber-400/40 bg-gradient-to-r from-amber-500/[0.12] via-amber-400/[0.08] to-transparent shadow-[0_0_30px_-8px_rgba(251,191,36,0.4)]">
-                      <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-amber-400/20 text-amber-300">
-                          <Trophy size={11} />
-                      </span>
+                  <div className="inline-flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full border border-amber-400/40 bg-gradient-to-r from-amber-500/[0.12] via-amber-400/[0.08] to-transparent shadow-[0_0_30px_-8px_rgba(251,191,36,0.4)]">
+                      <img
+                          src="/ysbr.png"
+                          alt="Youth Sports Business Report"
+                          width="28"
+                          height="28"
+                          className="h-7 w-7 object-contain rounded-full bg-white/95 p-0.5"
+                      />
                       <span className="text-[11px] font-semibold tracking-wide">
                           <span className="text-amber-300">Winner</span>
                           <span className="text-amber-200/50 mx-1.5">&middot;</span>
@@ -1443,8 +1447,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <p className="text-sm text-gray-500 leading-relaxed mb-4">
                           An integration proposal for LakePoint Sports.
                       </p>
-                      <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-amber-300/80">
-                          <Trophy size={11} />
+                      <div className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-amber-300/80">
+                          <img
+                              src="/ysbr.png"
+                              alt="Youth Sports Business Report"
+                              width="20"
+                              height="20"
+                              className="h-5 w-5 object-contain rounded-full bg-white/95 p-0.5"
+                          />
                           <span>YSBR 2026 Rising Star Award Winner</span>
                       </div>
                   </div>
