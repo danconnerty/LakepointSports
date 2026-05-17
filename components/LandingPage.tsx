@@ -1353,7 +1353,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               2026 Rising Star Award <span className="text-amber-200/40">&middot;</span> <span className="text-amber-300">Youth Sports Business Report</span>
                           </h3>
                           <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-3xl">
-                              Selected by the industry trade for category-defining work in youth sports technology &mdash; the same year IMG Academy is consolidating its digital recruiting portfolio.
+                              Selected by the industry trade for category-defining work in youth sports technology - the same year IMG Academy is consolidating its digital recruiting portfolio.
                           </p>
                       </div>
                   </div>
