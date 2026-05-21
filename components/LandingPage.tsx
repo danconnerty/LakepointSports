@@ -273,6 +273,10 @@ const PartnerProperties = () => (
             </p>
         </div>
 
+        <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-4">
+            Some of LakePoint's partner properties
+        </p>
+
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
             {PARTNERS.map((p) => (
                 <div key={p.name} className="bg-[#070707] p-5 sm:p-7 flex flex-col">
@@ -355,7 +359,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5">
                           <ShieldCheck size={20} className="text-blue-400" />
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Capacity Mental Scouting Profile</h3>
+                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">CPG Mental Scouting Profile</h3>
                       <p className="text-base text-gray-400 leading-relaxed mb-5">
                           A verified digital profile measuring how an athlete performs under pressure - hosted on
                           Capacity Sports Group's official database and usable across every partner and facility we build assessments for.
@@ -370,7 +374,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
                           <Monitor size={20} className="text-emerald-400" />
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Capacity Collegiate Dashboard</h3>
+                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">CPG Collegiate Dashboard</h3>
                       <p className="text-base text-gray-400 leading-relaxed mb-5">
                           A free, web-based portal college coaches log into to discover Capacity Sports Group talent - and see which
                           athletes align with their coaching style.
@@ -545,7 +549,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
                       <img
                           src="/Recruitingdashboardmockup.png"
-                          alt="Capacity Collegiate Dashboard - coach view"
+                          alt="CPG Collegiate Dashboard - coach view"
                           className="w-full h-auto block"
                       />
                   </div>
@@ -1291,7 +1295,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </div>
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight mb-6 leading-[1.02] text-white">
-                  The Capacity <span className="text-blue-400">Mental Scouting Profile.</span>
+                  The CPG <span className="text-blue-400">Mental Scouting Profile.</span>
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -1427,7 +1431,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       Let's make it official.
                   </h2>
                   <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
-                      We'll walk through the integration, the rollout plan, and the numbers behind the Capacity Mental
+                      We'll walk through the integration, the rollout plan, and the numbers behind the CPG Mental
                       Scouting Profile. 15 minutes, no slides.
                   </p>
                   <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-md sm:max-w-none mx-auto">
