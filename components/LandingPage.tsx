@@ -28,8 +28,8 @@ const Logo = ({ className = "", size = "normal" }: { className?: string, size?: 
             />
             <span className="text-white/25 text-lg font-light leading-none">&times;</span>
             <img
-                src="/LakePoint.png"
-                alt="LakePoint Sports"
+                src="/CPG.png"
+                alt="Capacity Sports Group"
                 className={`${height} w-auto object-contain`}
             />
         </div>
@@ -113,7 +113,7 @@ const SampleReportModal = ({ onClose, onViewClutch, onViewNterpret }: { onClose:
 
 // --- ECONOMICS + REVENUE CALCULATOR ---
 const PRICE = 10;
-const LAKEPOINT_SHARE = 2;
+const CAPACITY_SHARE = 2;
 const PARTNER_SHARE = 1;
 const AD_SPEND_INCREMENT = 50000;
 const AD_SPEND_PER_INCREMENT = 10000;
@@ -125,12 +125,12 @@ const PricingCalculator = () => {
     const clamped = Math.max(0, Math.min(MAX_PROFILES, Number.isFinite(profiles) ? profiles : 0));
 
     const grossRevenue = clamped * PRICE;
-    const lakepointRev = clamped * LAKEPOINT_SHARE;
+    const capacityRev = clamped * CAPACITY_SHARE;
     const partnerRev = clamped * PARTNER_SHARE;
 
     const milestones = Math.floor(grossRevenue / AD_SPEND_INCREMENT);
     const adSpend = milestones * AD_SPEND_PER_INCREMENT;
-    const totalToLakePoint = lakepointRev + adSpend;
+    const totalToCapacity = capacityRev + adSpend;
 
     const fmt = (n: number) => `$${Math.round(n).toLocaleString('en-US')}`;
     const fmtCompact = (n: number) => n >= 1000 ? `${(n / 1000).toLocaleString('en-US')}k` : `${n}`;
@@ -144,8 +144,8 @@ const PricingCalculator = () => {
                     $10 a profile. Revenue on every one.
                 </h2>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                    LakePoint and the originating partner earn on every profile sold. At scale, NTangible reinvests directly
-                    back into LakePoint ad spend.
+                    Capacity Sports Group and the originating partner earn on every profile sold. At scale, NTangible reinvests directly
+                    back into Capacity Sports Group ad spend.
                 </p>
             </div>
 
@@ -153,13 +153,13 @@ const PricingCalculator = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-10">
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-blue-400 tracking-tight mb-1 tabular-nums">$2</p>
-                    <p className="text-white text-base font-semibold mb-1">LakePoint Sports</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Direct revenue share to LakePoint on every profile sold.</p>
+                    <p className="text-white text-base font-semibold mb-1">Capacity Sports Group</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Direct revenue share to Capacity Sports Group on every profile sold.</p>
                 </div>
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-emerald-400 tracking-tight mb-1 tabular-nums">$1</p>
                     <p className="text-white text-base font-semibold mb-1">Originating partner</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Paid to the specific partner or property that drove the sale.</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Paid to the specific partner or facility that drove the sale.</p>
                 </div>
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mb-1 tabular-nums">$7</p>
@@ -217,18 +217,18 @@ const PricingCalculator = () => {
                     </div>
                 </div>
 
-                {/* Total to LakePoint - hero result */}
+                {/* Total to Capacity Sports Group - hero result */}
                 <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-b from-blue-500/[0.08] to-transparent p-6 sm:p-8 mb-6">
-                    <p className="text-sm font-medium text-blue-400 mb-2">Total value to LakePoint Sports</p>
-                    <p className="text-5xl sm:text-6xl font-semibold text-white tracking-tight tabular-nums mb-2">{fmt(totalToLakePoint)}</p>
-                    <p className="text-sm text-gray-400 tabular-nums">{fmt(lakepointRev)} rev share + {fmt(adSpend)} directed ad spend</p>
+                    <p className="text-sm font-medium text-blue-400 mb-2">Total value to Capacity Sports Group</p>
+                    <p className="text-5xl sm:text-6xl font-semibold text-white tracking-tight tabular-nums mb-2">{fmt(totalToCapacity)}</p>
+                    <p className="text-sm text-gray-400 tabular-nums">{fmt(capacityRev)} rev share + {fmt(adSpend)} directed ad spend</p>
                 </div>
 
                 {/* Supporting breakdown */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden">
                     <div className="bg-[#070707] p-5 sm:p-6">
-                        <p className="text-sm font-medium text-blue-400 mb-2">LakePoint rev share</p>
-                        <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(lakepointRev)}</p>
+                        <p className="text-sm font-medium text-blue-400 mb-2">Capacity Sports Group rev share</p>
+                        <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(capacityRev)}</p>
                         <p className="text-xs text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $2</p>
                     </div>
                     <div className="bg-[#070707] p-5 sm:p-6">
@@ -252,7 +252,7 @@ const PricingCalculator = () => {
     );
 };
 
-// --- LAKEPOINT PARTNER PROPERTIES ---
+// --- CAPACITY SPORTS GROUP PARTNER PROPERTIES ---
 const PARTNERS: { name: string; src: string; blurb: string }[] = [
     { name: 'PBR', src: '/PBR.png', blurb: 'Surfaced to the prospect pipeline already flowing through PBR.' },
     { name: 'RYZE Basketball', src: '/RYZE.png', blurb: 'Promoted across the RYZE Basketball event circuit.' },
@@ -265,10 +265,10 @@ const PartnerProperties = () => (
         <div className="mb-10 sm:mb-12 max-w-2xl">
             <p className="text-sm font-medium text-blue-400 mb-3">Partner properties</p>
             <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
-                Built into every LakePoint property.
+                Built into every Capacity Sports Group facility.
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed">
-                The Mental Scouting Profile ships through the partner brands already running events across LakePoint
+                The Mental Scouting Profile ships through the partner brands already running events across Capacity Sports Group facilities like LakePoint and Grand Park
                 - each one promotes it, and each one earns $1 on every profile it drives.
             </p>
         </div>
@@ -323,7 +323,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   }, []);
 
   const handleEnter = (view?: ViewType) => {
-    onEnter('LAKEPOINT SPORTS', view);
+    onEnter('CAPACITY SPORTS GROUP', view);
   };
 
   const handleTabChange = (id: TabId) => {
@@ -341,12 +341,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               <div className="mb-12 sm:mb-16 max-w-2xl">
                   <p className="text-sm font-medium text-blue-400 mb-3">The offer</p>
                   <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
-                      One integration. Every LakePoint property.
+                      One integration. Every Capacity Sports Group facility.
                   </h2>
                   <p className="text-lg text-gray-400 leading-relaxed">
-                      NTangible builds and operates a LakePoint-branded mental performance profile that any LakePoint partner
-                      or property can sell - backed by a free collegiate discovery dashboard that turns LakePoint into
-                      the place college coaches come to find talent.
+                      NTangible builds and operates a Capacity Sports Group-branded mental performance profile that any
+                      facility in the portfolio - LakePoint, Grand Park, and beyond - can sell, backed by a free collegiate
+                      discovery dashboard that turns Capacity Sports Group into the place college coaches come to find talent.
                   </p>
               </div>
 
@@ -355,29 +355,29 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5">
                           <ShieldCheck size={20} className="text-blue-400" />
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">LakePoint Mental Scouting Profile</h3>
+                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Capacity Mental Scouting Profile</h3>
                       <p className="text-base text-gray-400 leading-relaxed mb-5">
                           A verified digital profile measuring how an athlete performs under pressure - hosted on
-                          LakePoint's official database and usable across every partner and property we build assessments for.
+                          Capacity Sports Group's official database and usable across every partner and facility we build assessments for.
                       </p>
                       <ul className="space-y-2.5 border-t border-white/5 pt-5">
                           <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-blue-400 shrink-0 mt-0.5" /> Full Clutch Factor&trade; + NTerpret&trade; reports</li>
                           <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-blue-400 shrink-0 mt-0.5" /> Personalized drills to improve performance</li>
-                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-blue-400 shrink-0 mt-0.5" /> Verified recruiting status inside the LakePoint dashboard</li>
+                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-blue-400 shrink-0 mt-0.5" /> Verified recruiting status inside the Capacity Sports Group dashboard</li>
                       </ul>
                   </div>
                   <div className="bg-[#070707] p-7 sm:p-9">
                       <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
                           <Monitor size={20} className="text-emerald-400" />
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">LakePoint Collegiate Dashboard</h3>
+                      <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Capacity Collegiate Dashboard</h3>
                       <p className="text-base text-gray-400 leading-relaxed mb-5">
-                          A free, web-based portal college coaches log into to discover LakePoint talent - and see which
+                          A free, web-based portal college coaches log into to discover Capacity Sports Group talent - and see which
                           athletes align with their coaching style.
                       </p>
                       <ul className="space-y-2.5 border-t border-white/5 pt-5">
-                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Free access for every college coach across properties</li>
-                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Searchable leaderboards of LakePoint athletes</li>
+                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Free access for every college coach across facilities</li>
+                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Searchable leaderboards of Capacity Sports Group athletes</li>
                       </ul>
                   </div>
               </div>
@@ -396,7 +396,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
                           Every athlete completes both assessments in under 15 minutes from any phone. The reports live inside the
-                          LakePoint dashboard - and athletes can share them with college coaches in one tap.
+                          Capacity Sports Group dashboard - and athletes can share them with college coaches in one tap.
                       </p>
                   </div>
 
@@ -533,9 +533,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           Replace the packet. <span className="text-gray-500">Keep the relationship.</span>
                       </h2>
                       <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
-                          Every college coach walks out of a LakePoint event with a stack of paper packets that
+                          Every college coach walks out of a Capacity Sports Group event with a stack of paper packets that
                           go stale on the flight home. We replace that packet with a free, always-on dashboard -
-                          every LakePoint athlete, every sport, every event, year-round.
+                          every Capacity Sports Group athlete, every sport, every event, year-round.
                       </p>
                   </div>
               </section>
@@ -545,21 +545,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#070707] shadow-[0_30px_80px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
                       <img
                           src="/Recruitingdashboardmockup.png"
-                          alt="LakePoint Collegiate Dashboard - coach view"
+                          alt="Capacity Collegiate Dashboard - coach view"
                           className="w-full h-auto block"
                       />
                   </div>
                   <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
-                      One login. Every verified LakePoint athlete, filterable by sport, position, state, grad year, and fit.
+                      One login. Every verified Capacity Sports Group athlete, filterable by sport, position, state, grad year, and fit.
                   </p>
               </section>
 
-              {/* TODAY VS LAKEPOINT */}
+              {/* TODAY VS CAPACITY SPORTS GROUP */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-10 sm:mb-12 max-w-2xl">
                       <p className="text-sm font-medium text-emerald-400 mb-3">The shift</p>
                       <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
-                          A coach's recruiting cycle today vs. with LakePoint.
+                          A coach's recruiting cycle today vs. with Capacity Sports Group.
                       </h3>
                       <p className="text-lg text-gray-400 leading-relaxed">
                           The paper packet has been the standard recruiting artifact for decades. It's also the
@@ -586,11 +586,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
                               <Monitor size={20} className="text-emerald-400" />
                           </div>
-                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">With LakePoint</p>
+                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">With Capacity Sports Group</p>
                           <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The live coaches' dashboard</h4>
                           <ul className="space-y-2.5">
                               <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Logged in from any laptop - current the moment a profile updates</li>
-                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Every verified athlete across every LakePoint property, searchable</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Every verified athlete across every Capacity Sports Group facility, searchable</li>
                               <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Full mental profile and coach-fit index built into every athlete card</li>
                               <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Year-round, every sport - no rebuild, no event dependency</li>
                               <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Shareable with the full staff in one link</li>
@@ -617,7 +617,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               step: '01',
                               eyebrow: 'Discover',
                               title: 'Clutch Factor Leaderboard',
-                              blurb: 'The public ranking every coach lands on first. Every NTangible-verified athlete in the LakePoint database, filterable by sport, position, state, grad year, GPA, and height/weight - thousands narrowed to a short list in seconds.',
+                              blurb: 'The public ranking every coach lands on first. Every NTangible-verified athlete in the Capacity Sports Group database, filterable by sport, position, state, grad year, GPA, and height/weight - thousands narrowed to a short list in seconds.',
                               src: '/collegeleaderboard.png',
                               alt: 'Clutch Factor Leaderboard - public ranking of every assessed athlete',
                           },
@@ -727,7 +727,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       {/* THE PUNCH LINE */}
                       <div className="rounded-2xl border border-emerald-500/30 bg-[#070707] p-7 sm:p-9">
                           <p className="text-xl sm:text-2xl text-white leading-snug font-medium max-w-3xl">
-                              Coaches keep coming back to LakePoint because this signal lives nowhere else.
+                              Coaches keep coming back to Capacity Sports Group because this signal lives nowhere else.
                               Athletes buy the profile to be seen by the programs they'll actually fit.
                               That's the moat.
                           </p>
@@ -751,11 +751,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               <span className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">The reinvestment engine</span>
                           </div>
                           <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
-                              Every $50K in revenue buys LakePoint $10K of reach.
+                              Every $50K in revenue buys Capacity Sports Group $10K of reach.
                           </h2>
                           <p className="text-lg text-gray-300 leading-relaxed">
                               For every <span className="text-white font-semibold">$50,000</span> in gross program revenue, NTangible puts
-                              {' '}<span className="text-white font-semibold">$10,000</span> back into a directed ad campaign run through LakePoint Sports.
+                              {' '}<span className="text-white font-semibold">$10,000</span> back into a directed ad campaign run through Capacity Sports Group.
                               The program funds its own growth.
                           </p>
                       </div>
@@ -786,12 +786,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
                               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">1</span>
                               <h4 className="text-white text-base font-semibold mb-2">Profiles sell</h4>
-                              <p className="text-gray-500 text-sm leading-relaxed">Every $10 profile across LakePoint channels stacks toward the next $50K increment.</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">Every $10 profile across Capacity Sports Group channels stacks toward the next $50K increment.</p>
                           </div>
                           <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
                               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">2</span>
                               <h4 className="text-white text-base font-semibold mb-2">NTangible reinvests</h4>
-                              <p className="text-gray-500 text-sm leading-relaxed">Each increment triggers $10K of directed ad spend, run through LakePoint Sports.</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">Each increment triggers $10K of directed ad spend, run through Capacity Sports Group.</p>
                           </div>
                           <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
                               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">3</span>
@@ -802,26 +802,26 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
 
                       <div className="mt-8 flex items-center gap-2 text-blue-300/80">
                           <RefreshCw size={14} className="shrink-0" />
-                          <p className="text-sm">The more the program earns, the harder NTangible markets LakePoint.</p>
+                          <p className="text-sm">The more the program earns, the harder NTangible markets Capacity Sports Group.</p>
                       </div>
 
                       {/* AD SPEND FLEXIBILITY */}
                       <div className="mt-10 rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-8">
                           <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">
-                              LakePoint's call on where it goes
+                              Capacity Sports Group's call on where it goes
                           </p>
                           <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight leading-tight mb-3">
-                              The ad spend isn't locked to a channel - it's a marketing budget LakePoint deploys.
+                              The ad spend isn't locked to a channel - it's a marketing budget Capacity Sports Group deploys.
                           </h3>
                           <p className="text-base text-gray-400 leading-relaxed mb-6">
-                              The $10K-per-increment commitment is dollars NTangible is putting on the table. LakePoint
+                              The $10K-per-increment commitment is dollars NTangible is putting on the table. Capacity Sports Group
                               decides how to spend them - whatever moves the needle hardest at that moment.
                           </p>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden">
                               <div className="bg-[#0a0a0a] p-5 sm:p-6">
                                   <p className="text-white text-base font-semibold mb-2">General marketing fund</p>
                                   <p className="text-gray-500 text-sm leading-relaxed">
-                                      Roll it into LakePoint's broader paid media, owned-channel campaigns, or event
+                                      Roll it into Capacity Sports Group's broader paid media, owned-channel campaigns, or event
                                       promotion - whatever the marketing team is already pushing.
                                   </p>
                               </div>
@@ -830,7 +830,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                   <p className="text-gray-500 text-sm leading-relaxed">
                                       Or aim it at a flagship partner like <span className="text-white font-medium">Publix</span>
                                       {' '}to deepen that integration - co-branded campaigns, in-store activations, joint
-                                      promotions that strengthen the relationship LakePoint cares about most.
+                                      promotions that strengthen the relationship Capacity Sports Group cares about most.
                                   </p>
                               </div>
                           </div>
@@ -851,7 +851,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </h2>
                           <p className="text-lg text-gray-400 leading-relaxed">
                               Every 6 months, NTangible sends an automatic retest email so athletes can update their Clutch Factor
-                              score. Each retest is another $10 profile - another $2 to LakePoint and $1 to the partner.
+                              score. Each retest is another $10 profile - another $2 to Capacity Sports Group and $1 to the partner.
                           </p>
                       </div>
                       <div className="lg:col-span-5">
@@ -866,7 +866,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               </div>
                               <div className="bg-[#0a0a0a] p-5">
                                   <p className="text-3xl font-semibold text-blue-400 tracking-tight tabular-nums mb-1">$3</p>
-                                  <p className="text-sm text-gray-500">To LakePoint + partner, per retest</p>
+                                  <p className="text-sm text-gray-500">To Capacity Sports Group + partner, per retest</p>
                               </div>
                               <div className="bg-[#0a0a0a] p-5">
                                   <p className="text-3xl font-semibold text-white tracking-tight tabular-nums mb-1">$0</p>
@@ -886,7 +886,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
                           Beyond the per-profile revenue share, NTangible commits to securing official-partner status and
-                          reinvesting in LakePoint's reach.
+                          reinvesting in Capacity Sports Group's reach.
                       </p>
                   </div>
 
@@ -897,7 +897,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </div>
                           <h3 className="text-lg sm:text-xl font-semibold text-white tracking-tight mb-2">Official partner sponsorship</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
-                              NTangible commits to an annual sponsorship fee to secure "Official Partner" rights with LakePoint Sports.
+                              NTangible commits to an annual sponsorship fee to secure "Official Partner" rights with Capacity Sports Group.
                           </p>
                       </div>
                       <div className="bg-[#070707] p-7 sm:p-8">
@@ -907,7 +907,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <h3 className="text-lg sm:text-xl font-semibold text-white tracking-tight mb-2">Directed ad-spend campaigns</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
                               For every $50,000 in gross program revenue, NTangible directs $10,000 into an ad-spend campaign run
-                              through LakePoint - revenue compounds back into reach.
+                              through Capacity Sports Group - revenue compounds back into reach.
                           </p>
                       </div>
                       <div className="bg-[#070707] p-7 sm:p-8">
@@ -928,7 +928,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
       case 'distribution':
         return (
           <>
-              {/* DISTRIBUTION - EVERY LAKEPOINT CHANNEL */}
+              {/* DISTRIBUTION - EVERY CAPACITY SPORTS GROUP CHANNEL */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-12 sm:mb-16 max-w-2xl">
                       <p className="text-sm font-medium text-blue-400 mb-3">Distribution</p>
@@ -936,8 +936,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           Pushed hard across every channel you own.
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          The profile ships through LakePoint's own digital footprint and every partner channel we build assessments
-                          for - email, on-campus signage, partner sites - no field staff, no clipboards.
+                          The profile ships through Capacity Sports Group's own digital footprint and every partner channel we build assessments
+                          for - email, on-site signage, partner sites - no field staff, no clipboards.
                       </p>
                   </div>
 
@@ -945,17 +945,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Mail size={20} className="text-blue-400 mb-4" />
                           <h3 className="text-white text-base font-semibold mb-2">Dedicated email blasts</h3>
-                          <p className="text-gray-500 text-sm leading-relaxed">Multiple campaigns per year to LakePoint's main mailing list and every property list.</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">Multiple campaigns per year to Capacity Sports Group's main mailing list and every facility list.</p>
                       </div>
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Building2 size={20} className="text-blue-400 mb-4" />
                           <h3 className="text-white text-base font-semibold mb-2">Partner channels</h3>
-                          <p className="text-gray-500 text-sm leading-relaxed">Every LakePoint partner and property promotes the profile - and earns $1 on every sale they drive.</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">Every Capacity Sports Group partner and facility promotes the profile - and earns $1 on every sale they drive.</p>
                       </div>
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Tv size={20} className="text-blue-400 mb-4" />
-                          <h3 className="text-white text-base font-semibold mb-2">On-campus signage</h3>
-                          <p className="text-gray-500 text-sm leading-relaxed">Placement on WiFi landing pages and lobby screens across LakePoint venues.</p>
+                          <h3 className="text-white text-base font-semibold mb-2">On-site signage</h3>
+                          <p className="text-gray-500 text-sm leading-relaxed">Placement on WiFi landing pages and lobby screens across Capacity Sports Group venues.</p>
                       </div>
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Send size={20} className="text-blue-400 mb-4" />
@@ -971,17 +971,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="lg:col-span-5">
                           <p className="text-sm font-medium text-blue-400 mb-3">Data &amp; trust</p>
                           <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
-                              LakePoint-branded. LakePoint-controlled.
+                              Capacity Sports Group-branded. Capacity Sports Group-controlled.
                           </h2>
                           <p className="text-lg text-gray-400 leading-relaxed">
-                              The profile carries LakePoint's name and lives on LakePoint's official database. NTangible operates
-                              it - LakePoint owns the relationship with its athletes.
+                              The profile carries Capacity Sports Group's name and lives on its official database. NTangible operates
+                              it - Capacity Sports Group owns the relationship with its athletes.
                           </p>
                       </div>
                       <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
                           <div className="bg-[#070707] p-6">
-                              <p className="text-white text-base font-semibold mb-2">Hosted on LakePoint's database</p>
-                              <p className="text-gray-500 text-sm leading-relaxed">Verified profiles sit on the official campus database, branded as a LakePoint product.</p>
+                              <p className="text-white text-base font-semibold mb-2">Hosted on Capacity Sports Group's database</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">Verified profiles sit on the official Capacity Sports Group database, branded as a Capacity Sports Group product.</p>
                           </div>
                           <div className="bg-[#070707] p-6">
                               <p className="text-white text-base font-semibold mb-2">COPPA-aligned</p>
@@ -1012,10 +1012,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           500 free assessments for every major partner.
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          Before a single dollar is asked for, NTangible gives each of LakePoint's flagship partners
+                          Before a single dollar is asked for, NTangible gives each of Capacity Sports Group's flagship partners
                           a block of 500 assessments to hand out however they want - to top teams, standout athletes,
                           tournament champions, camp invitees. A no-risk on-ramp that lets the product prove itself
-                          inside each property before it goes wide.
+                          inside each facility before it goes wide.
                       </p>
                   </div>
 
@@ -1025,11 +1025,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">The starting block</p>
                               <p className="text-6xl sm:text-7xl font-semibold text-white tracking-tight leading-none mb-3 tabular-nums">500</p>
                               <p className="text-lg text-gray-300 leading-relaxed">
-                                  free NTangible assessments &times; <span className="text-white font-medium">each major LakePoint partner</span>
+                                  free NTangible assessments &times; <span className="text-white font-medium">each major Capacity Sports Group partner</span>
                               </p>
                           </div>
                           <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
-                              LakePoint and the partner decide who gets them. NTangible delivers the assessments,
+                              Capacity Sports Group and the partner decide who gets them. NTangible delivers the assessments,
                               verified profiles, and shareable reports.
                           </p>
                       </div>
@@ -1051,8 +1051,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           Finally know who's actually walking through the gates.
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          Every NTangible assessment opens with a short intake module - co-designed with LakePoint - that turns
-                          every athlete who claims their free profile into a first-party record LakePoint owns.
+                          Every NTangible assessment opens with a short intake module - co-designed with Capacity Sports Group - that turns
+                          every athlete who claims their free profile into a first-party record Capacity Sports Group owns.
                       </p>
                   </div>
 
@@ -1062,7 +1062,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               The pain point
                           </p>
                           <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-tight mb-4">
-                              LakePoint hosts the country's most concentrated youth-sports audience - and can't name
+                              Capacity Sports Group hosts the country's most concentrated youth-sports audience - and can't name
                               a single one of them.
                           </p>
                           <p className="text-base text-gray-400 leading-relaxed">
@@ -1102,9 +1102,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
 
                   <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
                       <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                          <span className="text-white font-medium">LakePoint defines the fields; LakePoint owns the data.</span>{' '}
-                          NTangible operates the intake inside the assessment flow - the records land in LakePoint's
-                          database, branded as a LakePoint product, governed by LakePoint's privacy posture.
+                          <span className="text-white font-medium">Capacity Sports Group defines the fields; Capacity Sports Group owns the data.</span>{' '}
+                          NTangible operates the intake inside the assessment flow - the records land in Capacity Sports Group's
+                          database, branded as a Capacity Sports Group product, governed by Capacity Sports Group's privacy posture.
                       </p>
                   </div>
               </section>
@@ -1129,8 +1129,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </div>
                           <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Pre-fill the leaderboards</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
-                              NTangible runs free testing for roughly <span className="text-white font-medium">500 top athletes from each property</span>,
-                              so every LakePoint leaderboard launches with credible, verified depth.
+                              NTangible runs free testing for roughly <span className="text-white font-medium">500 top athletes from each facility</span>,
+                              so every Capacity Sports Group leaderboard launches with credible, verified depth.
                           </p>
                       </div>
                       <div className="bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
@@ -1140,7 +1140,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </div>
                           <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Open up college coach access</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
-                              Provide free dashboard access to <span className="text-white font-medium">college coaches across every property</span>.
+                              Provide free dashboard access to <span className="text-white font-medium">college coaches across every facility</span>.
                               Demand from coaches pulls athletes into paid profiles - the flywheel starts turning.
                           </p>
                       </div>
@@ -1280,23 +1280,23 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
           <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-16 sm:mb-20 text-center relative">
               <div className={`flex justify-center mb-7 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'} transition-all duration-700`}>
                   <img
-                      src="/LakePoint.png"
-                      alt="LakePoint Sports"
-                      className="h-20 sm:h-24 w-auto object-contain drop-shadow-[0_10px_40px_rgba(37,99,235,0.25)]"
+                      src="/CPG.png"
+                      alt="Capacity Sports Group"
+                      className="h-16 sm:h-20 w-auto object-contain drop-shadow-[0_10px_40px_rgba(37,99,235,0.25)]"
                   />
               </div>
               <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-8 ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
                   <span className="inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
-                  <span className="text-[11px] font-medium text-gray-300 tracking-wide">Partnership Proposal &middot; NTangible &times; LakePoint Sports</span>
+                  <span className="text-[11px] font-medium text-gray-300 tracking-wide">Partnership Proposal &middot; NTangible &times; Capacity Sports Group</span>
               </div>
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight mb-6 leading-[1.02] text-white">
-                  The LakePoint <span className="text-blue-400">Mental Scouting Profile.</span>
+                  The Capacity <span className="text-blue-400">Mental Scouting Profile.</span>
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                  A verified digital profile that measures an athlete's mental performance - hosted on LakePoint's
-                  official database, sold across every LakePoint channel and partner property for the price of a t-shirt.
+                  A verified digital profile that measures an athlete's mental performance - hosted on Capacity Sports Group's
+                  official database, sold across every Capacity Sports Group channel and partner facility for the price of a t-shirt.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 sm:mb-16 max-w-md sm:max-w-none mx-auto">
@@ -1365,7 +1365,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               <TrustedTeams />
           </div>
 
-          {/* LAKEPOINT PARTNER PROPERTIES */}
+          {/* CAPACITY SPORTS GROUP PARTNER PROPERTIES */}
           <PartnerProperties />
 
           {/* INSET TABBED SECTION */}
@@ -1427,7 +1427,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       Let's make it official.
                   </h2>
                   <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
-                      We'll walk through the integration, the rollout plan, and the numbers behind the LakePoint Mental
+                      We'll walk through the integration, the rollout plan, and the numbers behind the Capacity Mental
                       Scouting Profile. 15 minutes, no slides.
                   </p>
                   <div className="flex flex-col sm:flex-row justify-center gap-3 max-w-md sm:max-w-none mx-auto">
@@ -1456,7 +1456,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   <div className="col-span-2 sm:col-span-1">
                       <Logo className="text-white opacity-90 mb-4" size="small" />
                       <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                          An integration proposal for LakePoint Sports.
+                          An integration proposal for Capacity Sports Group.
                       </p>
                       <div className="inline-flex items-center gap-2.5 text-[10px] font-semibold uppercase tracking-wider text-amber-300/80">
                           <img
@@ -1493,11 +1493,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </div>
               <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-gray-600">
-                  <span>&copy; 2026 NTangible, Inc. - Proposal for LakePoint Sports</span>
+                  <span>&copy; 2026 NTangible, Inc. - Proposal for Capacity Sports Group</span>
                   <div className="flex gap-5">
                       <span>COPPA-aligned</span>
                       <span>Encrypted data</span>
-                      <span>LakePoint-branded</span>
+                      <span>Capacity Sports Group-branded</span>
                   </div>
               </div>
           </div>

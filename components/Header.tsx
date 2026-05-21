@@ -146,10 +146,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, onViewChange, onStartWalkt
 
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex flex-col items-center cursor-pointer group" onClick={() => onViewChange('master')}>
           {isDefaultBranding ? <img src="/white_logo_transparent_background - name only.PNG" alt="NTANGIBLE" className="h-8 w-auto object-contain" /> : (
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-sm font-light group-hover:bg-white group-hover:text-black transition-colors">{brandingName.charAt(0)}</div>
-              <span className="text-lg tracking-[0.2em] font-light uppercase">{brandingName}</span>
-            </div>
+            <img src="/CPG.png" alt={brandingName} className="h-7 w-auto object-contain" />
           )}
           {isDefaultBranding && <span className="text-[9px] text-blue-400 tracking-[0.5em] font-bold mt-1 uppercase group-hover:text-blue-300 transition-colors">N Control</span>}
         </div>
