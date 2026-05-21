@@ -34,7 +34,7 @@ import { isRecruitVisibleOutsideRecruitingPage } from './utils/recruiting';
 const App: React.FC = () => {
   const [demoStarted, setDemoStarted] = useState(false);
   // NEW: State for the custom organization name entered on landing page
-  const [customOrgName, setCustomOrgName] = useState<string>('CAPACITY SPORTS GROUP');
+  const [customOrgName, setCustomOrgName] = useState<string>('CPG');
   
   const [currentView, setCurrentView] = useState<ViewType>('master');
   // Walkthrough set to false initially - requires button click to start
@@ -204,7 +204,7 @@ const App: React.FC = () => {
   // Handle Exit Demo
   const handleExitDemo = () => {
     setDemoStarted(false);
-    setCustomOrgName('CAPACITY SPORTS GROUP');
+    setCustomOrgName('CPG');
     setCurrentView('master');
     setHasSelectedTeam(false);
     setIsMobileFiltersOpen(false);

@@ -29,7 +29,7 @@ const Logo = ({ className = "", size = "normal" }: { className?: string, size?: 
             <span className="text-white/25 text-lg font-light leading-none">&times;</span>
             <img
                 src="/CPG.png"
-                alt="Capacity Sports Group"
+                alt="CPG"
                 className={`${height} w-auto object-contain`}
             />
         </div>
@@ -114,7 +114,7 @@ const SampleReportModal = ({ onClose, onViewClutch, onViewNterpret }: { onClose:
 // --- ECONOMICS + REVENUE CALCULATOR ---
 const PRICE = 10;
 const CAPACITY_SHARE = 2;
-const PARTNER_SHARE = 1;
+const FACILITY_SHARE = 1;
 const AD_SPEND_INCREMENT = 50000;
 const AD_SPEND_PER_INCREMENT = 10000;
 const MAX_PROFILES = 250000;
@@ -126,7 +126,7 @@ const PricingCalculator = () => {
 
     const grossRevenue = clamped * PRICE;
     const capacityRev = clamped * CAPACITY_SHARE;
-    const partnerRev = clamped * PARTNER_SHARE;
+    const facilityRev = clamped * FACILITY_SHARE;
 
     const milestones = Math.floor(grossRevenue / AD_SPEND_INCREMENT);
     const adSpend = milestones * AD_SPEND_PER_INCREMENT;
@@ -144,8 +144,8 @@ const PricingCalculator = () => {
                     $10 a profile. Revenue on every one.
                 </h2>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                    Capacity Sports Group and the originating partner earn on every profile sold. At scale, NTangible reinvests directly
-                    back into Capacity Sports Group ad spend.
+                    CPG and the hosting facility earn on every profile sold. At scale, NTangible reinvests directly
+                    back into CPG ad spend.
                 </p>
             </div>
 
@@ -153,13 +153,13 @@ const PricingCalculator = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-10">
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-blue-400 tracking-tight mb-1 tabular-nums">$2</p>
-                    <p className="text-white text-base font-semibold mb-1">Capacity Sports Group</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Direct revenue share to Capacity Sports Group on every profile sold.</p>
+                    <p className="text-white text-base font-semibold mb-1">CPG</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Direct revenue share to CPG on every profile sold.</p>
                 </div>
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-emerald-400 tracking-tight mb-1 tabular-nums">$1</p>
-                    <p className="text-white text-base font-semibold mb-1">Originating partner</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">Paid to the specific partner or facility that drove the sale.</p>
+                    <p className="text-white text-base font-semibold mb-1">Hosting facility</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Rev share paid directly to the facility that hosted the athlete - like LakePoint.</p>
                 </div>
                 <div className="bg-[#070707] p-6 sm:p-7">
                     <p className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mb-1 tabular-nums">$7</p>
@@ -217,9 +217,9 @@ const PricingCalculator = () => {
                     </div>
                 </div>
 
-                {/* Total to Capacity Sports Group - hero result */}
+                {/* Total to CPG - hero result */}
                 <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-b from-blue-500/[0.08] to-transparent p-6 sm:p-8 mb-6">
-                    <p className="text-sm font-medium text-blue-400 mb-2">Total value to Capacity Sports Group</p>
+                    <p className="text-sm font-medium text-blue-400 mb-2">Total value to CPG</p>
                     <p className="text-5xl sm:text-6xl font-semibold text-white tracking-tight tabular-nums mb-2">{fmt(totalToCapacity)}</p>
                     <p className="text-sm text-gray-400 tabular-nums">{fmt(capacityRev)} rev share + {fmt(adSpend)} directed ad spend</p>
                 </div>
@@ -227,7 +227,7 @@ const PricingCalculator = () => {
                 {/* Supporting breakdown */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden">
                     <div className="bg-[#070707] p-5 sm:p-6">
-                        <p className="text-sm font-medium text-blue-400 mb-2">Capacity Sports Group rev share</p>
+                        <p className="text-sm font-medium text-blue-400 mb-2">CPG rev share</p>
                         <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(capacityRev)}</p>
                         <p className="text-xs text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $2</p>
                     </div>
@@ -237,8 +237,8 @@ const PricingCalculator = () => {
                         <p className="text-xs text-gray-500 mt-1 tabular-nums">{milestones} &times; $10K milestone{milestones === 1 ? '' : 's'}</p>
                     </div>
                     <div className="bg-[#070707] p-5 sm:p-6">
-                        <p className="text-sm font-medium text-emerald-400 mb-2">Partner rev share</p>
-                        <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(partnerRev)}</p>
+                        <p className="text-sm font-medium text-emerald-400 mb-2">Facility rev share</p>
+                        <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight tabular-nums">{fmt(facilityRev)}</p>
                         <p className="text-xs text-gray-500 mt-1 tabular-nums">{clamped.toLocaleString('en-US')} &times; $1</p>
                     </div>
                 </div>
@@ -252,7 +252,7 @@ const PricingCalculator = () => {
     );
 };
 
-// --- CAPACITY SPORTS GROUP PARTNER PROPERTIES ---
+// --- CPG PARTNER PROPERTIES ---
 const PARTNERS: { name: string; src: string; blurb: string }[] = [
     { name: 'PBR', src: '/PBR.png', blurb: 'Surfaced to the prospect pipeline already flowing through PBR.' },
     { name: 'RYZE Basketball', src: '/RYZE.png', blurb: 'Promoted across the RYZE Basketball event circuit.' },
@@ -265,11 +265,11 @@ const PartnerProperties = () => (
         <div className="mb-10 sm:mb-12 max-w-2xl">
             <p className="text-sm font-medium text-blue-400 mb-3">Partner properties</p>
             <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
-                Built into every Capacity Sports Group facility.
+                Built into every CPG facility.
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed">
-                The Mental Scouting Profile ships through the partner brands already running events across Capacity Sports Group facilities like LakePoint and Grand Park
-                - each one promotes it, and each one earns $1 on every profile it drives.
+                The Mental Scouting Profile ships through the partner brands already running events across CPG facilities like LakePoint and Grand Park
+                - each one drives athletes into the program, and the host facility earns $1 on every profile sold.
             </p>
         </div>
 
@@ -327,7 +327,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   }, []);
 
   const handleEnter = (view?: ViewType) => {
-    onEnter('CAPACITY SPORTS GROUP', view);
+    onEnter('CPG', view);
   };
 
   const handleTabChange = (id: TabId) => {
@@ -345,12 +345,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               <div className="mb-12 sm:mb-16 max-w-2xl">
                   <p className="text-sm font-medium text-blue-400 mb-3">The offer</p>
                   <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
-                      One integration. Every Capacity Sports Group facility.
+                      One integration. Every CPG facility.
                   </h2>
                   <p className="text-lg text-gray-400 leading-relaxed">
-                      NTangible builds and operates a Capacity Sports Group-branded mental performance profile that any
+                      NTangible builds and operates a CPG-branded mental performance profile that any
                       facility in the portfolio - LakePoint, Grand Park, and beyond - can sell, backed by a free collegiate
-                      discovery dashboard that turns Capacity Sports Group into the place college coaches come to find talent.
+                      discovery dashboard that turns CPG into the place college coaches come to find talent.
                   </p>
               </div>
 
@@ -362,12 +362,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">CPG Mental Scouting Profile</h3>
                       <p className="text-base text-gray-400 leading-relaxed mb-5">
                           A verified digital profile measuring how an athlete performs under pressure - hosted on
-                          Capacity Sports Group's official database and usable across every partner and facility we build assessments for.
+                          CPG's official database and usable across every partner and facility we build assessments for.
                       </p>
                       <ul className="space-y-2.5 border-t border-white/5 pt-5">
                           <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-blue-400 shrink-0 mt-0.5" /> Full Clutch Factor&trade; + NTerpret&trade; reports</li>
                           <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-blue-400 shrink-0 mt-0.5" /> Personalized drills to improve performance</li>
-                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-blue-400 shrink-0 mt-0.5" /> Verified recruiting status inside the Capacity Sports Group dashboard</li>
+                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-blue-400 shrink-0 mt-0.5" /> Verified recruiting status inside the CPG dashboard</li>
                       </ul>
                   </div>
                   <div className="bg-[#070707] p-7 sm:p-9">
@@ -376,12 +376,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </div>
                       <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">CPG Collegiate Dashboard</h3>
                       <p className="text-base text-gray-400 leading-relaxed mb-5">
-                          A free, web-based portal college coaches log into to discover Capacity Sports Group talent - and see which
+                          A free, web-based portal college coaches log into to discover CPG talent - and see which
                           athletes align with their coaching style.
                       </p>
                       <ul className="space-y-2.5 border-t border-white/5 pt-5">
                           <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Free access for every college coach across facilities</li>
-                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Searchable leaderboards of Capacity Sports Group athletes</li>
+                          <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Searchable leaderboards of CPG athletes</li>
                       </ul>
                   </div>
               </div>
@@ -400,7 +400,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
                           Every athlete completes both assessments in under 15 minutes from any phone. The reports live inside the
-                          Capacity Sports Group dashboard - and athletes can share them with college coaches in one tap.
+                          CPG dashboard - and athletes can share them with college coaches in one tap.
                       </p>
                   </div>
 
@@ -537,9 +537,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           Replace the packet. <span className="text-gray-500">Keep the relationship.</span>
                       </h2>
                       <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
-                          Every college coach walks out of a Capacity Sports Group event with a stack of paper packets that
+                          Every college coach walks out of a CPG event with a stack of paper packets that
                           go stale on the flight home. We replace that packet with a free, always-on dashboard -
-                          every Capacity Sports Group athlete, every sport, every event, year-round.
+                          every CPG athlete, every sport, every event, year-round.
                       </p>
                   </div>
               </section>
@@ -554,16 +554,16 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       />
                   </div>
                   <p className="text-xs text-gray-600 mt-4 text-center sm:text-left">
-                      One login. Every verified Capacity Sports Group athlete, filterable by sport, position, state, grad year, and fit.
+                      One login. Every verified CPG athlete, filterable by sport, position, state, grad year, and fit.
                   </p>
               </section>
 
-              {/* TODAY VS CAPACITY SPORTS GROUP */}
+              {/* TODAY VS CPG */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-10 sm:mb-12 max-w-2xl">
                       <p className="text-sm font-medium text-emerald-400 mb-3">The shift</p>
                       <h3 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-[1.08] mb-4">
-                          A coach's recruiting cycle today vs. with Capacity Sports Group.
+                          A coach's recruiting cycle today vs. with CPG.
                       </h3>
                       <p className="text-lg text-gray-400 leading-relaxed">
                           The paper packet has been the standard recruiting artifact for decades. It's also the
@@ -590,11 +590,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
                               <Monitor size={20} className="text-emerald-400" />
                           </div>
-                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">With Capacity Sports Group</p>
+                          <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-widest mb-2">With CPG</p>
                           <h4 className="text-xl font-semibold text-white tracking-tight mb-4">The live coaches' dashboard</h4>
                           <ul className="space-y-2.5">
                               <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Logged in from any laptop - current the moment a profile updates</li>
-                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Every verified athlete across every Capacity Sports Group facility, searchable</li>
+                              <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Every verified athlete across every CPG facility, searchable</li>
                               <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Full mental profile and coach-fit index built into every athlete card</li>
                               <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Year-round, every sport - no rebuild, no event dependency</li>
                               <li className="text-[15px] text-gray-300 leading-relaxed flex gap-2.5"><Check size={17} className="text-emerald-400 shrink-0 mt-0.5" /> Shareable with the full staff in one link</li>
@@ -621,7 +621,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               step: '01',
                               eyebrow: 'Discover',
                               title: 'Clutch Factor Leaderboard',
-                              blurb: 'The public ranking every coach lands on first. Every NTangible-verified athlete in the Capacity Sports Group database, filterable by sport, position, state, grad year, GPA, and height/weight - thousands narrowed to a short list in seconds.',
+                              blurb: 'The public ranking every coach lands on first. Every NTangible-verified athlete in the CPG database, filterable by sport, position, state, grad year, GPA, and height/weight - thousands narrowed to a short list in seconds.',
                               src: '/collegeleaderboard.png',
                               alt: 'Clutch Factor Leaderboard - public ranking of every assessed athlete',
                           },
@@ -731,7 +731,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       {/* THE PUNCH LINE */}
                       <div className="rounded-2xl border border-emerald-500/30 bg-[#070707] p-7 sm:p-9">
                           <p className="text-xl sm:text-2xl text-white leading-snug font-medium max-w-3xl">
-                              Coaches keep coming back to Capacity Sports Group because this signal lives nowhere else.
+                              Coaches keep coming back to CPG because this signal lives nowhere else.
                               Athletes buy the profile to be seen by the programs they'll actually fit.
                               That's the moat.
                           </p>
@@ -755,11 +755,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               <span className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest">The reinvestment engine</span>
                           </div>
                           <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-4">
-                              Every $50K in revenue buys Capacity Sports Group $10K of reach.
+                              Every $50K in revenue buys CPG $10K of reach.
                           </h2>
                           <p className="text-lg text-gray-300 leading-relaxed">
                               For every <span className="text-white font-semibold">$50,000</span> in gross program revenue, NTangible puts
-                              {' '}<span className="text-white font-semibold">$10,000</span> back into a directed ad campaign run through Capacity Sports Group.
+                              {' '}<span className="text-white font-semibold">$10,000</span> back into a directed ad campaign run through CPG.
                               The program funds its own growth.
                           </p>
                       </div>
@@ -790,12 +790,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
                               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">1</span>
                               <h4 className="text-white text-base font-semibold mb-2">Profiles sell</h4>
-                              <p className="text-gray-500 text-sm leading-relaxed">Every $10 profile across Capacity Sports Group channels stacks toward the next $50K increment.</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">Every $10 profile across CPG channels stacks toward the next $50K increment.</p>
                           </div>
                           <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
                               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">2</span>
                               <h4 className="text-white text-base font-semibold mb-2">NTangible reinvests</h4>
-                              <p className="text-gray-500 text-sm leading-relaxed">Each increment triggers $10K of directed ad spend, run through Capacity Sports Group.</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">Each increment triggers $10K of directed ad spend, run through CPG.</p>
                           </div>
                           <div className="rounded-2xl border border-white/10 bg-[#070707] p-6">
                               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-bold mb-4">3</span>
@@ -806,26 +806,26 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
 
                       <div className="mt-8 flex items-center gap-2 text-blue-300/80">
                           <RefreshCw size={14} className="shrink-0" />
-                          <p className="text-sm">The more the program earns, the harder NTangible markets Capacity Sports Group.</p>
+                          <p className="text-sm">The more the program earns, the harder NTangible markets CPG.</p>
                       </div>
 
                       {/* AD SPEND FLEXIBILITY */}
                       <div className="mt-10 rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-8">
                           <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">
-                              Capacity Sports Group's call on where it goes
+                              CPG's call on where it goes
                           </p>
                           <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight leading-tight mb-3">
-                              The ad spend isn't locked to a channel - it's a marketing budget Capacity Sports Group deploys.
+                              The ad spend isn't locked to a channel - it's a marketing budget CPG deploys.
                           </h3>
                           <p className="text-base text-gray-400 leading-relaxed mb-6">
-                              The $10K-per-increment commitment is dollars NTangible is putting on the table. Capacity Sports Group
+                              The $10K-per-increment commitment is dollars NTangible is putting on the table. CPG
                               decides how to spend them - whatever moves the needle hardest at that moment.
                           </p>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-xl overflow-hidden">
                               <div className="bg-[#0a0a0a] p-5 sm:p-6">
                                   <p className="text-white text-base font-semibold mb-2">General marketing fund</p>
                                   <p className="text-gray-500 text-sm leading-relaxed">
-                                      Roll it into Capacity Sports Group's broader paid media, owned-channel campaigns, or event
+                                      Roll it into CPG's broader paid media, owned-channel campaigns, or event
                                       promotion - whatever the marketing team is already pushing.
                                   </p>
                               </div>
@@ -834,7 +834,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                                   <p className="text-gray-500 text-sm leading-relaxed">
                                       Or aim it at a flagship partner like <span className="text-white font-medium">Publix</span>
                                       {' '}to deepen that integration - co-branded campaigns, in-store activations, joint
-                                      promotions that strengthen the relationship Capacity Sports Group cares about most.
+                                      promotions that strengthen the relationship CPG cares about most.
                                   </p>
                               </div>
                           </div>
@@ -855,7 +855,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </h2>
                           <p className="text-lg text-gray-400 leading-relaxed">
                               Every 6 months, NTangible sends an automatic retest email so athletes can update their Clutch Factor
-                              score. Each retest is another $10 profile - another $2 to Capacity Sports Group and $1 to the partner.
+                              score. Each retest is another $10 profile - another $2 to CPG and $1 to the hosting facility.
                           </p>
                       </div>
                       <div className="lg:col-span-5">
@@ -870,7 +870,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               </div>
                               <div className="bg-[#0a0a0a] p-5">
                                   <p className="text-3xl font-semibold text-blue-400 tracking-tight tabular-nums mb-1">$3</p>
-                                  <p className="text-sm text-gray-500">To Capacity Sports Group + partner, per retest</p>
+                                  <p className="text-sm text-gray-500">To CPG + facility, per retest</p>
                               </div>
                               <div className="bg-[#0a0a0a] p-5">
                                   <p className="text-3xl font-semibold text-white tracking-tight tabular-nums mb-1">$0</p>
@@ -890,7 +890,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
                           Beyond the per-profile revenue share, NTangible commits to securing official-partner status and
-                          reinvesting in Capacity Sports Group's reach.
+                          reinvesting in CPG's reach.
                       </p>
                   </div>
 
@@ -901,7 +901,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           </div>
                           <h3 className="text-lg sm:text-xl font-semibold text-white tracking-tight mb-2">Official partner sponsorship</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
-                              NTangible commits to an annual sponsorship fee to secure "Official Partner" rights with Capacity Sports Group.
+                              NTangible commits to an annual sponsorship fee to secure "Official Partner" rights with CPG.
                           </p>
                       </div>
                       <div className="bg-[#070707] p-7 sm:p-8">
@@ -911,7 +911,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <h3 className="text-lg sm:text-xl font-semibold text-white tracking-tight mb-2">Directed ad-spend campaigns</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
                               For every $50,000 in gross program revenue, NTangible directs $10,000 into an ad-spend campaign run
-                              through Capacity Sports Group - revenue compounds back into reach.
+                              through CPG - revenue compounds back into reach.
                           </p>
                       </div>
                       <div className="bg-[#070707] p-7 sm:p-8">
@@ -932,7 +932,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
       case 'distribution':
         return (
           <>
-              {/* DISTRIBUTION - EVERY CAPACITY SPORTS GROUP CHANNEL */}
+              {/* DISTRIBUTION - EVERY CPG CHANNEL */}
               <section className="max-w-6xl mx-auto px-4 sm:px-6 mb-24 sm:mb-32">
                   <div className="mb-12 sm:mb-16 max-w-2xl">
                       <p className="text-sm font-medium text-blue-400 mb-3">Distribution</p>
@@ -940,7 +940,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           Pushed hard across every channel you own.
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          The profile ships through Capacity Sports Group's own digital footprint and every partner channel we build assessments
+                          The profile ships through CPG's own digital footprint and every partner channel we build assessments
                           for - email, on-site signage, partner sites - no field staff, no clipboards.
                       </p>
                   </div>
@@ -949,17 +949,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Mail size={20} className="text-blue-400 mb-4" />
                           <h3 className="text-white text-base font-semibold mb-2">Dedicated email blasts</h3>
-                          <p className="text-gray-500 text-sm leading-relaxed">Multiple campaigns per year to Capacity Sports Group's main mailing list and every facility list.</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">Multiple campaigns per year to CPG's main mailing list and every facility list.</p>
                       </div>
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Building2 size={20} className="text-blue-400 mb-4" />
                           <h3 className="text-white text-base font-semibold mb-2">Partner channels</h3>
-                          <p className="text-gray-500 text-sm leading-relaxed">Every Capacity Sports Group partner and facility promotes the profile - and earns $1 on every sale they drive.</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">Every CPG partner brand surfaces the profile to its audience - and the host facility earns $1 on every sale.</p>
                       </div>
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Tv size={20} className="text-blue-400 mb-4" />
                           <h3 className="text-white text-base font-semibold mb-2">On-site signage</h3>
-                          <p className="text-gray-500 text-sm leading-relaxed">Placement on WiFi landing pages and lobby screens across Capacity Sports Group venues.</p>
+                          <p className="text-gray-500 text-sm leading-relaxed">Placement on WiFi landing pages and lobby screens across CPG venues.</p>
                       </div>
                       <div className="bg-[#070707] p-6 sm:p-7">
                           <Send size={20} className="text-blue-400 mb-4" />
@@ -975,17 +975,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <div className="lg:col-span-5">
                           <p className="text-sm font-medium text-blue-400 mb-3">Data &amp; trust</p>
                           <h2 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-[1.05] mb-5">
-                              Capacity Sports Group-branded. Capacity Sports Group-controlled.
+                              CPG-branded. CPG-controlled.
                           </h2>
                           <p className="text-lg text-gray-400 leading-relaxed">
-                              The profile carries Capacity Sports Group's name and lives on its official database. NTangible operates
-                              it - Capacity Sports Group owns the relationship with its athletes.
+                              The profile carries CPG's name and lives on its official database. NTangible operates
+                              it - CPG owns the relationship with its athletes.
                           </p>
                       </div>
                       <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
                           <div className="bg-[#070707] p-6">
-                              <p className="text-white text-base font-semibold mb-2">Hosted on Capacity Sports Group's database</p>
-                              <p className="text-gray-500 text-sm leading-relaxed">Verified profiles sit on the official Capacity Sports Group database, branded as a Capacity Sports Group product.</p>
+                              <p className="text-white text-base font-semibold mb-2">Hosted on CPG's database</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">Verified profiles sit on the official CPG database, branded as a CPG product.</p>
                           </div>
                           <div className="bg-[#070707] p-6">
                               <p className="text-white text-base font-semibold mb-2">COPPA-aligned</p>
@@ -1016,7 +1016,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           500 free assessments for every major partner.
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          Before a single dollar is asked for, NTangible gives each of Capacity Sports Group's flagship partners
+                          Before a single dollar is asked for, NTangible gives each of CPG's flagship partners
                           a block of 500 assessments to hand out however they want - to top teams, standout athletes,
                           tournament champions, camp invitees. A no-risk on-ramp that lets the product prove itself
                           inside each facility before it goes wide.
@@ -1029,11 +1029,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               <p className="text-[11px] font-semibold text-blue-300 uppercase tracking-widest mb-3">The starting block</p>
                               <p className="text-6xl sm:text-7xl font-semibold text-white tracking-tight leading-none mb-3 tabular-nums">500</p>
                               <p className="text-lg text-gray-300 leading-relaxed">
-                                  free NTangible assessments &times; <span className="text-white font-medium">each major Capacity Sports Group partner</span>
+                                  free NTangible assessments &times; <span className="text-white font-medium">each major CPG partner</span>
                               </p>
                           </div>
                           <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
-                              Capacity Sports Group and the partner decide who gets them. NTangible delivers the assessments,
+                              CPG and the partner decide who gets them. NTangible delivers the assessments,
                               verified profiles, and shareable reports.
                           </p>
                       </div>
@@ -1055,8 +1055,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           Finally know who's actually walking through the gates.
                       </h2>
                       <p className="text-lg text-gray-400 leading-relaxed">
-                          Every NTangible assessment opens with a short intake module - co-designed with Capacity Sports Group - that turns
-                          every athlete who claims their free profile into a first-party record Capacity Sports Group owns.
+                          Every NTangible assessment opens with a short intake module - co-designed with CPG - that turns
+                          every athlete who claims their free profile into a first-party record CPG owns.
                       </p>
                   </div>
 
@@ -1066,7 +1066,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                               The pain point
                           </p>
                           <p className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-tight mb-4">
-                              Capacity Sports Group hosts the country's most concentrated youth-sports audience - and can't name
+                              CPG hosts the country's most concentrated youth-sports audience - and can't name
                               a single one of them.
                           </p>
                           <p className="text-base text-gray-400 leading-relaxed">
@@ -1106,9 +1106,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
 
                   <div className="rounded-2xl border border-white/10 bg-[#070707] p-6 sm:p-7">
                       <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                          <span className="text-white font-medium">Capacity Sports Group defines the fields; Capacity Sports Group owns the data.</span>{' '}
-                          NTangible operates the intake inside the assessment flow - the records land in Capacity Sports Group's
-                          database, branded as a Capacity Sports Group product, governed by Capacity Sports Group's privacy posture.
+                          <span className="text-white font-medium">CPG defines the fields; CPG owns the data.</span>{' '}
+                          NTangible operates the intake inside the assessment flow - the records land in CPG's
+                          database, branded as a CPG product, governed by CPG's privacy posture.
                       </p>
                   </div>
               </section>
@@ -1134,7 +1134,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                           <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-3">Pre-fill the leaderboards</h3>
                           <p className="text-base text-gray-400 leading-relaxed">
                               NTangible runs free testing for roughly <span className="text-white font-medium">500 top athletes from each facility</span>,
-                              so every Capacity Sports Group leaderboard launches with credible, verified depth.
+                              so every CPG leaderboard launches with credible, verified depth.
                           </p>
                       </div>
                       <div className="bg-[#070707] border border-white/10 rounded-2xl p-7 sm:p-9">
@@ -1285,13 +1285,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               <div className={`flex justify-center mb-7 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'} transition-all duration-700`}>
                   <img
                       src="/CPG.png"
-                      alt="Capacity Sports Group"
+                      alt="CPG"
                       className="h-16 sm:h-20 w-auto object-contain drop-shadow-[0_10px_40px_rgba(37,99,235,0.25)]"
                   />
               </div>
               <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-8 ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
                   <span className="inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
-                  <span className="text-[11px] font-medium text-gray-300 tracking-wide">Partnership Proposal &middot; NTangible &times; Capacity Sports Group</span>
+                  <span className="text-[11px] font-medium text-gray-300 tracking-wide">Partnership Proposal &middot; NTangible &times; CPG</span>
               </div>
 
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight mb-6 leading-[1.02] text-white">
@@ -1299,8 +1299,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                  A verified digital profile that measures an athlete's mental performance - hosted on Capacity Sports Group's
-                  official database, sold across every Capacity Sports Group channel and partner facility for the price of a t-shirt.
+                  A verified digital profile that measures an athlete's mental performance - hosted on CPG's
+                  official database, sold across every CPG channel and partner facility for the price of a t-shirt.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 sm:mb-16 max-w-md sm:max-w-none mx-auto">
@@ -1369,7 +1369,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               <TrustedTeams />
           </div>
 
-          {/* CAPACITY SPORTS GROUP PARTNER PROPERTIES */}
+          {/* CPG PARTNER PROPERTIES */}
           <PartnerProperties />
 
           {/* INSET TABBED SECTION */}
@@ -1460,7 +1460,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   <div className="col-span-2 sm:col-span-1">
                       <Logo className="text-white opacity-90 mb-4" size="small" />
                       <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                          An integration proposal for Capacity Sports Group.
+                          An integration proposal for CPG.
                       </p>
                       <div className="inline-flex items-center gap-2.5 text-[10px] font-semibold uppercase tracking-wider text-amber-300/80">
                           <img
@@ -1497,11 +1497,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                   </div>
               </div>
               <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-gray-600">
-                  <span>&copy; 2026 NTangible, Inc. - Proposal for Capacity Sports Group</span>
+                  <span>&copy; 2026 NTangible, Inc. - Proposal for CPG</span>
                   <div className="flex gap-5">
                       <span>COPPA-aligned</span>
                       <span>Encrypted data</span>
-                      <span>Capacity Sports Group-branded</span>
+                      <span>CPG-branded</span>
                   </div>
               </div>
           </div>

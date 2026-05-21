@@ -381,7 +381,7 @@ const NTerpretAssessment: React.FC<NTerpretAssessmentProps> = ({
               />
               <img
                 src="/CPG.png"
-                alt="Capacity Sports Group"
+                alt="CPG"
                 style={{ height: '2.25rem', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.45))' }}
               />
             </div>

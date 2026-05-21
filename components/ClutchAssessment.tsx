@@ -873,7 +873,7 @@ const ClutchAssessment: React.FC<ClutchAssessmentProps> = ({
             />
             <img
               src="/CPG.png"
-              alt="Capacity Sports Group"
+              alt="CPG"
               style={{ height: '2.25rem', width: 'auto', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.45))' }}
             />
           </div>
