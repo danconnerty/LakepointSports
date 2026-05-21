@@ -16,25 +16,23 @@ interface LandingPageProps {
 }
 
 // --- CO-BRANDED LOGO ---
-const Logo = ({ className = "", size = "normal" }: { className?: string, size?: "small" | "normal" }) => {
-    const height = size === "small" ? "h-7" : "h-9";
-
-    return (
-        <div className={`flex items-center gap-2.5 select-none ${className}`}>
-            <img
-                src="/white_logo_transparent_background - name only.PNG"
-                alt="NTangible"
-                className={`${height} w-auto object-contain`}
-            />
-            <span className="text-white/25 text-lg font-light leading-none">&times;</span>
-            <img
-                src="/CPG.png"
-                alt="CPG"
-                className={`${height} w-auto object-contain`}
-            />
-        </div>
-    );
-};
+const Logo = ({ className = "" }: { className?: string }) => (
+    // CPG.png is tight-cropped while the NTangible wordmark PNG carries internal
+    // padding, so CPG renders a step shorter to read at the same visual height.
+    <div className={`flex items-center gap-2 sm:gap-2.5 select-none ${className}`}>
+        <img
+            src="/white_logo_transparent_background - name only.PNG"
+            alt="NTangible"
+            className="h-5 sm:h-6 w-auto object-contain"
+        />
+        <span className="text-white/25 text-base sm:text-lg font-light leading-none">&times;</span>
+        <img
+            src="/CPG.png"
+            alt="CPG"
+            className="h-4 sm:h-5 w-auto object-contain"
+        />
+    </div>
+);
 
 // --- BOOKING MODAL ---
 const BookingModal = ({ onClose }: { onClose: () => void }) => (
@@ -1265,7 +1263,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
       {/* Header / Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 h-16 flex items-center justify-between backdrop-blur-md border-b border-white/5 bg-black/60">
           <div className="flex items-center gap-3">
-              <Logo className="text-white" size="small" />
+              <Logo className="text-white" />
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
               <button
@@ -1456,9 +1454,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
       {/* Footer */}
       <footer className="relative z-10 w-full border-t border-white/10 bg-black/60 backdrop-blur-md">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
-                  <div className="col-span-2 sm:col-span-1">
-                      <Logo className="text-white opacity-90 mb-4" size="small" />
+              <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
+                  <div className="col-span-2 lg:col-span-2">
+                      <Logo className="text-white opacity-90 mb-4" />
                       <p className="text-sm text-gray-500 leading-relaxed mb-4">
                           An integration proposal for CPG.
                       </p>
