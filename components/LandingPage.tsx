@@ -46,7 +46,7 @@ const BookingModal = ({ onClose }: { onClose: () => void }) => (
             </div>
             <div className="w-full h-full bg-white">
                 <iframe
-                    src="https://calendly.com/ntangible/30min"
+                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3LjW05Oh31wfOjM-RObbAZ1bJvyab8zIrcm9zamfhpeK31Z9qIhp7FYDr-oKFLwkJqxrxYbzva"
                     width="100%"
                     height="100%"
                     frameBorder="0"
@@ -1490,7 +1490,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
                       <p className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Talk to us</p>
                       <ul className="space-y-2.5 text-sm">
                           <li><button onClick={() => setShowBooking(true)} className="text-gray-400 hover:text-white transition-colors">Book a call</button></li>
-                          <li><a href="https://calendly.com/ntangible/30min" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Contact NTangible</a></li>
+                          <li><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3LjW05Oh31wfOjM-RObbAZ1bJvyab8zIrcm9zamfhpeK31Z9qIhp7FYDr-oKFLwkJqxrxYbzva" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Contact NTangible</a></li>
                       </ul>
                   </div>
               </div>
